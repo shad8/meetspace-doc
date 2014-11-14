@@ -1,0 +1,91 @@
+\documentclass[twoside]{projektInzynierskiMS}
+\usepackage{polski}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{cite}
+\usepackage{color}
+\usepackage{lscape}
+\usepackage{makeidx}
+\usepackage{textcomp}
+\usepackage{fancybox}
+\usepackage{makeidx}
+\usepackage{verbatim}
+
+\bezWyjasnien
+
+%\drukJednostronny
+
+% links
+\usepackage{hyperref}
+\hypersetup{
+  bookmarks=false, % show bookmarks bar?
+  pdftitle={Meetspace - system obsługi wydarzeń}, % title
+  pdfauthor={Urszula Hołodniak, Michał Skóra}, % authors
+  pdfkeywords={Rails}, % list of keywords
+  colorlinks=true, % false: boxed links; true: colored links
+  linkcolor=black, % color of internal links (sections, pages, etc.)
+  urlcolor=blue, % color of external links
+  citecolor=black
+}
+
+% images
+\usepackage{float}
+\usepackage{graphicx}
+\floatstyle{boxed} % figures with borders
+\restylefloat{figure}
+
+
+% listings
+\usepackage{listings}
+\include{headers/listings}
+
+
+% tikz
+\usepackage{tikz}
+\usetikzlibrary{positioning,shapes,shadows,arrows}
+
+
+\input{headers/default}
+
+\setcounter{secnumdepth}{6}
+\newcounter{subsubparagraph}[subparagraph]
+% \renewcommand\thesubsubparagraph {\thesubparagraph.\@arabic\c@subsubparagraph}
+\renewcommand\theparagraph {}
+\renewcommand\thesubparagraph {}
+\renewcommand\thesubsubparagraph {}
+
+\makeindex
+
+\begin{document}
+  \bibliographystyle{plain-annote}%plain-annote}
+  \input{headers/environments}
+  \input{headers/tikz}
+
+
+  \input{introduction}
+  \input{01-description}
+  \input{02-technologies}
+  \input{03-patterns}
+  \input{04-implementation}
+  \input{05-api}
+  \input{06-tests}
+  \input{07-instalation}
+  \input{summary}
+
+  \nocite{*}
+  \bibliography{meetspace_bibliography}
+  \printindex
+
+% Additionally
+  % \input{05-drawings}
+  % \input{06-software}
+  % \input{bibliography}
+
+
+  % \addcontentsline{toc}{chapter}{List of Figures}
+  % \listoffigures
+  % \listoftables
+  % \tableofcontents
+
+\end{document}
+

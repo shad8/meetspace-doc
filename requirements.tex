@@ -1,0 +1,59 @@
+\subsection{Wymagania projektowe}
+Poniżej przedstawione zostały założenia i~kryteria przyjęte odnośnie aplikacji. Identyfikują one jej niezbędne cechy, funkcjonalność oraz jakość. Wymagania zostały podzielone na: funkcjonalne, niefunkcjonalne oraz zgodności.
+
+\subsubsection{Wymagania funkcjonalne}
+Wymagania funkcjonalne dotyczą usług, jakie gem ma oferować przyszłym użytkownikom.
+
+\begin{itemize}
+  \item Reprezentacja danych w~postaci tabel oraz wykresów słupkowych.
+  \item Rozróżnienie użytkowników unikalnych od tych, którzy odwiedzają witrynę po raz kolejny.
+  \item Zapisywanie danych dotyczących:
+    \begin{itemize}
+      \item nazw i~wersji przeglądarek,
+      \item informacji o~zainstalowanych pluginach,
+      \item nazw i~wersji robotów sieciowych zbierających informacje o~witrynie,
+      \item adresów stron internetowych będących refererami,
+      \item wyszukiwarek internetowych,
+      \item słów kluczowych i~fraz użytych podczas wyszukiwania witryny,
+      \item posiadanego przez klienta systemu operacyjnego,
+      \item adresów IP oraz Proxy,
+      \item rozdzielczości ekranu, okna przeglądarki, głębokości kolorów.
+      % \item geolokalizacji użytkownika.
+  \end{itemize}
+  \item Segregacja danych z~uwzględnieniem:
+    \begin{itemize}
+      \item godzin,
+      \item dni,
+      \item dni tygodnia,
+      \item miesięcy,
+      \item lat.
+    \end{itemize}
+  \item Sortowanie wyników względem ich wielkości.
+  \item Autoryzowany dostęp do raportów.
+  \item Analiza danych wywoływana cyklicznie oraz w~czasie przeglądania raportu.
+  \item Kompatybilność z~popularnymi przeglądarkami internetowymi.
+  % \item Możliwość rozbudowy baz danych
+
+  % \item Działać jako Middleware.
+\end{itemize}
+
+\subsubsection{Wymagania niefunkcjonalne}
+Wymagania niefunkcjonalne reprezentują zakres działania, wydajność czy też niezawodność gemu.
+\begin{itemize}
+  \item Działanie przy każdej aplikacji Ruby on Rails od wersji 4.
+  % \item Nie obciążanie serwera.
+  \item Niezależność od zewnętrznych źródeł zwana \emph{Self Hosted}\index{Self Hosted}\footnote{Typ aplikacji działający na własnej infrastrukturze serwerowej.}.
+  \item Instalacja gemu bez potrzeby konfiguracji.
+  % \item Większa szybkość działania od rozwiązań opartych na logach
+  \item Hermetyzacja kodu i~wyglądu aplikacji.
+  \item Uwzględnienie użytkowników nie posiadających JavaScript.
+  % \item Aplikacja nie powinna wydłużać czasu ładowania strony. o~ile
+
+\end{itemize}
+
+\subsubsection{Wymagania zgodności}
+Wymagania zgodności określają normy i~zasady, w~oparciu o~które ma działać gem.
+\begin{itemize}
+  \item Opieranie się na licencji X11\footnote{Licencja X11, nazywana także MIT, zezwala na nieograniczone prawo do kopiowania, edycji czy rozpowszechniania. Jednak należy zachować, we wszystkich wersjach, informacje o~autorach i~warunkach licencji. [\ref{license}]}.
+  \item Zgodność ze standardami W3C\footnote{World Wide Web Consortium, społeczność zajmująca się tworzeniem standardów internetowych.}.
+\end{itemize}

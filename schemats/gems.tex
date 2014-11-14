@@ -1,0 +1,52 @@
+\begin{tikzpicture}[node distance=1cm]
+    \node (Item) [big, rectangle split, rectangle split parts=2]
+        {
+            \textbf{Item}
+            \nodepart{second}\newline id: integer\newline created\_at: datetime
+            \newline ip\_id: references\newline
+            proxy\_ip\_id: references\newline user\_agent\_id\newline
+            referef\_id: references\newline session\_id: references\newline
+        };
+
+     \node (Ip) [small, rectangle split, rectangle split parts=2, left=of Item]
+        {
+            \textbf{Ip}
+            \nodepart{second}\newline id: integer\newline ip: string\newline
+            host: string\newline
+        };
+
+      \node (UserAgent) [small, rectangle split, rectangle split parts=2, right=of Item]
+        {
+            \textbf{UserAgent}
+            \nodepart{second}\newline id: integer\newline
+        };
+
+      \node (Referer) [small, rectangle split, rectangle split parts=2, below=of Ip]
+        {
+            \textbf{Referer}
+            \nodepart{second}\newline id: integer\newline body: string\newline
+            url: string\newline phrase: string\newline
+        };
+
+       \node (Session) [small, rectangle split, rectangle split parts=2, below=of UserAgent]
+        {
+            \textbf{Session}
+            \nodepart{second}\newline id: integer\newline body: string\newline
+        };
+
+
+       \draw[line] ([xshift=2, yshift=0.5cm]Item.west) -| ([xshift=20, yshift=0.25cm]Ip.east);
+       \draw[line] ([xshift=2.0cm, yshift=0.45cm]Ip.west) -- ++ (1.5,0);
+
+       \draw[line] ([xshift=-2.2cm, yshift=-0.85cm]Item.east) -| ([xshift=-0.5cm, yshift=-0.19cm]UserAgent.west);
+       \draw[line] ([xshift=-0.5cm, yshift=-0.2cm]UserAgent.west) -- ++ (0.58,0);
+
+       \draw[line] ([xshift=2, yshift=-1.5cm]Item.west) -| ([xshift=20, yshift=0.79cm]Referer.east);
+       \draw[line] ([xshift=2.0cm, yshift=0.8cm]Referer.west) -- ++ (1.5,0);
+
+       \draw[line] ([xshift=-0.8cm, yshift=-2.18cm]Item.east) -| ([xshift=-0.485cm, yshift=0.19cm]Session.west);
+       \draw[line] ([xshift=-0.5cm, yshift=-3.4cm]UserAgent.west) -- ++ (0.58,0);
+
+       \draw[line] ([xshift=2, yshift=-0.2cm]Item.west) -| ([xshift=20, yshift=0.25cm]Ip.east);
+
+\end{tikzpicture}
