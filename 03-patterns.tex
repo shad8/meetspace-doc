@@ -1,3 +1,30 @@
 \section{Zastosowane wzorce projektowe}
+Wzorce projektowe zostały stworzone po to, aby uschematyzować proces rozwiązywania powstałych problemów projektowych w tworzeniu, komunikacji i organizacji struktury kodu. Skategoryzowano je i opisano w publikacji Design Patterns: Elements of Rusable Object-Oriented Software.\footnote{Publikacja wydana w 1995 r., autorstwa tzw. Bandy Czworga: E.Gamma, R.Helm, R. Johnson, J. Ulisside}.
+
+Język Ruby w łatwy sposób pozwala na implementację wielu wzorców projektowych. Dzięki wykorzystaniu Ruby on Rails mamy możliwość korzystania z zaimplementowanych wzorców w samym szkielecie aplikacji.
   \subsection{MVC}
-  \subsection{Iterator}
+   Model-View-Controller, wzorzec architektoniczny\footnote{Architectural pattern, uschematyzowane rozwiązanie problemu architektonicznego systemu informatycznego.} wbudowany w Ruby on Rails. Jego zadaniem jest podział struktury aplikacji na: logikę, opis interfejsu i komunikację połączoną z zarządzaniem.
+   MVC zbudowany jest z pomniejszych wzorców projektowych.
+    \begin{itemize}
+      \item \textbf {Model} \\
+      Model odpowiada za logikę aplikacji, zarządza dostępem do bazy danych.
+      Poprzez dziedziczenie po klasie ActiveRecord implementuje wzorce: \emph{Builder pattern}\footnote{Builder pattern oddziela reprezentację obiektu od procesów jego tworzenia. \cite{ruby_patterns}}, \emph{Obserwer pattern}\footnote{Zadaniem wzorca projektowego Observer jest śledzenie zmian występujących w obiektach obserwowanych i informowanie o nich obiektu nadrzędnego - obserwatora. \cite{ruby_patterns}}, czy \emph{Command pattern}\footnote{Reprezentuje zapytania jako obiekty, zwiększając tymsamym elastyczność działania\cite{ruby_patterns}}.
+      \item \textbf {View} \\
+      Tworzy interfejs użytkownika zapewniając prezentację danych. Łączy ze sobą wzorce takie jak: \emph{Composite pattern}\footnote{Composite pattern grupuje obiekty w jeden aby móc wykonywać na nich operacje w ten sam sposób. \cite{ruby_patterns}}, \emph{Strategy pattern} i \emph{Obserwer pattern}.
+      \item \textbf {Controller} \\
+      Odpowiada za obsługę żądań przychodzących od użytkownika, poprzez delegowanie zadań. Jest pośrednikiem pomiędzy logiką biznesową (Model), a warstwą prezentacji danych (View). W swoim działaniu posługuje się wzorcem \emph{Strategy pattern}.\footnote{ Strategy pattern ma za zadanie dostarczyć do obiektu kontekstowego, innych obiektów potrafiących wykonać określony algorytm. \cite{ruby_patterns}}
+    \end{itemize}
+
+    Poniższy schemat przedstawia sposób komunikacji poszczególnych warstw modelu MVC:
+    \begin{figure}[h]
+      \centering
+      \includegraphics[scale=0.87]{images/mvc_model.png}
+      \caption{Schemat MVC}
+    \end{figure}
+  \subsection{Iteraktor}
+  Interactor inaczej nazywany Service Object, jest wzorcem projektowym którego celem jest
+  wykonanie pewnych zadań, które zostają mu oddelegowane z warstwy kontrolera w modelu MVC. Taki mechanizm upraszcza strukturę kodu i ułatwia stosowanie się do zasad: Skiny Controllers and Models, SOLID.\footnote{SOLID - pięć podstawowych założeń programowania obiektowego: Single responsibility, Open-closed, Liskov substitution, Interface segregation and Dependency inversion,  stworzonych przez Roberta C. Martina}
+  Interactor stanowi więc kolejną warstwę pośredniczącą pomiędzy przekazywaniem danych między kontrolerem, a modelem. Oprócz uzyskania większej przejrzystości zarówno modelu jak i kontrolera przeniesiona zostaje odpowiedzialności za walidację, a duży kontekst zostaje podzielony na małe iteracje. Testowanie aplikacji wykorzystujących wzorzec interactor jest stosunkowo szybsze i łatwiejsze. Każdy model testowany jest w izolacji.\footnote{Testowany jest konkretny model, bez względu na jego asocjacie.}
+
+  Poniżej przedstawiliśmy fragment zastosowania wzorca Interactor, który odpowiada za rejestrację użytkowników do newslettera:\\
+  \input{source_codes/interactor}
