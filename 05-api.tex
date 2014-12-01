@@ -1,1 +1,52 @@
 \section{Interfejsy komunikacji między aplikacjami}
+Do komunikacji pomiędzy różnego rodzaju aplikacjami stosuje się tzw. Interfejs programistyczny aplikacji(\emph{Application Programming Interface}) - API, realizowany najczęściej przy użyciu protokołu sieciowego HTTP(\emph{Hypertext Transfer Protocol}).
+Komunikacja ,,software-to-software" odbywa się w następujący sposób:
+Aplikacja zwana klientem wysyła specjalne żądanie(\emph{request}) o dane w postaci adresu URL\footnote{\emph{Uniform Resource Locator} - adres zasobu w sieci} do innej aplikacji zwanej serwerem, która z kolei przesyła odpowiedź(\emph{respons}) w określonym wcześniej formacie.
+
+\begin{figure}[h]
+  \centering
+    \includegraphics[scale=0.87]{images/http_communication.png}
+  \caption{Schemat komunikacji klient-serwer}
+\end{figure}
+
+W odpowiedzi, oprócz danych, zawarty jest tzw. kody stanu, definiujący przebieg komunikacji.
+
+Najważniejsze kody-stanu:
+ \begin{itemize}
+     \item \textbf {200}: ok \\
+     kod powodzenia, dane związane z zapytaniem zostaną przesłane
+     \item \textbf {401}: Unauthorized \\
+     nieautoryzowany dostęp, klient nie przeszedł autoryzacji
+     \item \textbf {403}: Forbidden \\
+     zabroniony dostęp do danych
+     \item \textbf {404}: Not Found \\
+     serwer nie posiada zasobów związanych z zapytaniem
+  \end{itemize}
+
+\subsection{API aplikacji Meetspace}
+  Stworzona przez nas aplikacja posiada API umożliwiające komunikację z innymi witrynami internetowymi lub urządzeniami mobilnymi. Celem implementacji takiego interfejsu było umożliwienie pobrania informacji o wydarzeniach z danej lokalizacji przez inne strony www czy aplikacje na telefony komórkowe.
+
+
+  Poniżej zamieściliśmy przykład w jaki sposób odbywa się komunikacji ze stworzonym API. Został on wykonywany w środowisku developerskim z powodu na wykorzystywanie danych wrażliwych, jakimi w tym wypadku jest token\footnote{kod autoryzujący, składający się z unikalnego ciągu cyfr} potrzebny do autoryzacji. Rządnie zostało wygenerowane przy użyciu biblioteki cURL\footnote{biblioteka napisana w języku C umożliwiająca wysyłanie zapytań do serwera}.
+  \\ \\
+  Przykładowe żądnie dla wydarzeń z miasta Gliwice:\\
+    \texttt{curl -H "Authorization: Token token=bb466055fa36aaf46a7ae43c33d3980c"
+    -H "Accept: application/json"\\
+    'http://localhost:3000/api/localevents?city=gliwice'}\\ \\
+  Odpowiedź na żądnie:\\
+    \texttt{[\{"id":2,"name":"Microservices in Rails 4","date":"2014-12-06",\\
+    "time":"2000-01-01T10:00:00.000Z,"address":"Akademicka 5, Gliwice, Polska",\\
+    "agenda":","end\_{}date":"2014-12-06""\}]}\\
+
+  Jak widać w powyższym przykładzie aby zadbać o bezpieczeństwo komunikacji z API, została wprowadzona autoryzacja żądań na podstawie wygenerowanego wcześniej tokenu. Szerzej to zagadnienie zostało opisane w rozdziale bezpieczeństwo.\\
+  W wysłanym żądaniu został ustawiony specjalny  nagłówek:
+  \begin{center}
+    \texttt{"Accent: conduplicatio/jon"},
+  \end{center}
+  którego ustawienie jest wymagane przez API. Żądnie musi zdefiniować poprawny format przesyłu danych jaki jest skonfigurowany po stronie serwera.
+  Aplikacja zwraca dane w postaci formatu JON\footnote{JON (JavaScript Objector Notatnik), ustandaryzowany format tekstowy, służący głównie do wymiany danych\cite{json}}, który został wybrany ze względu na popularność, czytelność i łatwość obsługi.\\
+  Poniżej przedstawiliśmy kontroler zajmujący się obsługą przychodzących zapytań o wydarzenia z danej lokalizacji:\\
+
+  \input{source_codes/api}
+
+\subsection{Implementacja i zastosowanie Facebook API}
