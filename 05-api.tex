@@ -29,11 +29,11 @@ Najważniejsze kody stanu:
 
   Poniżej zamieściliśmy przykład w jaki sposób odbywa się komunikacja ze stworzonym API. Został on wykonywany w środowisku developerskim ze względu na wykorzystywanie danych wrażliwych, jakimi w tym wypadku jest token\footnote{kod autoryzujący, składający się z unikalnego ciągu cyfr} potrzebny do autoryzacji. Rządnie zostało wygenerowane przy użyciu biblioteki cURL\footnote{biblioteka napisana w języku C umożliwiająca wysyłanie zapytań do serwera}.
   \\ \\
-  Przykładowe żądnie dla wydarzeń z miasta Gliwice:\\
+  Przykładowe żądanie dla wydarzeń z miasta Gliwice:\\
     \texttt{curl -H "Authorization: Token token=bb466055fa36aaf46a7ae43c33d3980c"
     -H "Accept: application/json"\\
     'http://localhost:3000/api/localevents?city=gliwice'}\\ \\
-  Odpowiedź na żądnie:\\
+  Odpowiedź na żądanie:\\
     \texttt{[\{"id":2,"name":"Microservices in Rails 4","date":"2014-12-06",\\
     "time":"2000-01-01T10:00:00.000Z,"address":"Akademicka 5, Gliwice, Polska",\\
     "agenda":","end\_{}date":"2014-12-06""\}]}\\
@@ -41,10 +41,10 @@ Najważniejsze kody stanu:
   Jak widać w powyższym przykładzie aby zadbać o bezpieczeństwo komunikacji z API, została wprowadzona autoryzacja żądań na podstawie wygenerowanego wcześniej tokenu. Szerzej to zagadnienie zostało opisane w rozdziale bezpieczeństwo.\\
   W wysłanym żądaniu został ustawiony specjalny  nagłówek:
   \begin{center}
-    \texttt{"Accent: conduplicatio/jon"},
+    \texttt{"Accent: conduplicatio/json"},
   \end{center}
   którego ustawienie jest wymagane przez API. Żądnie musi zdefiniować poprawny format przesyłu danych jaki jest skonfigurowany po stronie serwera.
-  Aplikacja zwraca dane w postaci formatu JON\footnote{JSON (JavaScript Objector Notatnik), ustandaryzowany format tekstowy, służący głównie do wymiany danych\cite{json}}, który został wybrany ze względu na popularność, czytelność i łatwość obsługi.\\
+  Aplikacja zwraca dane w postaci formatu JSON\footnote{JSON (JavaScript Objector Notation), ustandaryzowany format tekstowy, służący głównie do wymiany danych\cite{json}}, który został wybrany ze względu na popularność, czytelność i łatwość obsługi.\\
   Poniżej przedstawiliśmy kontroler zajmujący się obsługą przychodzących zapytań o wydarzenia z danej lokalizacji:\\
 
   \input{source_codes/api}
