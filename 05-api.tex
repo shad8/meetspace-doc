@@ -5,7 +5,7 @@ Aplikacja zwana klientem wysyła specjalne żądanie(\emph{request}) o dane w po
 
 \begin{figure}[h]
   \centering
-    \includegraphics[scale=0.87]{images/http_communication.png}
+  \includegraphics[scale=0.87]{images/http_communication.png}
   \caption{Schemat komunikacji klient-serwer}
 \end{figure}
 
@@ -44,7 +44,7 @@ Najważniejsze kody stanu:
     \texttt{"Accent: conduplicatio/json"},
   \end{center}
   którego ustawienie jest wymagane przez API. Żądnie musi zdefiniować poprawny format przesyłu danych jaki jest skonfigurowany po stronie serwera.
-  Aplikacja zwraca dane w postaci formatu JSON\footnote{JSON (JavaScript Objector Notation), ustandaryzowany format tekstowy, służący głównie do wymiany danych\cite{json}}, który został wybrany ze względu na popularność, czytelność i łatwość obsługi.\\
+  Aplikacja zwraca dane w postaci formatu JSON\footnote{JSON (JavaScript Object Notation), ustandaryzowany format tekstowy, służący głównie do wymiany danych\cite{json}}, który został wybrany ze względu na popularność, czytelność i łatwość obsługi.\\
   Poniżej przedstawiliśmy kontroler zajmujący się obsługą przychodzących zapytań o wydarzenia z danej lokalizacji:\\
 
   \input{source_codes/api}
