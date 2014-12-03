@@ -6,22 +6,41 @@
 
   	My w swojej pracy przyjęliśmy zupełnie inne podejście, mianowicie ,,najpierw testy, później kod". Owszem, czas pisania znacznie się wydłuża, ale kod jest w dużo większym stopniu pokryty testami, dzięki czemu oszczędzamy sporo godzin przy diagnozie danego błędu. Kolejną zaletą takiego podejścia jest to, że napisany w ten sposób kod robi dokładnie to czego oczekujemy. Piszemy test i spełniamy go w najprostszy możliwy sposób. W ten sposób na jedną metodę przypada kilka lub nawet kilkanaście testów, ale kiedy któryś z nich się nie spełni, wiadomo od razu gdzie szukać przyczyny.
 
-  \newpage
-
   \subsection{Techniki tworzenia oprogramowania}
-    \subsubsection{TDD}
-    Test Driven Development\cite{tdd} - technika tworzenia oprogramowania, sterowana przez testy. Polega na wielokrotnym powtarzaniu 3 kroków do momentu ukończenia funkcjonalności:
-    \begin{enumerate}
-      \item Napisanie możliwie najprostszego testu jednostkowego, który ma sprawdzać kod pisany w kroku 2.
-      \item Implementacja kodu. Kod powinien być napisany w taki sposób, aby spełnić założenia testu, nic ponad to. Test powinien zakończyć się sukcesem i nie naruszać pozostałych testów
-      \item Refaktoryzacja. Doprowadznie kodu do stanu, w którym spełnia przyjęte normy i standardy prostego oraz czytelnego kodu\cite{scs}.
-    \end{enumerate}
+    \begin{itemize}
+      \item Test Driven Development\cite{tdd} \\
+        Technika tworzenia oprogramowania, sterowana przez testy. Polega na wielokrotnym powtarzaniu 3 kroków do momentu ukończenia funkcjonalności:
+        \begin{enumerate}
+          \item Napisanie możliwie najprostszego testu jednostkowego, który ma sprawdzać kod pisany w kroku 2.
+          \item Implementacja kodu. Kod powinien być napisany w taki sposób, aby spełnić założenia testu, nic ponad to. Test powinien zakończyć się sukcesem i nie naruszać pozostałych testów
+          \item Refaktoryzacja. Doprowadznie kodu do stanu, w którym spełnia przyjęte normy i standardy prostego oraz czytelnego kodu\cite{scs}.
+        \end{enumerate}
 
-    Postępowanie według tego schematu, zmusza programistę do wcześniejszego przemyślenia funkcjonalności, którą ma napisać.
-    wady i zalety.
+        Postępowanie według tego schematu, zmusza programistę do wcześniejszego przemyślenia funkcjonalności, którą ma napisać.
 
+        Wady:
+        \begin{itemize}
+          \item Wydłuża się czas pisania aplikacji, zwłaszcza w początkowej fazie wdrażania tej techniki, lecz wraz z ilością napisanych testów jednostkowych, rośnie wydajność ich pisania.
+          \item Wraz z rozrostem aplikacji rośnie również ilość testów. Dopóki funkcjonalności są dopisywane, problem nie istnieje. Problem pojawia się w momencie zmian jakiejkolwiek z nich. Trzeba się przygotować na modyfikacje istniejących do niej testów.
+        \end{itemize}
 
-    \subsubsection{BDD}
+        Zalety:
+        \begin{itemize}
+          \item Główną zaletą tej metodologii jest szybkość diagnozy błędu. Dzięki temu oszczędzamy mnóstwo czasu, który w sytuacji bez testów musielibyśmy poświęcić na dogłębne analizowanie kodu, zastanawianie się co robi dana metoda. Wiadomo ile czasu zajmuje naprawienie kodu napisanego godzine wcześniej, a co dopiero napisanego tydzień czy miesiąc temu.
+          \item Jeżeli testy są pisane w odpowiedni sposób, mogą stanowić bardzo dobrą dokumentację. Wystarczy zajrzeć do testu i widać czego programista oczekiwał od konkretnej metody.
+          \item Bardziej przemyślany kod. W pierszej kolejności musimy się zastanowić co dana funkcjonalność ma robić, żeby móc od niej to wyegzekować.
+        \end{itemize}
+
+        \begin{figure}
+          \centering
+          \includegraphics[scale=0.47]{images/test_cycle.png}
+          \caption{Schemat postępowania w TDD}
+        \end{figure}
+
+      \newpage
+      \item BDD \\
+      Behaviour Driven Development
+    \end{itemize}
 
 	\newpage
   \subsection{Testy integracyjne}
