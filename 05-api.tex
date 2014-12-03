@@ -39,9 +39,9 @@ Najważniejsze kody stanu:
     "agenda":","end\_{}date":"2014-12-06""\}]}\\
 
   Jak widać w powyższym przykładzie aby zadbać o bezpieczeństwo komunikacji z API, została wprowadzona autoryzacja żądań na podstawie wygenerowanego wcześniej tokenu. Szerzej to zagadnienie zostało opisane w rozdziale bezpieczeństwo.\\
-  W wysłanym żądaniu został ustawiony specjalny  nagłówek:
+  W wysłanym żądaniu został ustawiony specjalny nagłówek:
   \begin{center}
-    \texttt{"Accent: conduplicatio/json"},
+    \texttt{"Accent: application/json"},
   \end{center}
   którego ustawienie jest wymagane przez API. Żądnie musi zdefiniować poprawny format przesyłu danych jaki jest skonfigurowany po stronie serwera.
   Aplikacja zwraca dane w postaci formatu JSON\footnote{JSON (JavaScript Object Notation), ustandaryzowany format tekstowy, służący głównie do wymiany danych\cite{json}}, który został wybrany ze względu na popularność, czytelność i łatwość obsługi.\\
