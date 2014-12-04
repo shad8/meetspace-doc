@@ -50,3 +50,31 @@ Najważniejsze kody stanu:
   \input{source_codes/api}
 
 \subsection{Implementacja i zastosowanie Facebook API}
+Popularnym trendem wśród aplikacji internetowych stało się posiadanie funkcjonalności umożliwiającej logowanie poprzez portale społecznościowe. Dla tego też, wychodząc na przeciw przyszłym użytkownikom zaimplementowaliśmy możliwość logowania się do naszej aplikacji poprzez jeden z najpopularniejszych portali jakim jest Facebook.
+
+Portal ten posiada, wraz z całą dokumentacją\footnote{\url{https://developers.facebook.com/docs/facebook-login/v2.2?locale=pl\_PL}}, specjalnie przygotowane API. Aby uzyskać do niego dostęp należy zalogować się na stronie \url{https://developers.facebook.com}, a następnie uzupełnić dane dotyczące aplikacji, w której zostanie zaimplementowane. \\
+
+\begin{figure}[h]
+  \centering
+    \includegraphics[scale=0.65]{images/fb_settings.png}
+  \caption{Konfiguracja profilu aplikacji Meetspace.it}
+\end{figure}
+
+\clearpage
+
+Dla skonfigurowanego profilu Facebook przydzieli:
+
+\begin{itemize}
+  \item API ID - identyfikator aplikacji
+  \item API SECRET - klucz autoryzujący
+\end{itemize}
+
+Dane te będą wykorzystywane podczas autentykacji zapytań do portalu. Facebook udostępnia nam dwa tryby pracy: testowy i produkcyjny. Do implementacji logowania wykorzystaliśmy \textbf{gem "omniauth-facebook"}, który wspierA wykorzystywany w tym celu protokół \textbf{OAuth}\footnote{OAuth jest otwartym protokółem, wykorzystywanym w aplikacjamch internetowych, mobilnych i stacjonarnych, umożliwiającym bezpieczną i ustandaryzowaną autoryzację. \cite{oauth}} w  wersji 2.0.
+\\
+
+W momęcię, kiedy użytkownik wybierze opcję logowania przez portal społecznościowy, zostanie wysłąne rządanie do portalu o zalogowanie i udostępnienie danych profilowych aplikacji. Jeżeli użytkownik posiada konto na profilu Facebook i zezwoli na udostępnienie swoich danych profilowych zalogowanie nastąpi zarówno po stronie aplikacji jak i Facebooka. Jego dane zostaną przesłane w postaci specjalnego hash'a dostępnego z poziomu zmiennej \texttt{request.env['omniauth.auth']}.
+
+\clearpage
+
+Przykładowe dane, dla fikcyjnego użytkownika, zwacane przez portl Facebook: \\
+\input{source_codes/oauth}
