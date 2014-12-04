@@ -1,10 +1,12 @@
 \section{Testy}
-	\label{testy}
+  \label{testy}
     Technologie internetowe rozwijają się w zastraszającym tempie, co za tym idzie, wymagania klientów również. Wiele firm kładzie duży nacisk na testowanie swoich aplikacji.
 
-  	Programiści często wychodzą z założenia, że ,,najpierw kod, później testy". Ma to oczywiście swoje wady i zalety. Zaletą niewątpliwie jest czas realizacji. Wynika to z tego, że w pierwszej kolejności pisze się daną funkcjonalność i nie zastanawia się nad tym jak napisać do niej test. Po skończeniu przychodzi czas na napisanie testów do niej. Wygląda to mniej więcej tak, że pisze się jeden lub dwa testy, które sprawdzą czy funkcjonalność w ogóle działa i dodatkowo kilka skrajnych przypadków w których może się wysypać. Doprowadza to do tego, że cały kod jest pokryty testami w bardzo małym stopniu, więc tak naprawdę w każdej chwili może zajść sytuacja, w której przestanie to działać tak jak powinno. Niestety w takim przypadku tracimy cenne godziny na szukanie błędu i jego eliminację.
+    Programiści często wychodzą z założenia, że ,,najpierw kod, później testy". Ma to oczywiście swoje wady i zalety. Zaletą niewątpliwie jest czas realizacji. W pierwszej kolejności dostarcza się funkcjonalności i nie zastanawia się nad tym jak napisać do nich testy. Pod koniec procesu produkcji tworzy się kilka testów sprawdzających zachowanie aplikacji. Doprowadza to do tego, że cały kod aplikacji pokryty jest testami w bardzo niewielkim stopniu. W każdej chwili może zajść sytuacja, w której aplikacja przestanie działać zgodnie z założeniami. Niestety w takim przypadku tracimy cenne godziny na szukanie błędów i ich eliminację.
 
-  	My w swojej pracy przyjęliśmy zupełnie inne podejście, mianowicie ,,najpierw testy, później kod". Owszem, czas pisania znacznie się wydłuża, ale kod jest w dużo większym stopniu pokryty testami, dzięki czemu oszczędzamy sporo godzin przy diagnozie danego błędu. Kolejną zaletą takiego podejścia jest to, że napisany w ten sposób kod robi dokładnie to czego oczekujemy. Piszemy test i spełniamy go w najprostszy możliwy sposób. W ten sposób na jedną metodę przypada kilka lub nawet kilkanaście testów, ale kiedy któryś z nich się nie spełni, wiadomo od razu gdzie szukać przyczyny.
+    Podczas tworzenia aplikacji Meetspace przyjęliśmy zupełnie inne podejście - „najpierw testy, później kod”. Czas pisania aplikacji znacznie się wydłużył. Osiągnęliśmy jednak bardzo dobre pokrycie kodu testami. \\ \\
+    (dać tu wykres STATS - metryki i krótko omówić go, gdyż jest tam duży skok) \\ \\
+    Dzięki napisanym testom oszczędziliśmy sporo godzin przy diagnozowaniu błędów aplikacji. Kolejną zaletą obranego podejścia jest to, że napisany w ten sposób przez nas kod robi dokładnie to czego oczekujemy. Każdy test spełniany jest w najprostszy możliwy sposób. Na jedną metodę przypada kilka lub nawet kilkanaście testów. Jeżeli któryś z nich się nie spełni, wiadomo od razu gdzie szukać przyczyny.
 
   \subsection{Techniki tworzenia oprogramowania}
     \begin{itemize}
@@ -13,22 +15,22 @@
         \begin{enumerate}
           \item Napisanie możliwie najprostszego testu jednostkowego, który ma sprawdzać kod pisany w kroku 2.
           \item Implementacja kodu. Kod powinien być napisany w taki sposób, aby spełnić założenia testu, nic ponad to. Test powinien zakończyć się sukcesem i nie naruszać pozostałych testów
-          \item Refaktoryzacja. Doprowadznie kodu do stanu, w którym spełnia przyjęte normy i standardy prostego oraz czytelnego kodu\cite{scs}.
+          \item Refaktoryzacja. Doprowadzenie kodu do stanu, w którym spełnia przyjęte normy i standardy prostego oraz czytelnego kodu\cite{scs}.
         \end{enumerate}
 
         Postępowanie według tego schematu, zmusza programistę do wcześniejszego przemyślenia funkcjonalności, którą ma napisać.
 
         Wady:
         \begin{itemize}
-          \item Wydłuża się czas pisania aplikacji, zwłaszcza w początkowej fazie wdrażania tej techniki, lecz wraz z ilością napisanych testów jednostkowych, rośnie wydajność ich pisania.
-          \item Wraz z rozrostem aplikacji rośnie również ilość testów. Dopóki funkcjonalności są dopisywane, problem nie istnieje. Problem pojawia się w momencie zmian jakiejkolwiek z nich. Trzeba się przygotować na modyfikacje istniejących do niej testów.
+          \item Wydłuża się czas pisania aplikacji, zwłaszcza w początkowej fazie wdrażania tej techniki. Jednak wraz z ilością napisanych testów jednostkowych, rośnie wydajność ich pisania.
+          \item Wraz z rozwojem aplikacji rośnie również ilość testów. Dopóki funkcjonalności są dopisywane, problem nie istnieje. Zmiana funkcjonalności narzuca zmiany po stronie istniejących do niej testów.
         \end{itemize}
 
         Zalety:
         \begin{itemize}
-          \item Główną zaletą tej metodologii jest szybkość diagnozy błędu. Dzięki temu oszczędzamy mnóstwo czasu, który w sytuacji bez testów musielibyśmy poświęcić na dogłębne analizowanie kodu, zastanawianie się co robi dana metoda. Wiadomo ile czasu zajmuje naprawienie kodu napisanego godzine wcześniej, a co dopiero napisanego tydzień czy miesiąc temu.
+          \item Główną zaletą tej metodologii jest szybkość diagnozowania błędów. Dzięki temu oszczędzamy mnóstwo czasu. Bez testów musielibyśmy poświęcić go na dogłębną analizę kodu.
           \item Jeżeli testy są pisane w odpowiedni sposób, mogą stanowić bardzo dobrą dokumentację. Wystarczy zajrzeć do testu i widać czego programista oczekiwał od konkretnej metody.
-          \item Bardziej przemyślany kod. W pierszej kolejności musimy się zastanowić co dana funkcjonalność ma robić, żeby móc od niej to wyegzekować.
+          \item Bardziej przemyślany kod. W pierwszej kolejności musimy się zastanowić co tak naprawdę ma zawierać dana funkcjonalność, żeby móc od niej to wyegzekwować.
         \end{itemize}
 
         \begin{figure}
@@ -42,6 +44,6 @@
       Behaviour Driven Development
     \end{itemize}
 
-	\newpage
+  \newpage
   \subsection{Testy integracyjne}
   \subsection{Testy jednostkowe}
