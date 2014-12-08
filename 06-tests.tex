@@ -40,10 +40,23 @@
         \end{figure}
 
       \newpage
-      \item BDD \\
-      Behaviour Driven Development
+      \item Behaviour Driven Development \\
+        Technika stworzona przez Dana Northa w 2003 roku. Sam autor powiedział:
+        \begin{quote}
+          \emph{„Behaviour-driven Development polega na tworzeniu oprogramowania przez opisywanie jego zachowania, z perspektywy jego udziałowców.”}
+        \end{quote}
+
+        Wychodzimy naprzeciw klientowi, staramy się go zrozumieć, spełnić jego oczekiwania, aby aplikacja zachowywała się dokładnie tak jak on to sobie wyobraża.
+
+        Tworzy się krótkie historyjki, scenariusze, w których jest opisane jakiego zachowania od aplikacji oczekuje klient. Korzysta się z trzech głównych słów kluczowych:
+          \begin{itemize}
+            \item Given (\emph{Podane}) - opisuje stan początkowy aplikacji.
+            \item When (\emph{Kiedy}) - wszystki kroki jaki klient/użytkownik musi wykonać aby osiągnąć cel funkcjonalności.
+            \item Then (\emph{Wtedy}) - stan końcowy aplikacji, czyli oczekiwany efekt po przejściu przez wcześniejsze krok.
+          \end{itemize}
+
+        Test driven development to testowanie na poziomie kodu, behaviour driven development to testowanie na poziomie aplikacji. Dlatego jeśli korzysta się z obu technik, zaczyna się od BDD, schodząc coraz ,,niżej'', aż do TDD.
     \end{itemize}
 
-  \newpage
   \subsection{Testy integracyjne}
   \subsection{Testy jednostkowe}
