@@ -1,0 +1,24 @@
+\begin{code}
+  \lstinputlisting[language = Ruby, linerange={234-234}, firstnumber = 234]{../meetspace/config/initializers/devise.rb}
+\end{code} \\
+
+API ID I API SECRET zostały zapisane, ze względów bezpieczeństwa, w specjalnym pliku \emph{.env}\footnote{Plik przechowywujący zmienne środowiskowe, więcej informacji w rozdziale o bezpieczeństwie aplikacji.} pod zmiennymi \texttt{FACEBOOK\_KEY} i \texttt{FACEBOO\_KSECRET}. \\
+
+Poniżej został przedstawiony kontroler obsługujący logowanie, który dziedziczy wymagane metody zaimplementowane w module gemu \emph{Devise}. \\
+
+\begin{code}
+  \lstinputlisting[language = Ruby]{../meetspace/app/controllers/authenitications_controller.rb}
+\end{code} \\
+
+\clearpage
+Dwoma najważniejszymi parametrami, które identyfikują użytkownika logującego się za pomocą portalu jest:
+\begin{itemize}
+   \item \texttt{uid} - unikalny identyfikator użytkownika w danym portalu społecznościowym
+   \item \texttt{provider} - przechowuje nazwę portalu społecznościowego
+ \end{itemize}
+zawarte w \texttt{request.env['omniauth.auth']}.
+Z wykorzystaniem tych parametrów jest tworzone lub odnajdywane w bazie konto użytkownika. \\
+
+\begin{code}
+  \lstinputlisting[language = Ruby]{../meetspace/app/models/authentication.rb}
+\end{code}

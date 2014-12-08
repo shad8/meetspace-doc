@@ -69,12 +69,19 @@ Dla skonfigurowanego profilu Facebook przydzieli:
   \item API SECRET - klucz autoryzujący
 \end{itemize}
 
-Dane te będą wykorzystywane podczas autentykacji zapytań do portalu. Facebook udostępnia nam dwa tryby pracy: testowy i produkcyjny. Do implementacji logowania wykorzystaliśmy \textbf{gem "omniauth-facebook"}, który wspierA wykorzystywany w tym celu protokół \textbf{OAuth}\footnote{OAuth jest otwartym protokółem, wykorzystywanym w aplikacjamch internetowych, mobilnych i stacjonarnych, umożliwiającym bezpieczną i ustandaryzowaną autoryzację. \cite{oauth}} w  wersji 2.0.
+Dane te będą wykorzystywane podczas autentykacji zapytań do portalu. Facebook udostępnia nam dwa tryby pracy: testowy i produkcyjny. Do implementacji logowania wykorzystaliśmy \textbf{gem "omniauth-facebook"}, który wspiera wykorzystywany w tym celu protokół \textbf{OAuth}\footnote{OAuth jest otwartym protokołem, wykorzystywanym w aplikacjamch internetowych, mobilnych i stacjonarnych, umożliwiającym bezpieczną i ustandaryzowaną autoryzację. \cite{oauth}} w  wersji 2.0.
 \\
 
-W momęcię, kiedy użytkownik wybierze opcję logowania przez portal społecznościowy, zostanie wysłąne rządanie do portalu o zalogowanie i udostępnienie danych profilowych aplikacji. Jeżeli użytkownik posiada konto na profilu Facebook i zezwoli na udostępnienie swoich danych profilowych zalogowanie nastąpi zarówno po stronie aplikacji jak i Facebooka. Jego dane zostaną przesłane w postaci specjalnego hash'a dostępnego z poziomu zmiennej \texttt{request.env['omniauth.auth']}.
+W momęcie, kiedy użytkownik wybierze opcję logowania przez portal społecznościowy, zostanie wysłane rządanie do portalu o zalogowanie i udostępnienie danych profilowych aplikacji. Jeżeli użytkownik posiada konto na profilu Facebook i zezwoli na udostępnienie swoich danych zalogowanie nastąpi zarówno po stronie aplikacji jak i Facebooka. Jego dane zostaną przesłane w postaci specjalnego hash'a dostępnego z poziomu zmiennej \texttt{request.env['omniauth.auth']}.
 
 \clearpage
 
-Przykładowe dane, dla fikcyjnego użytkownika, zwacane przez portl Facebook: \\
+Przykładowe dane, dla fikcyjnego użytkownika, zwacane przez portl Facebook:\\
 \input{source_codes/oauth}
+
+\clearpage
+Autoryzacja użytkownika, czyli procesy związane z rejestracja i logowaniem, odbywają się z urzyciem gemu \emph{Device}. Aby zaimplementować opcję logowanie za pośrednictwem portali społecznościowyc należ w specjalnym pliku konfiguracyjnym: config/initializers/devise.rb, podać dane autoryzacyjne: API ID i API SECRET.\\
+
+\input{source_codes/omniauth} \\
+
+Warto również wspomnieć o mechanizmie wylogowywania. Facebook stosuje politykę, która powoduje wylogowywanie użytkownika zarówno z aplikacji jak i konta Facebook. Budując aplikację, chcieliśmy aby była ona przyjazna dla użytkowników, przez co nie zastosowaliśmy się do tej zasady. Po wylogowaniu użytkownik jest nadal zalogowany na koncie Facebook. Możliwe, iż naruszamy tutaj bezpieczeństwo użytkownika, jednak wiele aplikacji internetowych stosuje takie samo rozwiązanie\footnote{dane z dnia 06.12.2014r.} np. stackoverflow.com, onet.pl czy stacksocial.com
