@@ -46,20 +46,21 @@
           \emph{„Behaviour-driven Development polega na tworzeniu oprogramowania przez opisywanie jego zachowania, z perspektywy jego udziałowców.”}
         \end{quote}
 
-        Wychodzimy naprzeciw klientowi, staramy się go zrozumieć, spełnić jego oczekiwania, aby aplikacja zachowywała się dokładnie tak jak on to sobie wyobraża.
+        Dzięki takiej metodyce testowania programiści wychodzą naprzeciw klientowi, starają się go zrozumieć i spełnić jego wymagania.
 
-        Tworzy się krótkie historyjki, scenariusze, w których jest opisane jakiego zachowania od aplikacji oczekuje klient. Korzysta się z trzech głównych słów kluczowych:
+        Oczekiwania klienta są zapisywane w postaci krótkich historyjek, scenariuszy.
+        Podczas ich tworzenia korzysta się z trzech głównych słów kluczowych:
           \begin{itemize}
-            \item Given (\emph{Podane}) - opisuje stan początkowy aplikacji.
-            \item When (\emph{Kiedy}) - wszystki kroki jaki klient/użytkownik musi wykonać aby osiągnąć cel funkcjonalności.
-            \item Then (\emph{Wtedy}) - stan końcowy aplikacji, czyli oczekiwany efekt po przejściu przez wcześniejsze krok.
+            \item Podane (\emph{Given}) - opisuje stan początkowy aplikacji
+            \item Kiedy (\emph{Wen}) - wszystkie kroki jakie klient/użytkownik musi wykonać aby osiągnąć funkcjonalność
+            \item Wtedy (\emph{Then}) - stan końcowy aplikacji, czyli oczekiwany efekt po przejściu przez wcześniejsze kroki
           \end{itemize}
 
-        Test driven development to testowanie na poziomie kodu, behaviour driven development to testowanie na poziomie aplikacji. Dlatego jeśli korzysta się z obu technik, zaczyna się od BDD, schodząc coraz ,,niżej'', aż do TDD. Wtedy mamy pewność, że konkretna funkcjonalność jest należycie przetestowana i spełnia oczekiwania oraz wymogi klienta.
+        \emph{Test driven development} to testowanie na poziomie kodu, \emph{behaviour driven development} to testowanie na poziomie aplikacji. Dlatego jeśli korzysta się z obu technik, zaczyna się od BDD, schodząc coraz ,,niżej'', aż do TDD. Wtedy mamy pewność, że konkretna funkcjonalność jest należycie przetestowana i spełnia oczekiwania oraz wymogi klienta.
     \end{itemize}
 
   \subsection{Testy integracyjne}
-    Najważniejszą funkcjonalnością w naszej aplikacji, nie wątpliwie jest tworzenie nowego wydarzenia. Poniżej przedstawimy proces tworzenia testu integracyjnego do tej funkcjonalności.
+    Najważniejszą funkcjonalnością w naszej aplikacji jest kreowanie nowego wydarzenia. Poniżej przedstawimy proces tworzenia testu integracyjnego.
 
     \input{source_codes/bdd}
   \subsection{Testy jednostkowe}

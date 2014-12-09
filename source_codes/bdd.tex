@@ -1,5 +1,4 @@
 Pierwszym krokiem jest opisanie w kilku słowach funkcjonalności.
-
 \begin{code}
 	\lstinputlisting[linerange={0-4}]{../meetspace/features/events.feature}
 \end{code}\\
@@ -12,13 +11,15 @@ Słowem kluczowym ,,Scenario'' nadajemy tytuł nowego scenariusza. Jest to o tyl
 	\lstinputlisting[linerange={10-10}, firstnumber=5]{../meetspace/features/events.feature}
 \end{code}\\
 
-Słowem ,,Given'' definiujemy stan początkowy aplikacji, czyli miejsce w aplikacji, w którym będziemy zaczynać wykonywanie konkretnych czynności, w tym przypadku jest to strona główna oraz zalogowanie się. Zalogowanie się jest istotnym elementem, ponieważ, bez tego nie będziemy w stanie dodać żadnego nowego wydarzenia.
+Słowem ,,Given'' definiujemy stan początkowy aplikacji, czyli miejsce, w którym będziemy zaczynać wykonywanie konkretnych czynności. W tym przypadku jest to strona główna oraz proces logowania. Zalogowanie się do aplikacji jest istotnym elementem, ponieważ, bez tego nie będziemy w stanie dodać żadnego nowego wydarzenia.
 
 \begin{code}
 	\lstinputlisting[linerange={7-8}, firstnumber=6]{../meetspace/features/events.feature}
 \end{code}\\
 
-Następnie trzeba kliknąć przycisk ,,Utwórz wydarzenie'', wypełnić jego informacje: nazwę, datę, datę zakończenia, czas rozpoczęcia, plan i logo.
+\clearpage
+
+Następnie użytkownik aby utworzyć wydarzenie musi kliknąć przycisk ,,Utwórz wydarzenie'', oraz wypełnić formularz odpowiednimi danymi: nazwa, data, data zakończenia, czas rozpoczęcia, plan i logo.
 
 \begin{code}
 	\lstinputlisting[linerange={11-20}, firstnumber=8]{../meetspace/features/events.feature}
@@ -32,7 +33,7 @@ Po słowie ,,Then'' definiujemy nasze oczekiwania. W tym przypadku chcemy zobacz
 
 W ten sposób mamy opisaną, za pomocą testu integracyjnego, całą ścieżkę, którą musi przejść użytkownik aby stworzyć nowe wydarzenie.
 
-W przypadku gdy chcemy przetestować edytowanie istniejącego już wpisu, nie musimy przechodzić procesu tworzenia od początku. Wtedy wystarczy, że na wstępie stworzymy już gotowe wydarzenie, które w następnych krokach będzie modyfikowane.
+W przypadku gdy chcemy przetestować edytowanie istniejącego już wpisu, nie musimy przechodzić procesu tworzenia od początku. Wystarczy, że na wstępie stworzymy już gotowe wydarzenie, które w następnych krokach będzie modyfikowane.
 
 \begin{code}
 	\lstinputlisting[linerange={28-31}, firstnumber=1]{../meetspace/features/events.feature}
