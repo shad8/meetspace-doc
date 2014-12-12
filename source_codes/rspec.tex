@@ -1,20 +1,20 @@
 Aby pokazać ideę testów jednostkowych wykorzystamy model Event, główny trzon aplikacji.
 
-Zacznamy od wskazania klasy, która będzie testowana. Typ nie jest obowiązkowy, ale RSpec daje nam kilka predefiniowanych typów, m.in. \emph{controller}, \emph{model} czy \emph{routing} z czego warto korzystać. Oczywiście można testować też klasy, które nie należą do żadnego, ale korzystanie z nich, znacznie przyspiesza wykonywanie testów.
+Zaczynamy od wskazania klasy, która będzie testowana. Typ nie jest obowiązkowy, ale RSpec daje nam kilka predefiniowanych typów, m.in. \emph{controller}, \emph{model} czy \emph{routing} z czego warto korzystać. Oczywiście można testować też klasy, które nie należą do żadnego, ale korzystanie z nich znacznie przyspiesza wykonywanie testów.
 
 \begin{code}
 	\lstinputlisting[linerange={3-4}, firstnumber=1]{../meetspace/spec/models/event_spec.rb}
 \end{code}\\
 
-Druga linijka to zadeklarowanie zmiennej \emph{event}, która przechowuje obiekt opisywanej klasy. RSpec wykorzystuje tzw. leniwe deklarowanie (\emph{lazy loading}). Zmienna, w tym przypadku obiekt, jest tworzona w momencie natrafienia na nią podczas wykonywania pliku.
+W drugiej linijce zadeklarowana jest zmienna \emph{event}, która przechowuje obiekt opisywanej klasy. RSpec wykorzystuje tzw. leniwe deklarowanie (\emph{lazy loading}). Zmienna, w tym przypadku obiekt, jest tworzona w momencie natrafienia na nią podczas wykonywania pliku.
 
 \begin{code}
 	\lstinputlisting[linerange={41-49}, firstnumber=3]{../meetspace/spec/models/event_spec.rb}
 \end{code}\\
 
-Słowo ,,\emph{Describe}'' służy do tworzenia osobnego bloku. Mimo, że testy nie wpływają w żaden sposób na siebie, to wykorzystuje się te bloki do zachowania czytelności, co pomaga szybko zorientować się w pliku. Opisy bloków i testów są o tyle ważne, że tworzą swoistego rodzaju dokumentację. Na pierwszy rzut oka widać jakie testy znajdują się w bloku i co one robią.
+Słowo ,,\emph{Describe}'' służy do tworzenia osobnego bloku, co zwiększa czytelność i pozwala szybko zorientować się w pliku. Opisy bloków i testów są o tyle ważne, że tworzą swoistego rodzaju dokumentację. Na pierwszy rzut oka widać jakie testy znajdują się w bloku i co one testują.
 
-W tym przykładzie sprawdzana jest asocjacja między obiektem klasy \emph{User} a wydarzeniem. Chcemy aby jedno wydarzenie należało do jednego użytkownika, dlatego deklarujemy zmienną \emph{user}, która jest instancją klasy \emph{User}. Następnie do pola \emph{user\_id} obiektu \emph{event} przypisujemy numer identyfikacyjny(id) obiektu \emph{user}.
+W tym przykładzie sprawdzana jest asocjacja między obiektem klasy \emph{User} a wydarzeniem. Chcemy aby jedno wydarzenie należało do jednego użytkownika, dlatego deklarujemy zmienną \emph{user}, która jest instancją\footnote{Obiekt stworzony na podstawie danej klasy.} klasy \emph{User}. Następnie do pola \emph{user\_id} obiektu \emph{event} przypisujemy numer identyfikacyjny(id) obiektu \emph{user}.
 
 \begin{code}
 	\lstinputlisting[linerange={43-44}, firstnumber=5]{../meetspace/spec/models/event_spec.rb}
@@ -29,7 +29,7 @@ Na koniec oczekujemy, że obiekt \emph{event} będzie \emph{,,należał do''} ob
 Całość jest napisana w taki sposób, że nawet osoba nie wdrożona w projekt jest w stanie przeczytać i zrozumieć co dany test robi.
 \\
 
-W następnym przykładzie będziemy testować czy przy zadanych przez warunkach obiekt zostanie poprawnie zapisany w bazie czy nie.
+W następnym przykładzie będziemy testować czy przy zadanych przez nas warunkach obiekt zostanie poprawnie zapisany w bazie.
 
 \begin{code}
 	\lstinputlisting[linerange={51-63, 100-100}, firstnumber=1]{../meetspace/spec/models/event_spec.rb}
@@ -37,8 +37,7 @@ W następnym przykładzie będziemy testować czy przy zadanych przez warunkach 
 
 W pierwszym teście ustawiamy pole \emph{name} jako nil\footnote{Wartość pusta. Jak \emph{null} w JavaScript.} i oczekujemy, że obiekt nie zostanie poprawnie zwalidowany.
 
-W drugim nie chcemy aby pole \emph{name} miało więcej niż 50 znaków długości. Dlatego do zmiennej wstawiamy losowy tekst składający się z 30 znaków i mnożymy go razy 3. Jest to w ten sposób zrobiony z tego wzlędu, że metoda \emph{rand\_text} może zwrócić maksymalnie 26 znaków(ilość liter w alfabecie).
-\\
+Drugi test sprawdza poprawną długość pola \emph{name}, które powinno wynosić nie więcej niż 50 znaków. Dlatego do zmiennej wstawiamy losowy tekst składający się z większej ilości.\\
 
 Te dwa testy stanowią przykład, że można pisać testy, idąc tzw. ,,czerwoną ścieżką'', czyli oczekiwać, że coś się nie powiedzie.
 

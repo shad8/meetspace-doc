@@ -1,6 +1,6 @@
 \section{Testy}
   \label{testy}
-    Technologie internetowe rozwijają się w zastraszającym tempie, co za tym idzie, wymagania klientów również. Wiele firm kładzie duży nacisk na testowanie swoich aplikacji.
+    Technologie internetowe rozwijają się bardzo szybko, a co za tym idzie, wymagania klientów również. Wiele firm kładzie duży nacisk na testowanie swoich aplikacji.
 
     Programiści często wychodzą z założenia, że ,,najpierw kod, później testy". Ma to oczywiście swoje wady i zalety. Zaletą niewątpliwie jest czas realizacji. W pierwszej kolejności dostarcza się funkcjonalności i nie zastanawia się nad tym jak napisać do nich testy. Pod koniec procesu produkcji tworzy się kilka testów sprawdzających zachowanie aplikacji. Doprowadza to do tego, że cały kod aplikacji pokryty jest testami w bardzo niewielkim stopniu. W każdej chwili może zajść sytuacja, w której aplikacja przestanie działać zgodnie z założeniami. Niestety w takim przypadku tracimy cenne godziny na szukanie błędów i ich eliminację.
 
@@ -9,6 +9,9 @@
     Dzięki napisanym testom oszczędziliśmy sporo godzin przy diagnozowaniu błędów aplikacji. Kolejną zaletą obranego podejścia jest to, że napisany w ten sposób przez nas kod robi dokładnie to czego oczekujemy. Każdy test spełniany jest w najprostszy możliwy sposób. Na jedną metodę przypada kilka lub nawet kilkanaście testów. Jeżeli któryś z nich się nie spełni, wiadomo od razu gdzie szukać przyczyny.
 
   \subsection{Techniki tworzenia oprogramowania}
+    Techniki tworzenia oprogramowania są niezwykle ważne w całym procesie powstawania kodu. Pomagają efektywnie zarządzać zasobami zespołu, czasem, zadaniami i celami, które stoją przed \emph{team'em}.
+
+    Poniżej krótko objaniśmy te techniki, z których korzystaliśmy.
     \begin{itemize}
       \item Test Driven Development\cite{tdd} \\
         Technika tworzenia oprogramowania, sterowana przez testy. Polega na wielokrotnym powtarzaniu 3 kroków do momentu ukończenia funkcjonalności:
@@ -64,6 +67,6 @@
 
     \input{source_codes/cucumber}
   \subsection{Testy jednostkowe}
-    Testy jednostkowe weryfikują działanie pojedynczych elementów(jednostek) programu, poszczególnych metod czy relacji między obiektami. Taki test wykonuje dany fragment kodu i porównuje otrzymane wyniki z tymi oczekiwanymi. Na przykładzie pokażemy, że możemy oczekiwać wyników pozytywnych jak i negatywnych(coś się nie udało).
+    Testy jednostkowe weryfikują działanie pojedynczych elementów(jednostek) programu, poszczególnych metod czy relacji między obiektami. Taki test wykonuje dany fragment kodu i porównuje otrzymane wyniki z tymi oczekiwanymi. Każdy z testów jest wykonywany w osobnym, odizolowanym środowisku, dzięki czemu jest niezależny i nie wpływa na pozostałe.
 
     \input{source_codes/rspec}
