@@ -1,35 +1,42 @@
 \section{Realizacja projektu}
-Wstęp
-  \subsection{Backend}
-    \subsubsection{Funkcjonalności wydarzenia}
-    \subsubsection{Autoryzacja użytkownika}
-    \subsubsection{Komunikacja aplikacji z użytkownikiem}
-  \subsection{Frontend}
-    \subsubsection{Widoki}
+Realizacja projektu Meetspace została podzielona na kilka etapów. Pierwszymi z nich było przygotowanie środowiska, zarejestrowanie domeny i zaprojektowanie modelu aplikacji. Następnie rozpoczęły się prace nad poszczególnymi funkcjonalnościami aplikacji, których etapy powstawania zostały udokumentowane w pliku \emph{CHANGELOG.md}
+
+
+Poniżej zostały opisane wybrane funkcjonalności, działania i zagadnienia z zakresu back-ednu\footnote{działania aplikacji wykonywane po stronie serwera}, front-endu\footnote{działania aplikacji wykonywane po stronie przeglądarki intenetowej} i bezpieczeństwa aplikacji.
+  \clearpage
+  \subsection{Model bazy danych}
+    Do przechowywania danych w aplikacji została wybrana baza SQlite, która w przyszłości zostanie zmieniona na MySQL. Baza zawiera cztery tabele:
+    \begin{itemizeReduced}
+      \item User - informacje o użytkowniku aplikacji
+      \item Event - informacje związane z wydarzeniem
+      \item Authentication - informacje pobrane z facebook api
+      \item Subscriber - lista osób zapisanych do newslettera
+    \end{itemizeReduced}
+
+    \begin{figure}[h]
+      \centering
+        \includegraphics[scale=0.55]{images/dbm.png}
+      \caption{Schemat bazy danych aplikacji Meetspace}
+    \end{figure}
+
+    \input{source_codes/dbm}
+
+    \subsection{Wyszukiwanie wydarzeń}
+    \subsection{Newsletter}
+    \subsection{Przykładowe CSS i JS}
+    W aplikacji zostały użyte takie technologie jak SASS\footnote{Więcej informacji w rozdziale \ref{other_technology}} i CoffeScript\footnote{Więcej informacji w rozdziale \ref{other_technology}}, które ułatwiły pracę nad wyglądem strony oraz jej funkcjonalnością po stronie przeglądarki internetowej.
+    \subsection{Bezpieczeństwo}
+      \begin{itemize}
+        \item current\_user
+        \item boot
+        \item autoryzacja api
+        \item walidacje
+        \item SQL injection
+        \item XSS
+      \end{itemize}
+    \subsection{Przegląd widoków aplikacji}
       \begin{itemize}
         \item responsywnść, czli o gridach
         \item html 5, a co jak nie działą :P?
       \end{itemize}
-    \subsubsection{Skrypty JS}
-      \begin{itemize}
-        \item przykłady skryptów z opisami
-        \item kompilowalność skryptów
-        \item google map
-        \item google adres
-      \end{itemize}
-    \subsubsection{Przykładowe CSS}
-      \begin{itemize}
-        \item flexbox
-        \item placeholder
-        \item wykorzystanie bootstrapa
-      \end{itemize}
-  \subsection{Bezpieczeństwo}
-    \begin{itemize}
-      \item current\_user
-      \item boot
-      \item autoryzacja api
-      \item walidacje
-      \item SQL injection
-      \item XSS
-    \end{itemize}
 

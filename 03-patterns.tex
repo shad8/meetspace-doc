@@ -1,8 +1,10 @@
 \section{Zastosowane wzorce projektowe}
+\label{sec:patterns}
 Wzorce projektowe zostały stworzone po to, aby uschematyzować proces rozwiązywania powstałych problemów projektowych w tworzeniu, komunikacji i organizacji struktury kodu. Skategoryzowano je i opisano w publikacji Design Patterns: Elements of Rusable Object-Oriented Software\footnote{Publikacja wydana w 1995 r., autorstwa tzw. Bandy Czworga: E.Gamma, R.Helm, R. Johnson, J. Ulisside}.
 
 Język Ruby w łatwy sposób pozwala na implementację wielu wzorców projektowych. Dzięki wykorzystaniu Ruby on Rails mamy możliwość korzystania z zaimplementowanych wzorców w samym szkielecie aplikacji.
   \subsection{MVC}
+  \index{MVC}
    Model-Widok-Kontroler(\emph{Model-View-Controller}) wzorzec określający schemat skłądowych aplikacji wbudowany w Ruby on Rails. Jego zadaniem jest podział struktury aplikacji na: logikę, opis interfejsu i komunikację połączoną z zarządzaniem.
    MVC zbudowany jest z pomniejszych wzorców projektowych.
     \begin{itemize}
@@ -24,7 +26,8 @@ Język Ruby w łatwy sposób pozwala na implementację wielu wzorców projektowy
       \caption{Schemat MVC}
     \end{figure}
   \subsection{Iteraktor}
-  Interactor inaczej nazywany Obiektem pomocniczym (\emph{Service Object}), jest wzorcem projektowym którego celem jest
+  \index{Interaktor}
+  Interactor\cite{interactors} inaczej nazywany Obiektem pomocniczym (\emph{Service Object}), jest wzorcem projektowym którego celem jest
   wykonanie pewnych zadań, które zostają mu oddelegowane z warstwy kontrolera w modelu MVC. Taki mechanizm upraszcza strukturę kodu i ułatwia stosowanie się do zasad: Prosty Kontroler i Model (\emph{Skiny Controllers and Models}), SOLID\footnote{SOLID - pięć podstawowych założeń programowania obiektowego: Single responsibility, Open-closed, Liskov substitution, Interface segregation and Dependency inversion,  stworzonych przez Roberta C. Martina}.
   Interactor stanowi więc kolejną warstwę pośredniczącą pomiędzy przekazywaniem danych między kontrolerem, a modelem. Oprócz uzyskania większej przejrzystości, zarówno modelu jak i kontrolera, przeniesiona zostaje odpowiedzialność za walidację, a duży kontekst zostaje podzielony na małe iteracje. Testowanie aplikacji wykorzystujących wzorzec interactor jest stosunkowo szybsze i łatwiejsze. Każdy model testowany jest w izolacji\footnote{Testowany jest konkretny model, bez względu na jego relacje z innyni modelami.}.
 
