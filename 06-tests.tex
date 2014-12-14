@@ -12,6 +12,7 @@
     Techniki tworzenia oprogramowania są niezwykle ważne w całym procesie powstawania kodu. Pomagają efektywnie zarządzać zasobami zespołu, czasem, zadaniami i celami, które stoją przed \emph{team'em}.
 
     Poniżej krótko objaniśmy te techniki, z których korzystaliśmy.
+    \index{TDD}
     \begin{itemize}
       \item Test Driven Development\cite{tdd} \\
         Technika tworzenia oprogramowania, sterowana przez testy. Polega na wielokrotnym powtarzaniu 3 kroków do momentu ukończenia funkcjonalności:
@@ -43,6 +44,7 @@
         \end{figure}
 
       \newpage
+      \index{BDD}
       \item Behaviour Driven Development \\
         Technika stworzona przez Dana Northa w 2003 roku. Sam autor powiedział:
         \begin{quote}
@@ -63,10 +65,12 @@
     \end{itemize}
 
   \subsection{Testy integracyjne}
+    \index{Cucumber}
     Najważniejszą funkcjonalnością w naszej aplikacji jest kreowanie nowego wydarzenia. Poniżej przedstawimy proces tworzenia testu integracyjnego.
 
     \input{source_codes/cucumber}
   \subsection{Testy jednostkowe}
+    \index{Rspec}
     Testy jednostkowe weryfikują działanie pojedynczych elementów(jednostek) programu, poszczególnych metod czy relacji między obiektami. Taki test wykonuje dany fragment kodu i porównuje otrzymane wyniki z tymi oczekiwanymi. Każdy z testów jest wykonywany w osobnym, odizolowanym środowisku, dzięki czemu jest niezależny i nie wpływa na pozostałe.
 
     \input{source_codes/rspec}
