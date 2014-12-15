@@ -10,13 +10,13 @@
   \end{lstlisting}
 \end{code}\\
 
-Dzięki wbudowanemu w Railsy systemowi ERB templates\footnote{System za pomocą, którego kod strony html jest generowany dynamicznie} mamy doczynienia z dynamicznym tworzeniem kodu HTML, co uniemożliwia większość ataków trgo typu. Wszelkiegorodzaju odnośniki i dane na stronie zapisywane są przy użyciu specjalnej notacji:
+Dzięki wbudowanemu w Railsy systemowi \emph{ERB templates}\footnote{System za pomocą, którego kod strony html jest generowany dynamicznie.} mamy doczynienia z dynamicznym tworzeniem kodu HTML, co uniemożliwia większość ataków tego typu. Wszelkiego rodzaju odnośniki i dane na stronie zapisywane są przy użyciu specjalnej notacji:
 
 \begin{code}
   \lstinputlisting[language=HTML, linerange={65-66}]{../meetspace/app/views/events/_form.html.erb}
 \end{code}\\
 
-Ktora następnie, zostaje przekonwertowana do kodu HTML przez serwer i wysłane przeglądarce internetowej.
+która następnie zostaje przekompilowana do kodu HTML przez serwer i wysłana przeglądarce internetowej.
 
 \begin{code}
   \begin{lstlisting}[language=HTML, showstringspaces=false]
