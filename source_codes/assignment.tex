@@ -1,0 +1,15 @@
+Poniższy przykłądowy atak przyspiuje stworzone wydarzenie przypadkowemu użytkownikowi.
+
+\texttt{ \footnotesize curl -d "event[name]=Test\&event[user\_id]=3" http://meetspace.it/event/ }
+
+Rozwiązaniem tego problemu jest zastosowanie techniki tzw. \emph{Strong Parametrs}. Uniemożliwia  ona przesłanie zmodyfikowanych parametrów, ponieważ do kontrolera trafiają jedynie dane dozwolone przez programistę. Parametry nie zdefiniowane zostają zignorowane. Poniżej przedstawiono przykładowe użycie tej metody dla kontrolera zarządzającego wydarzeniami.
+
+\begin{code}
+  \lstinputlisting[language=Ruby, linerange={37-41}]{../meetspace/app/controllers/events_controller.rb}
+\end{code}\\
+\index{Interaktor}
+Zastosowanie wzorca projektowego interaktora rówież unieożliwia tego rodzaju atak. Podobnie jak w powyższym przykładzie interaktor przyjmuje jedynie zdefiniowane parametry.
+
+\begin{code}
+  \lstinputlisting[language=Ruby, linerange={1-6}]{../meetspace/app/interactions/subscriber_registration_update.rb}
+\end{code}\\

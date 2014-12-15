@@ -54,16 +54,38 @@ Poniżej zostały opisane wybrane funkcjonalności, działania i zagadnienia z z
     \subsection{Bezpieczeństwo}
     Aplikacje internetowe są w szczególności podatne na różnego rodzaju ataki sieciowe. Wykorzystany framework Ruby on Rails posiada domyślenie wbudowane zabezpieczenia. Poniżej przedstawiliśmy najważniejsze zagadnienia związane z bezpieczeństwem naszej aplikacji.
       \begin{itemize}
-        \item XSS
-        Cross Site Scripting (XSS) jest to atak polegający na wykonaniu zewnętrznego kodu HTML lub JS, przesłanego do strony z zewnątrz, za pomocą formularza lub żądania HTTP.\\
+        \item \textbf{XSS}\\
+        Cross Site Scripting (XSS) jest to atak polegający na wykonaniu zewnętrznego kodu HTML lub JS przesłanego, do strony z zewnątrz, za pomoca formularza lub żadania HTTP.
 
         \input{source_codes/xss.tex}
+        \clearpage
 
-        \item SQL injection
-        \item Cross Site Request Forgency
+        \item \textbf{SQL injection}\\
+        SQL injection jest jednym z najpopularnieszych ataków sieciowych. Jego celem jest modyfikacja danych w bazie poprzez wypływanie na zapytania, manipulację parametrami i formularzami aplikacji.\\\\
+        \input{source_codes/sql_injection.tex}
+
+        \item \textbf{Mass Assignment} \\
+        Mass assignment atak, czyli masowe przypisywanie jest atakiem, który ma na celu wprowadzenie modyfikacji do obiektu przez dodanie lub odpowiednie zmdyfikowanie parametrów przychodzących do kontrolera z przegladarki internetowej.\\
+        \input{source_codes/assignment.tex}
       \end{itemize}
-    % \subsection{Przegląd widoków aplikacji}
-    %   \begin{itemize}
-    %     \item responsywnść, czli o gridach
-    %     \item html 5, a co jak nie działą :P?
-    %   \end{itemize}
+    Innymi zabezpieczeniami wprowadzonymi w aplikacji są min:
+    \begin{itemize}
+      \index{MD5}
+      \item Autoryzacja dostępu do api poprzez unikalny token użytkownika.\\
+      Aby użytkownik mógł skorzystać z zaimplementowanego api, musi podać 128 bitowy klucz autoryzujący przypisany do jego konta. Każdy klucz jest generowany przy pomocy algoryytmu MD5, który dodatkow zostaje przesolony\footnote{Do powstałego ciągu znaków zostają dodane losowe dane.}\emph{(salt)}. Co czyni go w pełni unikatowym i trudnym do złamania.
+
+      \item Validacja wielkości i formatu loga wydarzenia.\\
+      Zabezpieczenie to chroni aplikację, przed możliwością dodania plików zawierających wykonywalny kod, lub formatów plików nie obsługiwalnych przez aplikację. Walidacja na wielkość przesyłanych plików uniemożliwa również zbytnie obciążenie serwera.
+
+      \item Przetrzymywanie danych wrażliwych w zmiennych środowiskowych.\\
+      Wszelkie dane wrażliwe, takie jak hasła czy klucze autoryzujące są przechowywane w specjalnych zmiennych środowiskowych
+      \begin{center}
+        \texttt{ENV['FACEBOOK\_KEY']},
+      \end{center}
+      zapisanych w pliku \emph{.env}, pod postacią klucz:wartość
+      \begin{center}
+        \texttt{FACEBOOK\_KEY: 123456789},
+      \end{center}
+      co uniemożliwa do nich dostęp i zwiększa bezpieczeństwo aplikacji.
+    \end{itemize}
+    \subsection{Przegląd widoków aplikacji}
