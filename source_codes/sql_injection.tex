@@ -1,4 +1,4 @@
-Przykłądowy atak SQL Injection przy poniższym zapisie, wyszukiwania wydarzeń, daje atakującemu możliwość wpisania dowolnego parametru do zapytania.
+Przykładowy atak SQL Injection przy poniższym zapisie wyszukiwania wydarzeń, daje atakującemu możliwość wpisania dowolnego parametru do zapytania.
 
 \begin{center}
   \texttt{ Event.where("name LIKE \%\#\{params[:name]\}") }
@@ -10,8 +10,8 @@ Dla wprowadzenia danych \emph{OR 1=1} otrzymamy następujace zapytanie do bazy,
   \texttt{ SELECT * FROM events WHERE name = '' OR 1 --' }
 \end{center}
 
-które spowoduje wywietlenie wszystkich wydarzeń, rówież tych niedostępnych dla użytkowników. Przyczyną takiego wyniku jest znak komentarza \emph{- -} na końcu zapytania uniemożliwiający wkonanie dalszej część zapytnia.
-Spopsobem na zapewnienie bezpieczeństwa jest, w tym przypadku stosowanie odpowiedniego zapisu zapytań:
+które spowoduje wyświetlenie wszystkich wydarzeń, również tych niedostępnych dla użytkowników. Przyczyną takiego wyniku jest znak komentarza \emph{- -} na końcu zapytania uniemożliwiający wykonanie dalszej część zapytania.
+Sposobem na zapewnienie bezpieczeństwa jest w tym przypadku stosowanie odpowiedniego zapisu zapytań:
 
 \begin{code}
   \lstinputlisting[language=Ruby, linerange={7-10}]{../meetspace/app/interactions/event_search.rb}
