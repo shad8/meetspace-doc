@@ -24,7 +24,7 @@ Poniżej zostały opisane wybrane funkcjonalności, działania i zagadnienia z z
     % \subsection{Newsletter}
 
     \subsection{Przykładowe CSS i JS}
-      W aplikacji zostały użyte takie technologie jak SASS\footnote{Więcej informacji w rozdziale \ref{other_technology}} i CoffeScript\footnote{Więcej informacji w rozdziale \ref{other_technology}}, które ułatwiły pracę nad wyglądem strony oraz jej funkcjonalnością po stronie przeglądarki internetowej.
+      W aplikacji zostały użyte takie technologie jak SASS\footnote{Więcej informacji w rozdziale \ref{other_technology}} i CoffeScript\footnote{Więcej informacji w rozdziale \ref{other_technology}}, które ułatwiły pracę nad wyglądem strony oraz jej funkcjonalnością po stronie przeglądarki internetowej.\\
 
       \subsubsection{CSS}
         Style CSS \emph{(Cascade Stylesheets)} stanowią o całej szacie graficznej aplikacji. Od nich zależy jak wygląda strona. Określają kolory, rozmiar czcionek, wielkości poszczególnych elementów czy nawet proste animacje. Bez tego strona wyglądałaby nieatrakcyjnie i byłaby zupełnie nie użyteczna.
@@ -32,6 +32,7 @@ Poniżej zostały opisane wybrane funkcjonalności, działania i zagadnienia z z
           \item Flexbox\\
             To nowe rozwiązanie pozwalające uzyskać płynny layout\footnote{Dopasowyjący się do rozmiaru okna wygląd strony.}. Pomaga również wyśrodkować w pionie jeden element HTML względem drugiego. Dotychczas twórcy witryn internetowych musieli stosować różnego rodzaju sztuczki, żeby to osiągnać. Na dzień dziejszy\footnote{Dane z dnia 14.12.2014} flexbox jest wspierany przez większość czołowych przeglądarek\footnote{\url{http://caniuse.com/\#search=flexbox}}. \\
             \input{source_codes/flexbox.tex}
+            \clearpage
           \item Placeholder\\
             Placeholder to napis wyświetlany w ramce do wpisywania tekstu przez użytkownika. Służy do informowania o roli danego pola. Domyślnym kolorem czcionki jest szary ale nam zależało, żeby cały wygląd współgrał ze sobą. Dlatego chcieliśmy aby kolor placeholder'a był nieco jaśniejszy. Niestety nie da się tego osiągnąć nadając tagowi \emph{input} jakąś klasę i jej ustawiając kolor. Jedyny sposób to wykorzystanie predefiniowanego selektora, odpowiedzialnego za wygląd placeholder'a.
 
@@ -48,15 +49,19 @@ Poniżej zostały opisane wybrane funkcjonalności, działania i zagadnienia z z
               \lstinputlisting[linerange={3}]{../meetspace/app/assets/stylesheets/media_queries.css.scss}
             \end{code}\\
         \end{itemize}
-    % \subsection{Bezpieczeństwo}
-    %   \begin{itemize}
-    %     \item current\_user
-    %     \item boot
-    %     \item autoryzacja api
-    %     \item walidacje
-    %     \item SQL injection
-    %     \item XSS
-    %   \end{itemize}
+      \subsubsection{JS}
+    \clearpage
+    \subsection{Bezpieczeństwo}
+    Aplikacje internetowe są w szczególności podatne na różnego rodzaju ataki sieciowe. Wykorzystany framework Ruby on Rails posiada domyślenie wbudowane zabezpieczenia. Poniżej przedstawiliśmy najważniejsze zagadnienia związane z bezpieczeństwem naszej aplikacji.
+      \begin{itemize}
+        \item XSS
+        Cross Site Scripting (XSS) jest to atak polegający na wykonaniu zewnętrznego kodu HTML lub JS przesłąnego do strony z zewnątrz za pomoca formularza lub żadania HTTP.\\
+
+        \input{source_codes/xss.tex}
+
+        \item SQL injection
+        \item Cross Site Request Forgency
+      \end{itemize}
     % \subsection{Przegląd widoków aplikacji}
     %   \begin{itemize}
     %     \item responsywnść, czli o gridach
