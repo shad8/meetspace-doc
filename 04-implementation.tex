@@ -20,9 +20,6 @@ Poniżej zostały opisane wybrane funkcjonalności, działania i zagadnienia z z
 
     \input{source_codes/dbm}
 
-    % \subsection{Wyszukiwanie wydarzeń}
-    % \subsection{Newsletter}
-
     \subsection{Przykładowe CSS i JS}
       W aplikacji zostały użyte takie technologie jak SASS\footnote{Więcej informacji w rozdziale \ref{other_technology}} i CoffeScript\footnote{Więcej informacji w rozdziale \ref{other_technology}}, które ułatwiły pracę nad wyglądem strony oraz jej funkcjonalnością po stronie przeglądarki internetowej.\\
 
@@ -50,7 +47,30 @@ Poniżej zostały opisane wybrane funkcjonalności, działania i zagadnienia z z
             \end{code}\\
         \end{itemize}
       \subsubsection{JS}
-    \clearpage
+      Do umieszczenia map na stronie, z zaznaczoną lokalizacją wydarzenia, wykorzystaliśmy Google Maps API.
+
+      Aby móc z niego korzystać, należy do kodu strony dołączyć odpowiedni skypt JS.
+
+      \begin{center}
+      (tutaj kod <script src='...'>)
+      \end{center}
+
+      a następnie w kodzie HTML utworzyć kontener przechowywujący mapę.
+
+      \begin{center}
+      (<div id='map'></div>)
+      \end{center}
+
+      Aby poprawnie ją wyświetlić potrzebujemy współrzędne adresu miejsca, w którym będzie się odbywać spotkanie. Gem \emph{Geolocalizer}, na podstawie podanego przez użytkownika adresu, zwraca nam współrzędne, które musimy przekazać do skryptu.
+
+      \begin{center}
+      (kod ze skryptu)
+      \end{center}
+
+      Następnie ustawiamy opcje mapy, wielkość powiększenia, umiejscowienie i typ.
+
+      Na koniec tworzymy dwa obiekty na podstawie udostępnionych przez API konstruktorów: \emph{map} oraz \emph{marker}. \emph{Map} przyjmuje dwa parametry: miejsce na stronie, w którym będzie wyświetlana oraz opcje z jakimi zostanie zainicjalizowana.
+
     \subsection{Bezpieczeństwo}
     Aplikacje internetowe są w szczególności podatne na różnego rodzaju ataki sieciowe. Wykorzystany framework Ruby on Rails posiada domyślnie wbudowane zabezpieczenia. Poniżej przedstawiliśmy najważniejsze zagadnienia związane z bezpieczeństwem naszej aplikacji.
       \begin{itemize}
@@ -58,7 +78,6 @@ Poniżej zostały opisane wybrane funkcjonalności, działania i zagadnienia z z
         Cross Site Scripting (XSS) jest to atak polegający na wykonaniu zewnętrznego kodu HTML lub JS przesłanego, do strony z zewnątrz, za pomocą formularza lub żądania HTTP.
 
         \input{source_codes/xss.tex}
-        \clearpage
 
         \item \textbf{SQL injection}\\
         SQL injection jest jednym z najpopularnieszych ataków sieciowych. Jego celem jest modyfikacja danych w bazie poprzez wpływanie na zapytania, manipulację parametrami i formularzami aplikacji.\\\\

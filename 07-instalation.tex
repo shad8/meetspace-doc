@@ -1,1 +1,50 @@
 \section{Instalacja}
+Poniżej zostały przedstawione najważniejsze elementy dotyczące instalacji i konfiguracji aplikacji dla środowiska produkcyjnego. Aplikacja Meetspace jest umieszczona na serwerze firmy Fractal Soft\footnote{\url{http://www.fractalsoft.org/}}, z którą mieliśmy okazję współpracować.
+
+Przedstawiony przykład został wykonany na systemie operacyjnym Linuks, dystrybucja: Ubuntu Serwer 12.04, z zainstalowanym system kontroli wersji GIT\footnote{Więcej o systemie GIT w rozdziale \ref{sec:GIT}}, narzędziem RVM\footnote{Więcej o narzędziu RVM w rozdziale: \ref{sec:RVM}} i bazą danych MySQl.
+
+Instalacja RVM:
+\begin{center}
+  \texttt{ curl -L get.rvm.io | bash -s stable }
+  \texttt{ rvm requirements }
+\end{center}
+
+Instalacja GIT:
+\begin{center}
+  \texttt{ apt-get install git-core }
+\end{center}
+
+Instalacja bazy danych MySQL:
+\begin{center}
+  \texttt{ sudo apt-get install mysql-server mysql-client libmysqlclient-dev }
+\end{center}
+
+Aby przygotować wersję użytkową aplikacji, należy zainstalowac środowisko Ruby wkorzystując do tego celu RVM:
+\begin{center}
+  \texttt{ rvm install 2.1.3 }
+\end{center}
+Do środowiska należy również dołączyć interpreter JavaScript:
+\begin{center}
+  \texttt{ apt-get install nodejs }
+\end{center}
+oraz wybrany typ bazy danych:
+\begin{center}
+  \texttt{ apt-get install nodejs }
+\end{center}
+\clearpage
+Jednym z ważniejszych kroków jest instalacja serwera www \emph{Nginx}, wsperającego język Ruby.
+\begin{center}
+  \texttt{ sudo apt-get install nginx }
+\end{center}
+
+Do sprawnego zrządzania serwerem warto doinstalować \emph{Unicorn}, który w łatwy sposób umożliwia zarządzanie procesami dotyczącymi serwewra www, np. start lub restart serwera.
+\begin{center}
+  \texttt{ gem install unicorn }
+\end{center}
+
+Po odpowiednim skonfigurowaniu Nginx, Unicorna i aplikacji, poprzez polecenie
+\begin{center}
+  \texttt{ .\textbackslash{bin}\textbackslash{unicorn\_init} start }
+\end{center}
+
+uruchamiamy aplikację na serwerze.

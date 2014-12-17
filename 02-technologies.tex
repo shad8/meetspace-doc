@@ -25,7 +25,7 @@
   To wszystko sprawia, że klientowi można oddać gotowy, przetestowany produkt, bez żadnych niespodzianek.
 
   \subsection{Git}
-  \index{Git}
+  \index{Git} \label{sec:GIT}
   To rozproszony system kontroli wersji, bardzo pomocny w projektach, przy których pracuje kilka osób. Dzięki niemu widać wszystkie zmiany wcześniej wprowadzane i w łatwy sposób można wrócić do wcześniejszych wersji. Użytkownik posługuję się tzw. commitami. Jest to nic innego jak zatwierdzenie zmian w plikach. Podobnym narzędziem do Gita jest SVN. Różnica m.in. polega na tym, że Git kopiuje całe repozytorium na komputer, programista zatwierdza zmiany lokalnie i dopiero na koniec wrzuca je na serwer. W przypadku SVN całość trzymana jest na serwerze.
   Dzięki takiemu rozwiązaniu nie musimy być bez przerwy podłączeni do sieci. Możemy zatwierdzać nasze zmiany będąc w autobusie czy tramwaju i wrzucić je na serwer w momencie podłączenia do internetu
   Różnice między tymi dwoma technologiami pokazuje poniższy obrazek.
@@ -37,8 +37,8 @@
   \end{figure}
 
   \subsection{RVM}
-  \index{RVM}
-  Czyli Ruby Version Manager. Jest to podstawowe narzędzie do pracy z językiem Ruby. Ruby jest ciągle rozwijany i każdego miesiąca wychodzą nowe poprawki, usprawnienia czy funkcjonalności. RVM dla każdego projektu tworzy osobne, niezależne, odizolowane środowisko programistyczne, tzw. gemset. Jest to nic innego jak zbiór gemów wykorzystywanych w danym projekcie. Dzięki temu można stworzyć różne aplikacje oparte o różne wersje Rubiego, które korzystają z różnych wersji gemów i nie kolidują ze sobą.
+  \index{RVM} \label{sec:RVM}
+  Czyli Ruby Version Manager\footnote{\url{https://rvm.io/} \cite{programming_ruby}}. Jest to podstawowe narzędzie do pracy z językiem Ruby - zarządza ono jego środowiskiem. Ruby jest ciągle rozwijany i każdego miesiąca wychodzą nowe poprawki, usprawnienia czy funkcjonalności. RVM dla każdego projektu tworzy osobne, niezależne, odizolowane środowisko programistyczne, tzw. gemset. Jest to nic innego jak zbiór gemów wykorzystywanych w danym projekcie. Dzięki temu można stworzyć różne aplikacje oparte o różne wersje Rubiego, które korzystają z różnych wersji gemów i nie kolidują ze sobą.
   \begin{figure}[h]
   \centering
   \includegraphics[scale=0.84]{images/rvm.png}
