@@ -1,13 +1,14 @@
 \section{Wykorzystane technologie}
   \subsection{Ruby}
   \index{Ruby}
-  Ruby jest w pełni obiektowym, wysokopoziomowym językiem programowania. Jego twórca, Yukihiro “Matz” Matsumoto, chciał stworzyć język jeszcze bardziej obiektowy niż Python, dlatego każdy fragment informacji może uzyskać swoje właściwości i metody.
+  Ruby\footnote{dokumentacja online: \url{http://rubyonrails.org}, \cite{ruby_lang}} jest w pełni obiektowym, wysokopoziomowym językiem programowania. Jego twórca, Yukihiro “Matz” Matsumoto, chciał stworzyć język jeszcze bardziej obiektowy niż Python, dlatego każdy fragment informacji może uzyskać swoje właściwości i metody.
 
   Po za obiektowością, Ruby cechuje się też prostą składnia, ułożona w sposób umożliwiający pisanie samokomentującego się i czytelnego kodu. Programiści piszący w tym języku, kierują się dwoma ważnymi zasadami: \index{DRY}DRY\footnote{Don't repeat yourself\cite{programming_ruby}} oraz \index{KISS}KISS\footnote{Keep it simple, stupid\cite{programming_ruby}}, które mają za zadanie zmusić do wykorzystywania już wcześniej napisanego kodu jak i pisania go w sposób najmożliwiej prosty. Ponadto, jest to język niezwykle elastyczny, ponieważ pozwala użytkownikom dowolnie modyfikować jego składowe. Programista może nadpisać jakiś moduł i dostosować go do swoich potrzeb.
 
   Ruby powstał w 1995 roku, lecz dopiero w 2005 roku zyskał na popularności za sprawą frameworka Ruby on Rails, który został w nim napisany. Dzisiaj osoby piszące w Ruby to jedni z najlepiej zarabiających programistów w USA\footnote{\url{http://www.pb.pl/3945225,84037,te-jezyki-programowania-daja-najlepiej-zarobic-w-usa}}.
 
   \subsection{Ruby on Rails}
+  \index{Ruby on Rails}
   Jest to framework, platforma programistyczna, pozwalająca na szybkie tworzenie stron i aplikacji internetowych. Została napisana przez duńskiego programistę Davida Heinemeiera Hanssona, zwanego potocznie DHH. Oparta jest o wzorzec architektoniczny MVC\footnote{Model View Controller, więcej informacji w rozdziale \ref{sec:patterns}}. \\
   Tim O'Reilly, założyciel O'Reilly Media, powiedział:
   \begin{quote}
@@ -15,7 +16,6 @@
     Potężne aplikacje, których tworzenie do tej pory zabierało tygodnie czy miesiące, są teraz tworzone dosłownie w kilka dni.”}
   \end{quote}
 
-  \index{Ruby on Rails}
   Ruby on Rails panuje zasada ,,konwencja ponad konfiguracją" (\emph{Convention over configuration}), co znaczy, że nie trzeba się przejmować skomplikowanymi plikami konfiguracyjnymi, tylko wystarczy postępować według przyjętych przez twórców schematów. Railsy mają wbudowany serwer lokalny, co pozwala na szybkie testowanie aplikacji, bez zbędnego i czasochłonnego umieszczania kodu na zewnętrznej maszynie. Dużym plusem jest również możliwość uruchomienia aplikacji w różnym środowisku, do wyboru mamy:
   \begin{itemize}
     \item developerskie - domyślne środowisko, w którym programista pisze aplikację,
@@ -47,7 +47,7 @@
 
   \subsection{Wykorzystane gemy}
     \index{Gem}
-    Gem - jest to paczka napisana w języku Ruby, której zadaniem jest rozszerzenie funkcjonalności aplikacji. Do wyszukiwania najnowszych wersji wykorzystuje się RubyGems.org\footnote{Wyszukiwarka gemów \url{http://rubygems.org}}. W przypadku Ruby on Rails istnieje specjalny plik konfiguracyjny, \emph{Gemfile.rb}, który przechowuje liste wykorzystywanych gemów.
+    Gem - jest to paczka napisana w języku Ruby, której zadaniem jest rozszerzenie funkcjonalności aplikacji. Do wyszukiwania najnowszych wersji wykorzystuje się RubyGems.org\footnote{Wyszukiwarka gemów \url{http://rubygems.org}, \cite{rubydoc}}. W przypadku Ruby on Rails istnieje specjalny plik konfiguracyjny, \emph{Gemfile.rb}, który przechowuje liste wykorzystywanych gemów.
 
     W naszej aplikacji użyliśmy między innymi:
     \begin{itemize}
@@ -61,15 +61,15 @@
     Proces testowania jest bardzo ważnym aspektem, przy projektowaniu i tworzeniu oprogramowania. Dzięki Ruby i Ruby on Rails oraz odpowiednim narzędziom jesteśmy w stanie przetestować każdą warstwę aplikacji.
 
     \begin{itemize}
-      \item \emph{Cucumber}\footnote{\cite{cucumber}, \cite{testing_tuesday} } \\ Wykorzystywany jest do pisania testów funkcjonalnych(\emph{feature tests})\footnote{Szerzej o testach w rozdziale \ref{testy}.}. Tworzony jest krótki scenariusz, w którym krok po kroku sprawdza się czy aplikacja zachowuje się w sposób jaki oczekuje klient.
-      \item \emph{RSpec} \\ Narzędzie, w którym piszemy testy jednostkowe \footnote{\cite{rspec}, szerzej o testach w rozdziale \ref{testy}}. Pozwala testować nie tylko całą logikę znajdującą się w modelach, relacje między nimi, ale również kontrolery, routy\footnote{RESTowe ścieżki w aplikacji \cite{head_first}}, helpery\footnote{Metody, które pomagają w wyświetlaniu pewnych danych na widoku \cite{rspec},\cite{rails_guide}} oraz wszystkie dodatkowe klasy.
+      \item \emph{Cucumber}\footnote{\cite{cucumber}, \cite{testing_tuesday} } \\ Wykorzystywany jest do pisania testów funkcjonalnych(\emph{feature tests})\footnote{Szerzej o testach w rozdziale \ref{testy}.}. Tworzony jest krótki scenariusz, w którym krok po kroku sprawdza się czy aplikacja zachowuje się w sposób jaki oczekuje klient.\index{Cucumber}
+      \item \emph{RSpec} \\ Narzędzie, w którym piszemy testy jednostkowe \footnote{\cite{rspec}, szerzej o testach w rozdziale \ref{testy}}. Pozwala testować nie tylko całą logikę znajdującą się w modelach, relacje między nimi, ale również kontrolery, routy\footnote{RESTowe ścieżki w aplikacji \cite{head_first}}, helpery\footnote{Metody, które pomagają w wyświetlaniu pewnych danych na widoku \cite{rspec},\cite{rails_guide}} oraz wszystkie dodatkowe klasy. \index{RSpec}
     \end{itemize}
 
   \subsection{Biblioteki JavaScript}
     W aplikacji internetowej JavaScript\cite{java_script} jest nieodłączną częścią, bez której ciężko byłoby wykonać pewne rzeczy. Szczególnie pomaga w ,,upiększaniu" interfejsu aplikacji ale również w komunikacji między przeglądarką a serwerem, jak i wyświetlaniu dodatkowych informacji, na przykład takich jak mapy Google'a.
 
     \begin{itemize}
-      \item \emph{jQuery} \\ Biblioteka JavaScript ułatwiająca manipulaję drzewem DOM\footnote{Document Object Model - reprezantacja złożonych dokumentów HTML. \cite{html5_css3}}. Umożliwia tworzenie animacji, wspomaga zarządzanie asynchronicznymi zapytaniami do serwera. Dzięki jej implementacji możliwe jest korzystanie z wielu stworzonych już pluginów.
+      \item \emph{jQuery} \\ Biblioteka JavaScript \cite{jquery} ułatwiająca manipulaję drzewem DOM\footnote{Document Object Model - reprezantacja złożonych dokumentów HTML. \cite{html5_css3}}. Umożliwia tworzenie animacji, wspomaga zarządzanie asynchronicznymi zapytaniami do serwera. Dzięki jej implementacji możliwe jest korzystanie z wielu stworzonych już pluginów.
       \item \emph{Bootstrap Datepicker} \\ Oparta o Bootstrap biblioteka, wyświetlająca na stronie ładny i intuicyjny kalendarz.
       \item \emph{Load Image} \\ Prosta biblioteka umożliwiająca użytkownikowi ładowanie obrazka bezpośrednio na stronie.
       \item \emph{Modernizr} \\ Przydatna biblioteka, informująca nas, czy dana przeglądarka, obsługuje poszczególne moduły standardu HTML, np. video, canvas czy websockety.

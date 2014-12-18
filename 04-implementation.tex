@@ -25,6 +25,7 @@ Poniżej zostały opisane wybrane funkcjonalności, działania i zagadnienia z z
 
       \subsubsection{CSS}
         Style CSS \emph{(Cascade Stylesheets)} stanowią o całej szacie graficznej aplikacji. Od nich zależy jak wygląda strona. Określają kolory, rozmiar czcionek, wielkości poszczególnych elementów czy nawet proste animacje. Bez tego strona wyglądałaby nieatrakcyjnie i byłaby zupełnie nie użyteczna.
+        \index{Flexbox}
         \begin{itemize}
           \item Flexbox\\
             To nowe rozwiązanie pozwalające uzyskać płynny layout\footnote{Dopasowyjący się do rozmiaru okna wygląd strony.}. Pomaga również wyśrodkować w pionie jeden element HTML względem drugiego. Dotychczas twórcy witryn internetowych musieli stosować różnego rodzaju sztuczki, żeby to osiągnać. Na dzień dziejszy\footnote{Dane z dnia 14.12.2014} flexbox jest wspierany przez większość czołowych przeglądarek\footnote{\url{http://caniuse.com/\#search=flexbox}}. \\
@@ -39,7 +40,7 @@ Poniżej zostały opisane wybrane funkcjonalności, działania i zagadnienia z z
 
             Wartość \emph{\$placeholder} to zmienna Sass przechowująca kolor. Dzięki jej zastosowaniu, w przypadku gdybyśmy chcieli zmienić wartość koloru na inną, nie będziemy musieli tego robić w kilku miejscach, tylko w jednym.
 
-          \item Zapytania medialne \emph{(Media Queries)}\\
+          \item Zapytania medialne \emph{(Media Queries)}\\ \index{Media Queries}
             W trakcie tworzenia witryny, która ma dopasowywać się do wielkości ekranu urządzenia, kluczową rolę odgrywają zapytania medialne. W trakcie ładowania pliku css, sprawdzają wielkość, rodzaj ekranu i stosują style zadeklarowane dla konkretnych rozdzielczości. Dzięki temu można określić na przykład, aby dla urządzeń o szerokości ekranu większej niż 600 pixeli tło strony było inne niż dla węższych ekranów.
             Poniżej zastosowane przez nas zapytania medialne dla urządzeń o maksymalnej szerokości 767 pixeli.
             \begin{code}
@@ -49,41 +50,21 @@ Poniżej zostały opisane wybrane funkcjonalności, działania i zagadnienia z z
       \subsubsection{JS}
       Do umieszczenia map na stronie, z zaznaczoną lokalizacją wydarzenia, wykorzystaliśmy Google Maps API.
 
-      Aby móc z niego korzystać, należy do kodu strony dołączyć odpowiedni skypt JS.
-
-      \begin{center}
-      (tutaj kod <script src='...'>)
-      \end{center}
-
-      a następnie w kodzie HTML utworzyć kontener przechowywujący mapę.
-
-      \begin{center}
-      (<div id='map'></div>)
-      \end{center}
-
-      Aby poprawnie ją wyświetlić potrzebujemy współrzędne adresu miejsca, w którym będzie się odbywać spotkanie. Gem \emph{Geolocalizer}, na podstawie podanego przez użytkownika adresu, zwraca nam współrzędne, które musimy przekazać do skryptu.
-
-      \begin{center}
-      (kod ze skryptu)
-      \end{center}
-
-      Następnie ustawiamy opcje mapy, wielkość powiększenia, umiejscowienie i typ.
-
-      Na koniec tworzymy dwa obiekty na podstawie udostępnionych przez API konstruktorów: \emph{map} oraz \emph{marker}. \emph{Map} przyjmuje dwa parametry: miejsce na stronie, w którym będzie wyświetlana oraz opcje z jakimi zostanie zainicjalizowana.
+      \input{source_codes/google_api}
 
     \subsection{Bezpieczeństwo}
     Aplikacje internetowe są w szczególności podatne na różnego rodzaju ataki sieciowe. Wykorzystany framework Ruby on Rails posiada domyślnie wbudowane zabezpieczenia. Poniżej przedstawiliśmy najważniejsze zagadnienia związane z bezpieczeństwem naszej aplikacji.
       \begin{itemize}
-        \item \textbf{XSS}\\
+        \item \textbf{XSS}\\ \index{XSS}
         Cross Site Scripting (XSS) jest to atak polegający na wykonaniu zewnętrznego kodu HTML lub JS przesłanego, do strony z zewnątrz, za pomocą formularza lub żądania HTTP.
 
         \input{source_codes/xss.tex}
 
-        \item \textbf{SQL injection}\\
+        \item \textbf{SQL injection}\\ \index{SQL injection}
         SQL injection jest jednym z najpopularnieszych ataków sieciowych. Jego celem jest modyfikacja danych w bazie poprzez wpływanie na zapytania, manipulację parametrami i formularzami aplikacji.\\\\
         \input{source_codes/sql_injection.tex}
 
-        \item \textbf{Mass Assignment} \\
+        \item \textbf{Mass Assignment} \\ \index{Mass Assignment}
         Mass assignment atak, czyli masowe przypisywanie, jest atakiem, który ma na celu wprowadzenie modyfikacji do obiektu przez dodanie lub odpowiednie zmdyfikowanie parametrów przychodzących do kontrolera z przeglądarki internetowej.\\
         \input{source_codes/assignment.tex}
       \end{itemize}
@@ -95,7 +76,7 @@ Poniżej zostały opisane wybrane funkcjonalności, działania i zagadnienia z z
 
       \item Walidacja wielkości i formatu loga wydarzenia.\\
       Zabezpieczenie to chroni aplikację, przed możliwością dodania plików zawierających wykonywalny kod lub formatów plików nie obsługiwanych przez aplikację. Walidacja na wielkość przesyłanych plików uniemożliwa również zbytnie obciążenie serwera.
-
+      \index{ENV}
       \item Przetrzymywanie danych wrażliwych w zmiennych środowiskowych.\\
       Wszelkie dane wrażliwe, takie jak hasła czy klucze autoryzujące są przechowywane w specjalnych zmiennych środowiskowych
       \begin{center}

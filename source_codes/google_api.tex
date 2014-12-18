@@ -1,0 +1,22 @@
+Aby móc z niego korzystać, należy do kodu strony dołączyć odpowiedni skypt JS.
+\begin{code}
+  \begin{lstlisting}[language=Ruby, basicstyle=\ttfamily\scriptsize, showstringspaces=false]
+      <script src='https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places'>
+      </script>
+  \end{lstlisting}
+\end{code}\\
+
+a następnie w kodzie HTML utworzyć kontener przechowywujący mapę.
+\begin{code}
+  \lstinputlisting[language=HTML, showstringspaces=false, linerange={45-47}, firstnumber=45]{../meetspace/app/views/events/show.html.erb}
+\end{code}\\
+
+Aby poprawnie ją wyświetlić potrzebujemy współrzędne adresu miejsca, w którym będzie się odbywać spotkanie. Gem \emph{Geolocalizer}, na podstawie podanego przez użytkownika adresu, zwraca nam współrzędne, które musimy przekazać do skryptu.
+
+\begin{code}
+  \lstinputlisting[showstringspaces=false]{../meetspace/app/assets/javascripts/map.js.coffee}
+\end{code}\\
+
+Następnie ustawiamy opcje mapy, wielkość powiększenia, umiejscowienie i typ.
+
+Na koniec tworzymy dwa obiekty na podstawie udostępnionych przez API konstruktorów: \emph{map} oraz \emph{marker}. \emph{Map} przyjmuje dwa parametry: miejsce na stronie, w którym będzie wyświetlana oraz opcje z jakimi zostanie zainicjalizowana.

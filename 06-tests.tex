@@ -70,7 +70,24 @@
 
     \input{source_codes/cucumber}
   \subsection{Testy jednostkowe}
-    \index{Rspec}
+    \index{RSpec}
     Testy jednostkowe weryfikują działanie pojedynczych elementów(jednostek) programu, poszczególnych metod czy relacji między obiektami. Taki test wykonuje dany fragment kodu i porównuje otrzymane wyniki z tymi oczekiwanymi. Każdy z testów jest wykonywany w osobnym, odizolowanym środowisku, dzięki czemu jest niezależny i nie wpływa na pozostałe.
 
     \input{source_codes/rspec}
+  \clearpage
+  \subsection{Pokrycie kodu testami}
+    Dzięki zstosowaniu technologi Ruby on Rails, mieliśmy do doyspozycji wiele ciekawych narzędzi pozwalających sprawdzać jakoś tworzonego kodu. Jednym z nich jest \emph{Stats}, który wykazuje pokrycie kodu testami.
+
+    Statystyk wyliczana jest na podstawie ilości lini kodu (LOC - lines of code) do ilości lini testów (LOT - lines of test). Oczekiwanym wynikiem powinien być stosunek 1:2, który udało nam się osiągnąć.
+    \begin{figure}[h]
+      \centering
+      \includegraphics[scale=0.5]{images/loc_table.png}
+      \caption{Statystyka pokrycia kodu testami}
+    \end{figure}
+
+    Poniżej załączyliśmy diagram obrazujący pokrycie kodu testami w okresie od 10 paździenika do 17 grudnia. Zanotowany duży skok, ilości lini kodu w stosunku do testów, był spowodowany złym zainkludowaniem bilbioteki javascript, która nie powinna być wliczana w metrykę.
+    \begin{figure}[h]
+      \centering
+      \includegraphics[scale=0.4]{images/LOC.png}
+      \caption{Diagram pokrycia kodu testami [12.10-17.12]}
+    \end{figure}
