@@ -12,7 +12,7 @@
   Tim O'Reilly, założyciel O'Reilly Media, powiedział:
   \begin{quote}
     \emph{,,Ruby on Rails jest przełomem w dziedzinie programowania aplikacji internetowych.
-    Potężne aplikacje, których tworzenie do tej pory zabierało tygodnie czy miesiące, są teraz tworzone dosłownie w kilka dni.”}
+    Potężne aplikacje, których tworzenie do tej pory zabierało tygodnie czy miesiące, są teraz tworzone dosłownie w kilka dni."}
   \end{quote}
 
   \index{Ruby on Rails}
@@ -38,7 +38,7 @@
 
   \subsection{RVM}
   \index{RVM} \label{sec:RVM}
-  Czyli Ruby Version Manager\footnote{\url{https://rvm.io/} \cite{programming_ruby}}. Jest to podstawowe narzędzie do pracy z językiem Ruby - zarządza ono jego środowiskiem. Ruby jest ciągle rozwijany i każdego miesiąca wychodzą nowe poprawki, usprawnienia czy funkcjonalności. RVM dla każdego projektu tworzy osobne, niezależne, odizolowane środowisko programistyczne, tzw. gemset. Jest to nic innego jak zbiór gemów wykorzystywanych w danym projekcie. Dzięki temu można stworzyć różne aplikacje oparte o różne wersje Rubiego, które korzystają z różnych wersji gemów i nie kolidują ze sobą.
+  Czyli Ruby Version Manager\footnote{\url{https://rvm.io/} \cite{programming_ruby}}. Jest to podstawowe narzędzie do pracy z językiem Ruby - zarządza ono jego środowiskiem. Ruby jest ciągle rozwijany i każdego miesiąca wychodzą nowe poprawki, usprawnienia czy funkcjonalności. RVM dla każdego projektu tworzy osobne, niezależne, odizolowane środowisko programistyczne, tzw. gemset. Jest to nic innego jak zbiór gemów wykorzystywanych w danym projekcie. Dzięki temu można stworzyć różne aplikacje oparte o różne wersje Ruby, które korzystają z różnych wersji gemów i nie kolidują ze sobą.
   \begin{figure}[h]
   \centering
   \includegraphics[scale=0.84]{images/rvm.png}
@@ -51,7 +51,7 @@
 
     W naszej aplikacji użyliśmy między innymi:
     \begin{itemize}
-      \item \emph{Devise} \\ Zapewnia autoryzacje i autentykacje użytkownika w obrębie aplikacji. Obsługuje logowanie oraz rejestrację wraz z wysyłaniem potwierdzeń na adres mailowy i reset hasła.
+      \item \emph{Devise} \\ Zapewnia autoryzację i autentykację użytkownika w obrębie aplikacji. Obsługuje logowanie oraz rejestrację wraz z wysyłaniem potwierdzeń na adres mailowy i reset hasła.
       \item \emph{Geocoder} \\ Na podstawie podanego adresu określa współrzędne geograficzne, dzięki którym można wyświetlić mapkę z zaznaczonym adresem, gdzie odbywa się dane wydarzenie.
       \item \emph{Omniauth-facebook} \\ Wspiera komunikację pomiędzy naszą aplikacją a API Facebook'a.
       \item \emph{i18n} \\ Umożliwia dodawanie tłumaczeń, dzięki czemu aplikacja w łatwy sposób może stać się wielojęzyczną.
@@ -69,7 +69,7 @@
     W aplikacji internetowej JavaScript\cite{java_script} jest nieodłączną częścią, bez której ciężko byłoby wykonać pewne rzeczy. Szczególnie pomaga w ,,upiększaniu" interfejsu aplikacji ale również w komunikacji między przeglądarką a serwerem, jak i wyświetlaniu dodatkowych informacji, na przykład takich jak mapy Google'a.
 
     \begin{itemize}
-      \item \emph{jQuery} \\ Biblioteka JavaScript ułatwiająca manipulaję drzewem DOM\footnote{Document Object Model - reprezantacja złożonych dokumentów HTML. \cite{html5_css3}}. Umożliwia tworzenie animacji, wspomaga zarządzanie asynchronicznymi zapytaniami do serwera. Dzięki jej implementacji możliwe jest korzystanie z wielu stworzonych już pluginów.
+      \item \emph{jQuery} \\ Biblioteka JavaScript ułatwiająca manipulację drzewem DOM\footnote{Document Object Model - reprezentacja złożonych dokumentów HTML. \cite{html5_css3}}. Umożliwia tworzenie animacji, wspomaga zarządzanie asynchronicznymi zapytaniami do serwera. Dzięki jej implementacji możliwe jest korzystanie z wielu stworzonych już pluginów.
       \item \emph{Bootstrap Datepicker} \\ Oparta o Bootstrap biblioteka, wyświetlająca na stronie ładny i intuicyjny kalendarz.
       \item \emph{Load Image} \\ Prosta biblioteka umożliwiająca użytkownikowi ładowanie obrazka bezpośrednio na stronie.
       \item \emph{Modernizr} \\ Przydatna biblioteka, informująca nas, czy dana przeglądarka, obsługuje poszczególne moduły standardu HTML, np. video, canvas czy websockety.
@@ -80,11 +80,11 @@
     \begin{itemize}
       \item \emph{Twitter Bootstrap} \\ Framework CSS\footnote{\url{http://getbootstrap.com/}, \cite{bootstrap}}, rozwijany przez firmę Twitter. Udostępnia gotowe klasy CSS i rozwiązania JavaScript, dzięki czemu pisanie responsywnych layoutów na urządzenia mobilne i nie tylko, jest znacznie szybsze i mniej bolesne.
       \item \emph{CoffeScript} \\ Język programowania kompilowany do JavaScipt\cite{coffee}. Zawiera tzw. lukier składniowy(\emph{syntactic sugar}), umożliwiający pisanie bardziej czytelnego i przyjaznego kodu. Kod napisany w Coffee jest enkapsulowany\footnote{Funkcje umieszczone w różnych plikach nie mają do siebie dostępu.}. CoffeeScript jest domyślnym językiem kompilującym do czystego JavaScript'u, wykorzystywanym w Railsach.
-      \item \emph{SASS} \\ Syntactically Awesome Stylesheets\cite{sass} - preprocesor CSS. Dzięki niemu, w trakcie pisania styli, możemy korzystać m.in. ze zmiennych, funkcji czy partiali\footnote{Plik, który można załączyć w innym pliku wykorzystując go wielokrotnie.}. Całość jest kompilawana do czystego CSS.
+      \item \emph{SASS} \\ Syntactically Awesome Stylesheets\cite{sass} - preprocesor CSS. Dzięki niemu, w trakcie pisania arkuszy stylów, możemy korzystać m.in. ze zmiennych, funkcji czy partiali\footnote{Plik, który można załączyć w innym pliku wykorzystując go wielokrotnie.}. Całość jest kompilowana do czystego CSS.
     \end{itemize}
   \subsection{Narzędzia pomocnicze}
     Podczas pisania aplikacji używaliśmy, min. takich narzędzi jak:
     \begin{itemize}
-      \item \emph{Sublime Text 3} \\ Jeden z najpopularniejszych edytorów tekstu. Jest napisanych do niego mnóstwo wtyczek do wspomagania pracy programisty. Wtyczki kolorujące składnie, wyświetlające kolor zapisany w systemie szesnastkowym, dodające skróty klawiszowe, czy tzw. snippety, czyli większe fragmentuy kodu, które są wstawiane w miejsce kursora po wpisaniu słowa kluczowego i wciśnięciu klawisza tabulatora. Dzięki temu programista oszczędza sporo czasu, bo nie musi pisać wielokrotnie tego samego.
-      \item \emph{Narzędzia developerskie Google Chrome} \\ Funkcjonalność przęglądarki Google Chrome. Dzięki tym narzędziom jesteśmy w stanie dokładnie zbadać DOM, sprawdzić czy przypadkiem nie mamy gdzieś wycieku pamięci w skrypcie JavaScript, czy przetestowanie właściwości CSS danego obiektu na znajdującego się na stronie. Mozilla Firefox również posiada takie narzędzie, lecz jest ono dużo mniej intuicyjne i nie jest tak rozbudowane jak to w Chromie.
+      \item \emph{Sublime Text 3} \\ Jeden z najpopularniejszych edytorów tekstu. Jest napisanych do niego mnóstwo wtyczek do wspomagania pracy programisty. Wtyczki kolorujące składnie, wyświetlające kolor zapisany w systemie szesnastkowym, dodające skróty klawiszowe, czy tzw. snippety, czyli większe fragmenty kodu, które są wstawiane w miejsce kursora po wpisaniu słowa kluczowego i wciśnięciu klawisza tabulatora. Dzięki temu programista oszczędza sporo czasu, bo nie musi pisać wielokrotnie tego samego.
+      \item \emph{Narzędzia developerskie Google Chrome} \\ Funkcjonalność przeglądarki Google Chrome. Dzięki tym narzędziom jesteśmy w stanie dokładnie zbadać DOM, sprawdzić czy przypadkiem nie mamy gdzieś wycieku pamięci w skrypcie JavaScript, czy przetestowanie właściwości CSS danego obiektu na znajdującego się na stronie. Mozilla Firefox również posiada takie narzędzie, lecz jest ono dużo mniej intuicyjne i nie jest tak rozbudowane jak to w Chromie.
     \end{itemize}

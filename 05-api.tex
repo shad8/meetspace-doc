@@ -13,7 +13,7 @@ W odpowiedzi, oprócz danych, zawarty jest tzw. kody stanu, definiujący przebie
 
 Najważniejsze kody stanu:
  \begin{itemize}
-     \item \textbf {200}: ok \\
+     \item \textbf {200}: OK \\
      kod powodzenia, dane związane z zapytaniem zostaną przesłane
      \item \textbf {401}: Unauthorized \\
      nieautoryzowany dostęp, klient nie przeszedł autoryzacji
@@ -72,11 +72,11 @@ Dla skonfigurowanego profilu Facebook przydzielić:
 Dane te będą wykorzystywane podczas autentykacji zapytań do portalu. Facebook udostępnia nam dwa tryby pracy: testowy i produkcyjny. Do implementacji logowania wykorzystaliśmy \textbf{gem "omniauth-facebook"}, który wspiera wykorzystywany w tym celu protokół \textbf{OAuth}\footnote{OAuth jest otwartym protokołem, wykorzystywanym w aplikacjamch internetowych, mobilnych i stacjonarnych, umożliwiającym bezpieczną i ustandaryzowaną autoryzację. \cite{oauth}} w  wersji 2.0.
 \\
 
-W momencie, kiedy użytkownik wybierze opcję logowania przez portal społecznościowy, zostanie wysłane rządanie do portalu o zalogowanie i udostępnienie danych profilowych aplikacji. Jeżeli użytkownik posiada konto na profilu Facebook i zezwoli na udostępnienie swoich danych, zalogowanie nastąpi zarówno po stronie aplikacji jak i Facebooka. Jego dane zostaną przesłane w postaci specjalnego hash'a\footnote{Rodzaj tabeli, gdzie każdy wpis składa się z klucza oraz przypisanej do niego wartości.} dostępnego z poziomu zmiennej \texttt{request.env['omniauth.auth']}.
+W momencie, kiedy użytkownik wybierze opcję logowania przez portal społecznościowy, zostanie wysłane żądanie do portalu o zalogowanie i udostępnienie danych profilowych aplikacji. Jeżeli użytkownik posiada konto na profilu Facebook i zezwoli na udostępnienie swoich danych, zalogowanie nastąpi zarówno po stronie aplikacji jak i Facebooka. Jego dane zostaną przesłane w postaci specjalnego hash'a\footnote{Rodzaj tabeli, gdzie każdy wpis składa się z klucza oraz przypisanej do niego wartości.} dostępnego z poziomu zmiennej \texttt{request.env['omniauth.auth']}.
 
 \clearpage
 
-Przykładowe dane dla fikcyjnego użytkownika, zwacane przez portal Facebook:\\
+Przykładowe dane dla fikcyjnego użytkownika, zwracane przez Facebook:\\
 \input{source_codes/oauth}
 
 \clearpage
