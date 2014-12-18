@@ -1,7 +1,7 @@
 \section{Instalacja}
-Poniżej zostały przedstawione najważniejsze elementy dotyczące instalacji i konfiguracji aplikacji dla środowiska produkcyjnego. Aplikacja Meetspace jest umieszczona na serwerze firmy Fractal Soft\footnote{\url{http://www.fractalsoft.org/}}, z którą mieliśmy okazję współpracować.
+Poniżej zostały przedstawione najważniejsze elementy dotyczące instalacji i konfiguracji aplikacji dla środowiska produkcyjnego. Aplikacja Meetspace jest umieszczona na serwerze firmy Fractal Soft\footnote{\url{http://fractalsoft.org/}}, z którą mieliśmy okazję współpracować.
 
-Przedstawiony przykład został wykonany na systemie operacyjnym Linuks, dystrybucja: Ubuntu Serwer 12.04, z zainstalowanym system kontroli wersji GIT\footnote{Więcej o systemie GIT w rozdziale \ref{sec:GIT}}, narzędziem RVM\footnote{Więcej o narzędziu RVM w rozdziale: \ref{sec:RVM}} i bazą danych MySQl.
+Przedstawiony przykład został wykonany na systemie operacyjnym Linux, dystrybucja: Ubuntu Serwer 12.04, z zainstalowanym system kontroli wersji GIT\footnote{Więcej o systemie GIT w rozdziale \ref{sec:GIT}}, narzędziem RVM\footnote{Więcej o narzędziu RVM w rozdziale: \ref{sec:RVM}} i bazą danych MySQl.
 
 Instalacja RVM:
 \begin{center}
@@ -11,7 +11,7 @@ Instalacja RVM:
 
 Instalacja GIT:
 \begin{center}
-  \texttt{ apt-get install git-core }
+  \texttt{ sudo apt-get install git-core }
 \end{center}
 
 Instalacja bazy danych MySQL:
@@ -25,7 +25,7 @@ Aby przygotować wersję użytkową aplikacji, należy zainstalowac środowisko
 \end{center}
 Do środowiska należy również dołączyć interpreter JavaScript:
 \begin{center}
-  \texttt{ apt-get install nodejs }
+  \texttt{ sudo apt-get install nodejs }
 \end{center}
 oraz wybrany typ bazy danych:
 \begin{center}

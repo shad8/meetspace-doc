@@ -1,7 +1,7 @@
 \section{Realizacja projektu}
 Realizacja projektu Meetspace została podzielona na kilka etapów. Pierwszymi z nich było przygotowanie środowiska, zarejestrowanie domeny i zaprojektowanie modelu aplikacji. Następnie rozpoczęły się prace nad poszczególnymi funkcjonalnościami aplikacji, których etapy powstawania zostały udokumentowane w pliku \emph{CHANGELOG.md}
 
-Poniżej zostały opisane wybrane funkcjonalności, działania i zagadnienia z zakresu back-endu\footnote{Działania aplikacji wykonywane po stronie serwera}, front-endu\footnote{Działania aplikacji wykonywane po stronie przeglądarki intenetowej} i bezpieczeństwa aplikacji.
+Poniżej zostały opisane wybrane funkcjonalności, działania i zagadnienia z zakresu back-endu\footnote{Działania aplikacji wykonywane po stronie serwera}, front-endu\footnote{Działania aplikacji wykonywane po stronie przeglądarki internetowej} i bezpieczeństwa aplikacji.
   \clearpage
   \subsection{Model bazy danych}
     Do przechowywania danych w aplikacji została wybrana baza SQLite, która w przyszłości zostanie zmieniona na MySQL. Baza zawiera cztery tabele:
@@ -28,7 +28,7 @@ Poniżej zostały opisane wybrane funkcjonalności, działania i zagadnienia z z
         \index{Flexbox}
         \begin{itemize}
           \item Flexbox\\
-            To nowe rozwiązanie pozwalające uzyskać płynny layout\footnote{Dopasowyjący się do rozmiaru okna wygląd strony.}. Pomaga również wyśrodkować w pionie jeden element HTML względem drugiego. Dotychczas twórcy witryn internetowych musieli stosować różnego rodzaju sztuczki, żeby to osiągnać. Na dzień dziejszy\footnote{Dane z dnia 14.12.2014} flexbox jest wspierany przez większość czołowych przeglądarek\footnote{\url{http://caniuse.com/\#search=flexbox}}. \\
+            To nowe rozwiązanie pozwalające uzyskać płynny layout\footnote{Dopasowyjący się do rozmiaru okna wygląd strony.}. Pomaga również wyśrodkować w pionie jeden element HTML względem drugiego. Dotychczas twórcy witryn internetowych musieli stosować różnego rodzaju sztuczki, żeby to osiągnać. Na dzień dzisiejszy\footnote{Dane z dnia 14.12.2014} flexbox jest wspierany przez większość czołowych przeglądarek\footnote{\url{http://caniuse.com/\#search=flexbox}}. \\
             \input{source_codes/flexbox.tex}
             \clearpage
           \item Placeholder\\
@@ -52,11 +52,33 @@ Poniżej zostały opisane wybrane funkcjonalności, działania i zagadnienia z z
 
       \input{source_codes/google_api}
 
+      Aby móc z niego korzystać, należy do kodu strony dołączyć odpowiedni skypt JS.
+
+      \begin{center}
+      (tutaj kod <script src='...'>)
+      \end{center}
+
+      a następnie w kodzie HTML utworzyć kontener przechowujący mapę.
+
+      \begin{center}
+      (<div id='map'></div>)
+      \end{center}
+
+      Aby poprawnie ją wyświetlić potrzebujemy współrzędne adresu miejsca, w którym będzie się odbywać spotkanie. Gem \emph{Geolocalizer}, na podstawie podanego przez użytkownika adresu, zwraca nam współrzędne, które musimy przekazać do skryptu.
+
+      \begin{center}
+      (kod ze skryptu)
+      \end{center}
+
+      Następnie ustawiamy opcje mapy, wielkość powiększenia, umiejscowienie i typ.
+
+      Na koniec tworzymy dwa obiekty na podstawie udostępnionych przez API konstruktorów: \emph{map} oraz \emph{marker}. \emph{Map} przyjmuje dwa parametry: miejsce na stronie, w którym będzie wyświetlana oraz opcje z jakimi zostanie zainicjalizowana.
+
     \subsection{Bezpieczeństwo}
     Aplikacje internetowe są w szczególności podatne na różnego rodzaju ataki sieciowe. Wykorzystany framework Ruby on Rails posiada domyślnie wbudowane zabezpieczenia. Poniżej przedstawiliśmy najważniejsze zagadnienia związane z bezpieczeństwem naszej aplikacji.
       \begin{itemize}
         \item \textbf{XSS}\\ \index{XSS}
-        Cross Site Scripting (XSS) jest to atak polegający na wykonaniu zewnętrznego kodu HTML lub JS przesłanego, do strony z zewnątrz, za pomocą formularza lub żądania HTTP.
+        Cross Site Scripting (XSS) jest to atak polegający na wykonaniu zewnętrznego kodu HTML lub JavaScript przesłanego, do strony z zewnątrz, za pomocą formularza lub żądania HTTP.
 
         \input{source_codes/xss.tex}
 
@@ -75,8 +97,8 @@ Poniżej zostały opisane wybrane funkcjonalności, działania i zagadnienia z z
       Aby użytkownik mógł skorzystać z zaimplementowanego API, musi podać 128 bitowy klucz autoryzujący przypisany do jego konta. Każdy klucz jest generowany przy pomocy algoryytmu MD5, który dodatkowo zostaje przesolony\footnote{Do powstałego ciągu znaków zostają dodane losowe dane.}\emph{(salt)}. Co czyni go w pełni unikatowym i trudnym do złamania.
 
       \item Walidacja wielkości i formatu loga wydarzenia.\\
-      Zabezpieczenie to chroni aplikację, przed możliwością dodania plików zawierających wykonywalny kod lub formatów plików nie obsługiwanych przez aplikację. Walidacja na wielkość przesyłanych plików uniemożliwa również zbytnie obciążenie serwera.
-      \index{ENV}
+      Zabezpieczenie to chroni aplikację, przed możliwością dodania plików zawierających wykonywalny kod lub formatów plików nie obsługiwanych przez aplikację. Walidacja wielkości przesyłanych plików zabezpiecza przed obciążeniem serwera.\index{ENV}
+
       \item Przetrzymywanie danych wrażliwych w zmiennych środowiskowych.\\
       Wszelkie dane wrażliwe, takie jak hasła czy klucze autoryzujące są przechowywane w specjalnych zmiennych środowiskowych
       \begin{center}
@@ -86,6 +108,6 @@ Poniżej zostały opisane wybrane funkcjonalności, działania i zagadnienia z z
       \begin{center}
         \texttt{FACEBOOK\_KEY: 123456789},
       \end{center}
-      co uniemożliwa do nich dostęp i zwiększa bezpieczeństwo aplikacji.
+      co uniemożliwia do nich dostęp i zwiększa bezpieczeństwo aplikacji.
     \end{itemize}
     \subsection{Przegląd widoków aplikacji}
