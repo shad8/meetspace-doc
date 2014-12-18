@@ -3,7 +3,7 @@
   \index{Ruby}
   Ruby\footnote{dokumentacja online: \url{http://rubyonrails.org}, \cite{ruby_lang}} jest w pełni obiektowym, wysokopoziomowym językiem programowania. Jego twórca, Yukihiro “Matz” Matsumoto, chciał stworzyć język jeszcze bardziej obiektowy niż Python, dlatego każdy fragment informacji może uzyskać swoje właściwości i metody.
 
-  Po za obiektowością, Ruby cechuje się też prostą składnia, ułożona w sposób umożliwiający pisanie samokomentującego się i czytelnego kodu. Programiści piszący w tym języku, kierują się dwoma ważnymi zasadami: \index{DRY}DRY\footnote{Don't repeat yourself\cite{programming_ruby}} oraz \index{KISS}KISS\footnote{Keep it simple, stupid\cite{programming_ruby}}, które mają za zadanie zmusić do wykorzystywania już wcześniej napisanego kodu jak i pisania go w sposób najmożliwiej prosty. Ponadto, jest to język niezwykle elastyczny, ponieważ pozwala użytkownikom dowolnie modyfikować jego składowe. Programista może nadpisać jakiś moduł i dostosować go do swoich potrzeb.
+  Po za obiektowością, Ruby cechuje się też prostą składnia, ułożona w sposób umożliwiający pisanie samo komentującego się i czytelnego kodu. Programiści piszący w tym języku, kierują się dwoma ważnymi zasadami: \index{DRY}DRY\footnote{Don't repeat yourself\cite{programming_ruby}} oraz \index{KISS}KISS\footnote{Keep it simple, stupid\cite{programming_ruby}}, które mają za zadanie zmusić do wykorzystywania już wcześniej napisanego kodu jak i pisania go w sposób najmożliwiej prosty. Ponadto, jest to język niezwykle elastyczny, ponieważ pozwala użytkownikom dowolnie modyfikować jego składowe. Programista może nadpisać jakiś moduł i dostosować go do swoich potrzeb.
 
   Ruby powstał w 1995 roku, lecz dopiero w 2005 roku zyskał na popularności za sprawą frameworka Ruby on Rails, który został w nim napisany. Dzisiaj osoby piszące w Ruby to jedni z najlepiej zarabiających programistów w USA\footnote{\url{http://www.pb.pl/3945225,84037,te-jezyki-programowania-daja-najlepiej-zarobic-w-usa}}.
 
@@ -47,7 +47,7 @@
 
   \subsection{Wykorzystane gemy}
     \index{Gem}
-    Gem - jest to paczka napisana w języku Ruby, której zadaniem jest rozszerzenie funkcjonalności aplikacji. Do wyszukiwania najnowszych wersji wykorzystuje się RubyGems.org\footnote{Wyszukiwarka gemów \url{http://rubygems.org}, \cite{rubydoc}}. W przypadku Ruby on Rails istnieje specjalny plik konfiguracyjny, \emph{Gemfile.rb}, który przechowuje liste wykorzystywanych gemów.
+    Gem - jest to paczka napisana w języku Ruby, której zadaniem jest rozszerzenie funkcjonalności aplikacji. Do wyszukiwania najnowszych wersji wykorzystuje się RubyGems.org\footnote{Wyszukiwarka gemów \url{http://rubygems.org}, \cite{rubydoc}}. W przypadku Ruby on Rails istnieje specjalny plik konfiguracyjny, \emph{Gemfile.rb}, który przechowuje listę wykorzystywanych gemów.
 
     W naszej aplikacji użyliśmy między innymi:
     \begin{itemize}
@@ -72,14 +72,14 @@
       \item \emph{jQuery} \\ Biblioteka JavaScript ułatwiająca manipulację drzewem DOM\footnote{Document Object Model - reprezentacja złożonych dokumentów HTML. \cite{html5_css3}}. Umożliwia tworzenie animacji, wspomaga zarządzanie asynchronicznymi zapytaniami do serwera. Dzięki jej implementacji możliwe jest korzystanie z wielu stworzonych już pluginów.
       \item \emph{Bootstrap Datepicker} \\ Oparta o Bootstrap biblioteka, wyświetlająca na stronie ładny i intuicyjny kalendarz.
       \item \emph{Load Image} \\ Prosta biblioteka umożliwiająca użytkownikowi ładowanie obrazka bezpośrednio na stronie.
-      \item \emph{Modernizr} \\ Przydatna biblioteka, informująca nas, czy dana przeglądarka, obsługuje poszczególne moduły standardu HTML, np. video, canvas czy websockety.
+      \item \emph{Modernizr} \\ Przydatna biblioteka, informująca nas, czy dana przeglądarka, obsługuje poszczególne moduły standardu HTML, np. video, canvas czy geolokalizację.
     \end{itemize}
   \subsection{Pozostałe technologie}
     \label{other_technology}
     Poniżej zostały opisane dodatkowe technologie, wykorzystane w aplikacji.
     \begin{itemize}
       \item \emph{Twitter Bootstrap} \\ Framework CSS\footnote{\url{http://getbootstrap.com/}, \cite{bootstrap}}, rozwijany przez firmę Twitter. Udostępnia gotowe klasy CSS i rozwiązania JavaScript, dzięki czemu pisanie responsywnych layoutów na urządzenia mobilne i nie tylko, jest znacznie szybsze i mniej bolesne.
-      \item \emph{CoffeScript} \\ Język programowania kompilowany do JavaScipt\cite{coffee}. Zawiera tzw. lukier składniowy(\emph{syntactic sugar}), umożliwiający pisanie bardziej czytelnego i przyjaznego kodu. Kod napisany w Coffee jest enkapsulowany\footnote{Funkcje umieszczone w różnych plikach nie mają do siebie dostępu.}. CoffeeScript jest domyślnym językiem kompilującym do czystego JavaScript'u, wykorzystywanym w Railsach.
+      \item \emph{CoffeScript} \\ Język programowania kompilowany do JavaScipt\cite{coffee}. Zawiera tzw. lukier składniowy\emph{(syntactic sugar)}, umożliwiający pisanie bardziej czytelnego i przyjaznego kodu. Kod napisany w Coffee jest enkapsulowany\footnote{Funkcje umieszczone w różnych plikach nie mają do siebie dostępu.}. CoffeeScript jest domyślnym językiem kompilującym do czystego JavaScript'u, wykorzystywanym w Railsach.
       \item \emph{SASS} \\ Syntactically Awesome Stylesheets\cite{sass} - preprocesor CSS. Dzięki niemu, w trakcie pisania arkuszy stylów, możemy korzystać m.in. ze zmiennych, funkcji czy partiali\footnote{Plik, który można załączyć w innym pliku wykorzystując go wielokrotnie.}. Całość jest kompilowana do czystego CSS.
     \end{itemize}
   \subsection{Narzędzia pomocnicze}

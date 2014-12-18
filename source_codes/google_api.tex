@@ -8,13 +8,13 @@ Aby móc z niego korzystać, należy do kodu strony dołączyć odpowiedni skypt
 
 a następnie w kodzie HTML utworzyć kontener przechowywujący mapę.
 \begin{code}
-  \lstinputlisting[language=HTML, showstringspaces=false, linerange={45-47}, firstnumber=45]{../meetspace/app/views/events/show.html.erb}
+  \lstinputlisting[language=HTML, showstringspaces=false, linerange={42-44}, firstnumber=42]{../meetspace/app/views/events/show.html.erb}
 \end{code}\\
 
-Aby poprawnie ją wyświetlić potrzebujemy współrzędne adresu miejsca, w którym będzie się odbywać spotkanie. Gem \emph{Geolocalizer}, na podstawie podanego przez użytkownika adresu, zwraca nam współrzędne, które musimy przekazać do skryptu.
+Aby poprawnie ją wyświetlić potrzebujemy współrzędnych adresu miejsca, w którym będzie się odbywać spotkanie. Gem \emph{Geolocalizer}, na podstawie podanego przez użytkownika adresu, zwraca nam współrzędne, które musimy przekazać do skryptu.
 
 \begin{code}
-  \lstinputlisting[showstringspaces=false]{../meetspace/app/assets/javascripts/map.js.coffee}
+  \lstinputlisting[showstringspaces=false, basicstyle=\ttfamily\scriptsize]{../meetspace/app/assets/javascripts/map.js.coffee}
 \end{code}\\
 
 Następnie ustawiamy opcje mapy, wielkość powiększenia, umiejscowienie i typ.
