@@ -27,8 +27,7 @@ Język Ruby w łatwy sposób pozwala na implementację wielu wzorców projektowy
     \end{figure}
   \subsection{Iteraktor}
   \index{Interaktor}
-  Interactor\cite{interactors} inaczej nazywany Obiektem pomocniczym (\emph{Service Object}), jest wzorcem projektowym którego celem jest
-  wykonanie pewnych zadań, które zostają mu oddelegowane z warstwy kontrolera w modelu MVC. Taki mechanizm upraszcza strukturę kodu i ułatwia stosowanie się do zasad: Prosty Kontroler i Model (\emph{Skiny Controllers and Models}), SOLID\footnote{SOLID - pięć podstawowych założeń programowania obiektowego: Single responsibility, Open-closed, Liskov substitution, Interface segregation and Dependency inversion,  stworzonych przez Roberta C. Martina}.
+  Interaktor\cite{interactors}(\emph{Interactor}) inaczej nazywany Obiektem pomocniczym (\emph{Service Object}), jest wzorcem projektowym którego celem jest wykonanie pewnych zadań, które zostają mu oddelegowane z warstwy kontrolera w modelu MVC. Taki mechanizm upraszcza strukturę kodu i ułatwia stosowanie się do zasad: Prosty Kontroler i Model (\emph{Skiny Controllers and Models}), \index{SOLID}SOLID.
   Interactor stanowi więc kolejną warstwę pośredniczącą pomiędzy przekazywaniem danych między kontrolerem, a modelem. Oprócz uzyskania większej przejrzystości, zarówno modelu jak i kontrolera, przeniesiona zostaje odpowiedzialność za walidację, a duży kontekst zostaje podzielony na małe iteracje. Testowanie aplikacji wykorzystujących wzorzec interactor jest stosunkowo szybsze i łatwiejsze. Każdy model testowany jest w izolacji\footnote{Testowany jest konkretny model, bez względu na jego relacje z innymi modelami.}.
 
   Poniżej przedstawiliśmy fragment zastosowania wzorca Interactor, który odpowiada za rejestrację użytkowników do newslettera:\\
