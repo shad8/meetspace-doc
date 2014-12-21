@@ -1,11 +1,11 @@
 \section{Zastosowane wzorce projektowe}
 \label{sec:patterns}
-Wzorce projektowe zostały stworzone po to, aby uschematyzować proces rozwiązywania powstałych problemów projektowych w tworzeniu, komunikacji i organizacji struktury kodu. Kategoryzowano je i opisano w publikacji Design Patterns: Elements of Reusable Object-Oriented Software\footnote{Publikacja wydana w 1995 r., autorstwa tzw. Bandy Czworga: E.Gamma, R.Helm, R. Johnson, J. Ulisside}.
+Wzorce projektowe zostały stworzone po to, aby uschematyzować proces rozwiązywania powstałych problemów projektowych w tworzeniu, komunikacji i organizacji struktury kodu. Skategoryzowano je i opisano w publikacji Design Patterns: Elements of Reusable Object-Oriented Software\footnote{Publikacja wydana w 1995 r., autorstwa tzw. Bandy Czworga: E.Gamma, R.Helm, R. Johnson, J. Ulisside}.
 
 Język Ruby w łatwy sposób pozwala na implementację wielu wzorców projektowych. Dzięki wykorzystaniu Ruby on Rails mamy możliwość korzystania z zaimplementowanych wzorców w samym szkielecie aplikacji.
   \subsection{MVC}
   \index{MVC}
-   Model-Widok-Kontroler(\emph{Model-View-Controller}) wzorzec określający schemat składowych aplikacji wbudowany w Ruby on Rails. Jego zadaniem jest podział struktury aplikacji na: logikę, opis interfejsu i komunikację połączoną z zarządzaniem.
+   Model-Widok-Kontroler(\emph{Model-View-Controller}), wzorzec określający schemat składowych aplikacji wbudowany w Ruby on Rails. Jego zadaniem jest podział struktury aplikacji na: logikę, opis interfejsu i komunikację połączoną z zarządzaniem.
    MVC zbudowany jest z pomniejszych wzorców projektowych.
     \begin{itemize}
       \item \textbf {Model} \\
@@ -16,7 +16,7 @@ Język Ruby w łatwy sposób pozwala na implementację wielu wzorców projektowy
       Tworzy interfejs użytkownika zapewniając prezentację danych. Łączy ze sobą wzorce takie jak: wzorzec Kompozycji\footnote{z ang. Composite pattern, grupuje on obiekty w jeden aby móc wykonywać na nich operacje w ten sam sposób. \cite{ruby_patterns}}, wzorzec Strategii i wzorzec Obserwatora.
 
       \item \textbf {Kontroler} \\
-      Odpowiada za obsługę żądań przychodzących od użytkownika, poprzez delegowanie zadań. Jest pośrednikiem pomiędzy logiką biznesową (\emph{Model}), a warstwą prezentacji danych (\emph{View}). W swoim działaniu posługuje się wzorcem Strategii\footnote{ \emph{z ang. Strategy pattern}, wzorzec ma za zadanie dostarczyć do obiektu kontekstowego, innych obiektów potrafiących wykonać określony algorytm. \cite{ruby_patterns}}.
+      Odpowiada za obsługę żądań przychodzących od użytkownika, poprzez delegowanie zadań. Jest pośrednikiem pomiędzy logiką biznesową (\emph{Model}), a warstwą prezentacji danych (\emph{View}). W swoim działaniu posługuje się wzorcem Strategii\footnote{ \emph{z ang. Strategy pattern}, wzorzec ma za zadanie dostarczyć do obiektu kontekstowego, inne obiekty potrafiące wykonać określony algorytm. \cite{ruby_patterns}}.
     \end{itemize}
 
     Poniższy schemat przedstawia sposób komunikacji poszczególnych warstw modelu MVC:
@@ -27,8 +27,8 @@ Język Ruby w łatwy sposób pozwala na implementację wielu wzorców projektowy
     \end{figure}
   \subsection{Iteraktor}
   \index{Interaktor}
-  Interaktor\cite{interactors}(\emph{Interactor}) inaczej nazywany Obiektem pomocniczym (\emph{Service Object}), jest wzorcem projektowym którego celem jest wykonanie pewnych zadań, które zostają mu oddelegowane z warstwy kontrolera w modelu MVC. Taki mechanizm upraszcza strukturę kodu i ułatwia stosowanie się do zasad: Prosty Kontroler i Model (\emph{Skiny Controllers and Models}), \index{SOLID}SOLID.
-  Interactor stanowi więc kolejną warstwę pośredniczącą pomiędzy przekazywaniem danych między kontrolerem, a modelem. Oprócz uzyskania większej przejrzystości, zarówno modelu jak i kontrolera, przeniesiona zostaje odpowiedzialność za walidację, a duży kontekst zostaje podzielony na małe iteracje. Testowanie aplikacji wykorzystujących wzorzec interactor jest stosunkowo szybsze i łatwiejsze. Każdy model testowany jest w izolacji\footnote{Testowany jest konkretny model, bez względu na jego relacje z innymi modelami.}.
+  Interaktor\cite{interactors}(\emph{Interactor}), inaczej nazywany Obiektem pomocniczym (\emph{Service Object}), jest wzorcem projektowym którego celem jest wykonanie pewnych zadań, które zostają mu oddelegowane z warstwy kontrolera w modelu MVC. Taki mechanizm upraszcza strukturę kodu i ułatwia stosowanie się do zasad: Prosty Kontroler i Model (\emph{Skiny Controllers and Models}), \index{SOLID}SOLID.
+  Interactor stanowi więc kolejną warstwę pośredniczącą pomiędzy przekazywaniem danych między kontrolerem a modelem. Oprócz uzyskania większej przejrzystości zarówno modelu jak i kontrolera, przeniesiona zostaje odpowiedzialność za walidację, a duży kontekst zostaje podzielony na małe iteracje. Testowanie aplikacji wykorzystujących wzorzec Interaktor jest stosunkowo szybsze i łatwiejsze. Każdy model testowany jest w izolacji\footnote{Testowany jest konkretny model, bez względu na jego relacje z innymi modelami.}.
 
   Poniżej przedstawiliśmy fragment zastosowania wzorca Interactor, który odpowiada za rejestrację użytkowników do newslettera:\\
   \input{source_codes/interactor}

@@ -27,7 +27,7 @@ Najważniejsze kody stanu:
   Stworzona przez nas aplikacja posiada API umożliwiające komunikację z innymi witrynami internetowymi lub urządzeniami mobilnymi. Celem implementacji takiego interfejsu było umożliwienie pobrania informacji o wydarzeniach z danej lokalizacji przez inne strony www czy aplikacje na telefony komórkowe.
 
 
-  Poniżej zamieściliśmy przykład w jaki sposób odbywa się komunikacja ze stworzonym API. Został on wykonywany w środowisku developerskim ze względu na wykorzystywanie danych wrażliwych, jakimi w tym wypadku jest token\footnote{kod autoryzujący, składający się z unikalnego ciągu cyfr} potrzebny do autoryzacji. Rządnie zostało wygenerowane przy użyciu biblioteki cURL\footnote{biblioteka napisana w języku C umożliwiająca wysyłanie zapytań do serwera}.
+  Poniżej zamieściliśmy przykład w jaki sposób odbywa się komunikacja ze stworzonym API. Został on wykonywany w środowisku developerskim ze względu na wykorzystywanie danych wrażliwych, jakimi w tym wypadku jest token\footnote{kod autoryzujący, składający się z unikalnego ciągu cyfr} potrzebny do autoryzacji. Rządanie zostało wygenerowane przy użyciu biblioteki cURL\footnote{biblioteka napisana w języku C umożliwiająca wysyłanie zapytań do serwera}.
   \\ \\
   Przykładowe żądanie dla wydarzeń z miasta Gliwice:\\
     \texttt{curl -H "Authorization: Token token=bb466055fa36aaf46a7ae43c33d3980c"
@@ -38,19 +38,19 @@ Najważniejsze kody stanu:
     "time":"2000-01-01T10:00:00.000Z,"address":"Akademicka 5, Gliwice, Polska",\\
     "agenda":","end\_{}date":"2014-12-06""\}]}\\
 
-  Jak widać w powyższym przykładzie aby zadbać o bezpieczeństwo komunikacji z API, została wprowadzona autoryzacja żądań na podstawie wygenerowanego wcześniej tokenu. Szerzej to zagadnienie zostało opisane w rozdziale bezpieczeństwo.\\
+  Jak widać w powyższym przykładzie, aby zadbać o bezpieczeństwo komunikacji z API, została wprowadzona autoryzacja żądań na podstawie wygenerowanego wcześniej tokenu. Szerzej to zagadnienie zostało opisane w rozdziale bezpieczeństwo.\\
   W wysłanym żądaniu został ustawiony specjalny nagłówek:
   \begin{center}
     \texttt{"Accent: application/json"},
   \end{center}
-  którego ustawienie jest wymagane przez API. Żądnie musi zdefiniować poprawny format przesyłu danych jaki jest skonfigurowany po stronie serwera.
+  którego ustawienie jest wymagane przez API. Żądanie musi zdefiniować poprawny format przesyłu danych jaki jest skonfigurowany po stronie serwera.
   Aplikacja zwraca dane w postaci formatu JSON\footnote{JSON (JavaScript Object Notation), ustandaryzowany format tekstowy, służący głównie do wymiany danych\cite{json}}, który został wybrany ze względu na popularność, czytelność i łatwość obsługi.\\
   Poniżej przedstawiliśmy kontroler zajmujący się obsługą przychodzących zapytań o wydarzenia z danej lokalizacji:\\
 
   \input{source_codes/api}
 
 \subsection{Implementacja i zastosowanie Facebook API}
-Popularnym trendem wśród aplikacji internetowych stało się posiadanie funkcjonalności umożliwiającej logowanie poprzez portale społecznościowe. Dla tego też, wychodząc naprzeciw przyszłym użytkownikom, zaimplementowaliśmy możliwość logowania się do naszej aplikacji poprzez jeden z najpopularniejszych portali jakim jest Facebook.
+Popularnym trendem wśród aplikacji internetowych stało się posiadanie funkcjonalności umożliwiającej logowanie poprzez portale społecznościowe. Dlatego też, wychodząc naprzeciw przyszłym użytkownikom, zaimplementowaliśmy możliwość logowania się do naszej aplikacji poprzez jeden z najpopularniejszych portali jakim jest Facebook.
 
 Portal ten posiada, wraz z całą dokumentacją\footnote{\url{https://developers.facebook.com/docs/facebook-login/v2.2?locale=pl\_PL}}, specjalnie przygotowane API. Aby uzyskać do niego dostęp należy zalogować się na stronie \url{https://developers.facebook.com}, a następnie uzupełnić dane dotyczące aplikacji, w której zostanie zaimplementowane. \\
 
@@ -69,7 +69,7 @@ Dla skonfigurowanego profilu Facebook przydzielić:
   \item API SECRET - klucz autoryzujący
 \end{itemize}
 
-Dane te będą wykorzystywane podczas autentykacji zapytań do portalu. Facebook udostępnia nam dwa tryby pracy: testowy i produkcyjny. Do implementacji logowania wykorzystaliśmy \textbf{gem "omniauth-facebook"}, który wspiera wykorzystywany w tym celu protokół \textbf{OAuth}\footnote{OAuth jest otwartym protokołem, wykorzystywanym w aplikacjamch internetowych, mobilnych i stacjonarnych, umożliwiającym bezpieczną i ustandaryzowaną autoryzację. \cite{oauth}} w  wersji 2.0.
+Dane te będą wykorzystywane podczas autentykacji zapytań do portalu. Facebook udostępnia nam dwa tryby pracy: testowy i produkcyjny. Do implementacji logowania wykorzystaliśmy \textbf{gem "omniauth-facebook"}, który wspiera wykorzystywany w tym celu protokół \textbf{OAuth}\footnote{OAuth jest otwartym protokołem, wykorzystywanym w aplikacjach internetowych, mobilnych i stacjonarnych, umożliwiającym bezpieczną i ustandaryzowaną autoryzację. \cite{oauth}} w  wersji 2.0.
 \\
 
 W momencie, kiedy użytkownik wybierze opcję logowania przez portal społecznościowy, zostanie wysłane żądanie do portalu o zalogowanie i udostępnienie danych profilowych aplikacji. Jeżeli użytkownik posiada konto na profilu Facebook i zezwoli na udostępnienie swoich danych, zalogowanie nastąpi zarówno po stronie aplikacji jak i Facebooka. Jego dane zostaną przesłane w postaci specjalnego hash'a\footnote{Rodzaj tabeli, gdzie każdy wpis składa się z klucza oraz przypisanej do niego wartości.} dostępnego z poziomu zmiennej \texttt{request.env['omniauth.auth']}.
@@ -80,7 +80,7 @@ Przykładowe dane dla fikcyjnego użytkownika, zwracane przez Facebook:\\
 \input{source_codes/oauth}
 
 \clearpage
-Autoryzacja użytkownika, czyli procesy związane z rejestracją i logowaniem, odbywają się z użyciem gemu \emph{Device}. Aby zaimplementować opcję logowanie za pośrednictwem portali społecznościowych należy w specjalnym pliku konfiguracyjnym: config/initializers/devise.rb, podać dane autoryzacyjne: API ID i API SECRET.\\
+Autoryzacja użytkownika, czyli procesy związane z rejestracją i logowaniem, odbywają się z użyciem gemu \emph{Devise}. Aby zaimplementować opcję logowanie za pośrednictwem portali społecznościowych należy w specjalnym pliku konfiguracyjnym: config/initializers/devise.rb, podać dane autoryzacyjne: API ID i API SECRET.\\
 
 \input{source_codes/omniauth} \\
 

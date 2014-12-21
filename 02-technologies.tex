@@ -4,7 +4,7 @@
   \index{Ruby}
   Ruby\footnote{dokumentacja online: \url{http://rubyonrails.org}, \cite{ruby_lang}} jest w pełni obiektowym, wysokopoziomowym językiem programowania. Jego twórca, Yukihiro “Matz” Matsumoto, chciał stworzyć język jeszcze bardziej obiektowy niż Python, dlatego każdy fragment informacji może uzyskać swoje właściwości i metody.
 
-  Po za obiektowością, Ruby cechuje się też prostą składnia, ułożona w sposób umożliwiający pisanie samo komentującego się i czytelnego kodu. Programiści piszący w tym języku, kierują się dwoma ważnymi zasadami: \index{DRY}DRY\footnote{Don't repeat yourself\cite{programming_ruby}} oraz \index{KISS}KISS\footnote{Keep it simple, stupid\cite{programming_ruby}}, które mają za zadanie zmusić do wykorzystywania już wcześniej napisanego kodu jak i pisania go w sposób najmożliwiej prosty. Ponadto, jest to język niezwykle elastyczny, ponieważ pozwala użytkownikom dowolnie modyfikować jego składowe. Programista może nadpisać jakiś moduł i dostosować go do swoich potrzeb.
+  Po za obiektowością, Ruby cechuje się też prostą składnią, ułożoną w sposób umożliwiający pisanie samo komentującego się i czytelnego kodu. Programiści piszący w tym języku, kierują się dwoma ważnymi zasadami: \index{DRY}DRY\footnote{Don't repeat yourself\cite{programming_ruby}} oraz \index{KISS}KISS\footnote{Keep it simple, stupid\cite{programming_ruby}}, które mają za zadanie zmusić do wykorzystywania już wcześniej napisanego kodu jak i pisania go w sposób najmożliwiej prosty. Ponadto, jest to język niezwykle elastyczny, ponieważ pozwala użytkownikom dowolnie modyfikować jego składowe. Programista może nadpisać jakiś moduł i dostosować go do swoich potrzeb.
 
   Ruby powstał w 1995 roku, lecz dopiero w 2005 roku zyskał na popularności za sprawą frameworka Ruby on Rails, który został w nim napisany. Dzisiaj osoby piszące w Ruby to jedni z najlepiej zarabiających programistów w USA\footnote{\url{http://www.pb.pl/3945225,84037,te-jezyki-programowania-daja-najlepiej-zarobic-w-usa}}.
 
@@ -19,7 +19,7 @@
     Potężne aplikacje, których tworzenie do tej pory zabierało tygodnie czy miesiące, są teraz tworzone dosłownie w kilka dni."}
   \end{quote}
 
-  Ruby on Rails panuje zasada ,,konwencja ponad konfiguracją" (\emph{Convention over configuration}), co znaczy, że nie trzeba się przejmować skomplikowanymi plikami konfiguracyjnymi, tylko wystarczy postępować według przyjętych przez twórców schematów. Railsy mają wbudowany serwer lokalny, co pozwala na szybkie testowanie aplikacji, bez zbędnego i czasochłonnego umieszczania kodu na zewnętrznej maszynie. Dużym plusem jest również możliwość uruchomienia aplikacji w różnym środowisku, do wyboru mamy:
+  W Ruby on Rails panuje zasada ,,konwencja ponad konfiguracją" (\emph{Convention over configuration}), co znaczy, że nie trzeba się przejmować skomplikowanymi plikami konfiguracyjnymi, tylko wystarczy postępować według przyjętych przez twórców schematów. Railsy mają wbudowany serwer lokalny, co pozwala na szybkie testowanie aplikacji, bez zbędnego i czasochłonnego umieszczania kodu na zewnętrznej maszynie. Dużym plusem jest również możliwość uruchomienia aplikacji w różnym środowisku, do wyboru mamy:
   \begin{itemize}
     \item developerskie - domyślne środowisko, w którym programista pisze aplikację,
     \item testowe - wykorzystywane do testowania aplikacji,
@@ -29,8 +29,8 @@
 
   \subsection{Git}
   \index{Git} \label{sec:GIT}
-  To rozproszony system kontroli wersji, bardzo pomocny w projektach, przy których pracuje kilka osób. Dzięki niemu widać wszystkie zmiany wcześniej wprowadzane i w łatwy sposób można wrócić do wcześniejszych wersji. Użytkownik posługuję się tzw. commitami. Jest to nic innego jak zatwierdzenie zmian w plikach. Podobnym narzędziem do Gita jest SVN. Różnica m.in. polega na tym, że Git kopiuje całe repozytorium na komputer, programista zatwierdza zmiany lokalnie i dopiero na koniec wrzuca je na serwer. W przypadku SVN całość trzymana jest na serwerze.
-  Dzięki takiemu rozwiązaniu nie musimy być bez przerwy podłączeni do sieci. Możemy zatwierdzać nasze zmiany będąc w autobusie czy tramwaju i wrzucić je na serwer w momencie podłączenia do internetu
+  To rozproszony system kontroli wersji, bardzo pomocny w projektach, przy których pracuje kilka osób. Dzięki niemu widać wszystkie  wcześniej wprowadzane zmiany i w łatwy sposób można wrócić do wcześniejszych wersji. Użytkownik posługuje się tzw. commitami. Jest to nic innego jak zatwierdzenie zmian w plikach. Podobnym narzędziem do Gita jest SVN. Różnica m.in. polega na tym, że Git kopiuje całe repozytorium na komputer, programista zatwierdza zmiany lokalnie i dopiero na koniec wrzuca je na serwer. W przypadku SVN całość trzymana jest na serwerze.
+  Dzięki takiemu rozwiązaniu nie musimy być bez przerwy podłączeni do sieci. Możemy zatwierdzać nasze zmiany będąc w autobusie czy tramwaju i wrzucić je na serwer w momencie podłączenia do internetu.
   Różnice między tymi dwoma technologiami pokazuje poniższy obrazek.
 
   \begin{figure}
@@ -64,30 +64,41 @@
     Proces testowania jest bardzo ważnym aspektem, przy projektowaniu i tworzeniu oprogramowania. Dzięki Ruby i Ruby on Rails oraz odpowiednim narzędziom jesteśmy w stanie przetestować każdą warstwę aplikacji.
 
     \begin{itemize}
-      \item \emph{Cucumber}\footnote{\cite{cucumber}, \cite{testing_tuesday} } \\ Wykorzystywany jest do pisania testów funkcjonalnych(\emph{feature tests})\footnote{Szerzej o testach w rozdziale \ref{testy}.}. Tworzony jest krótki scenariusz, w którym krok po kroku sprawdza się czy aplikacja zachowuje się w sposób jaki oczekuje klient.\index{Cucumber}
-      \item \emph{RSpec} \\ Narzędzie, w którym piszemy testy jednostkowe \footnote{\cite{rspec}, szerzej o testach w rozdziale \ref{testy}}. Pozwala testować nie tylko całą logikę znajdującą się w modelach, relacje między nimi, ale również kontrolery, routy\footnote{RESTowe ścieżki w aplikacji \cite{head_first}}, helpery\footnote{Metody, które pomagają w wyświetlaniu pewnych danych na widoku \cite{rspec},\cite{rails_guide}} oraz wszystkie dodatkowe klasy. \index{RSpec}
+      \item \emph{Cucumber}\footnote{\cite{cucumber}, \cite{testing_tuesday} } \\ 
+      Wykorzystywany jest do pisania testów funkcjonalnych(\emph{feature tests})\footnote{Szerzej o testach w rozdziale \ref{testy}.}. Tworzony jest krótki scenariusz, w którym krok po kroku sprawdza się czy aplikacja zachowuje się w sposób w jaki oczekuje klient.\index{Cucumber}
+      \item \emph{RSpec} \\ 
+      Narzędzie, w którym piszemy testy jednostkowe\footnote{\cite{rspec}, szerzej o testach w rozdziale \ref{testy}}. Pozwala testować nie tylko całą logikę znajdującą się w modelach, relacje między nimi, ale również kontrolery, routy\footnote{RESTowe ścieżki w aplikacji \cite{head_first}}, helpery\footnote{Metody, które pomagają w wyświetlaniu pewnych danych na widoku \cite{rspec},\cite{rails_guide}} oraz wszystkie dodatkowe klasy. \index{RSpec}
     \end{itemize}
 
   \subsection{Biblioteki JavaScript}
     W aplikacji internetowej JavaScript\cite{java_script} jest nieodłączną częścią, bez której ciężko byłoby wykonać pewne rzeczy. Szczególnie pomaga w ,,upiększaniu" interfejsu aplikacji ale również w komunikacji między przeglądarką a serwerem, jak i wyświetlaniu dodatkowych informacji, na przykład takich jak mapy Google'a.
 
     \begin{itemize}
-      \item \emph{jQuery} \\ Biblioteka JavaScript ułatwiająca manipulację drzewem DOM\footnote{Document Object Model - reprezentacja złożonych dokumentów HTML. \cite{html5_css3}}. Umożliwia tworzenie animacji, wspomaga zarządzanie asynchronicznymi zapytaniami do serwera. Dzięki jej implementacji możliwe jest korzystanie z wielu stworzonych już pluginów.
-      \item \emph{Bootstrap Datepicker} \\ Oparta o Bootstrap biblioteka, wyświetlająca na stronie ładny i intuicyjny kalendarz.
-      \item \emph{Load Image} \\ Prosta biblioteka umożliwiająca użytkownikowi ładowanie obrazka bezpośrednio na stronie.
-      \item \emph{Modernizr} \\ Przydatna biblioteka, informująca nas, czy dana przeglądarka, obsługuje poszczególne moduły standardu HTML, np. video, canvas czy geolokalizację.
+      \item \emph{jQuery} \\ \
+      Biblioteka JavaScript ułatwiająca manipulację drzewem DOM\footnote{Document Object Model - reprezentacja złożonych dokumentów HTML. \cite{html5_css3}}. Umożliwia tworzenie animacji, wspomaga zarządzanie asynchronicznymi zapytaniami do serwera. Dzięki jej implementacji możliwe jest korzystanie z wielu stworzonych już wtyczek.
+      \item \emph{Bootstrap Datepicker} \\ 
+      Oparta o Bootstrap biblioteka, wyświetlająca na stronie ładny i intuicyjny kalendarz.
+      \item \emph{Load Image} \\ 
+      Prosta biblioteka umożliwiająca użytkownikowi ładowanie obrazka bezpośrednio na stronie.
+      \item \emph{Modernizr} \\ 
+      Przydatna biblioteka, informująca nas, czy dana przeglądarka, obsługuje poszczególne moduły standardu HTML, np. video, canvas czy geolokalizację.
     \end{itemize}
   \subsection{Pozostałe technologie}
     \label{other_technology}
     Poniżej zostały opisane dodatkowe technologie, wykorzystane w aplikacji.
     \begin{itemize}
-      \item \emph{Twitter Bootstrap} \\ Framework CSS\footnote{\url{http://getbootstrap.com/}, \cite{bootstrap}}, rozwijany przez firmę Twitter. Udostępnia gotowe klasy CSS i rozwiązania JavaScript, dzięki czemu pisanie responsywnych layoutów na urządzenia mobilne i nie tylko, jest znacznie szybsze i mniej bolesne.
-      \item \emph{CoffeScript} \\ Język programowania kompilowany do JavaScipt\cite{coffee}. Zawiera tzw. lukier składniowy\emph{(syntactic sugar)}, umożliwiający pisanie bardziej czytelnego i przyjaznego kodu. Kod napisany w Coffee jest enkapsulowany\footnote{Funkcje umieszczone w różnych plikach nie mają do siebie dostępu.}. CoffeeScript jest domyślnym językiem kompilującym do czystego JavaScript'u, wykorzystywanym w Railsach.
-      \item \emph{SASS} \\ Syntactically Awesome Stylesheets\cite{sass} - preprocesor CSS. Dzięki niemu, w trakcie pisania arkuszy stylów, możemy korzystać m.in. ze zmiennych, funkcji czy partiali\footnote{Plik, który można załączyć w innym pliku wykorzystując go wielokrotnie.}. Całość jest kompilowana do czystego CSS.
+      \item \emph{Twitter Bootstrap} \\ 
+      Framework CSS\footnote{\url{http://getbootstrap.com/}, \cite{bootstrap}}, rozwijany przez firmę Twitter. Udostępnia gotowe klasy CSS i rozwiązania JavaScript, dzięki czemu pisanie responsywnych layoutów na urządzenia mobilne i nie tylko, jest znacznie szybsze i mniej bolesne.
+      \item \emph{CoffeScript} \\ 
+      Język programowania kompilowany do JavaScipt\cite{coffee}. Zawiera tzw. lukier składniowy\emph{(syntactic sugar)}, umożliwiający pisanie bardziej czytelnego i przyjaznego kodu. Kod napisany w Coffee jest enkapsulowany\footnote{Funkcje umieszczone w różnych plikach nie mają do siebie dostępu.}. CoffeeScript jest domyślnym językiem kompilującym do czystego JavaScript'u, wykorzystywanym w Railsach.
+      \item \emph{SASS} \\ 
+      Syntactically Awesome Stylesheets\cite{sass} - preprocesor CSS. Dzięki niemu, w trakcie pisania arkuszy stylów, możemy korzystać m.in. ze zmiennych, funkcji czy partiali\footnote{Plik, który można załączyć w innym pliku wykorzystując go wielokrotnie.}. Całość jest kompilowana do czystego CSS.
     \end{itemize}
   \subsection{Narzędzia pomocnicze}
     Podczas pisania aplikacji używaliśmy, min. takich narzędzi jak:
     \begin{itemize}
-      \item \emph{Sublime Text 3} \\ Jeden z najpopularniejszych edytorów tekstu. Jest napisanych do niego mnóstwo wtyczek do wspomagania pracy programisty. Wtyczki kolorujące składnie, wyświetlające kolor zapisany w systemie szesnastkowym, dodające skróty klawiszowe, czy tzw. snippety, czyli większe fragmenty kodu, które są wstawiane w miejsce kursora po wpisaniu słowa kluczowego i wciśnięciu klawisza tabulatora. Dzięki temu programista oszczędza sporo czasu, bo nie musi pisać wielokrotnie tego samego.
-      \item \emph{Narzędzia developerskie Google Chrome} \\ Funkcjonalność przeglądarki Google Chrome. Dzięki tym narzędziom jesteśmy w stanie dokładnie zbadać DOM, sprawdzić czy przypadkiem nie mamy gdzieś wycieku pamięci w skrypcie JavaScript, czy przetestowanie właściwości CSS danego obiektu na znajdującego się na stronie. Mozilla Firefox również posiada takie narzędzie, lecz jest ono dużo mniej intuicyjne i nie jest tak rozbudowane jak to w Chromie.
+      \item \emph{Sublime Text 3} \\ 
+      Jeden z najpopularniejszych edytorów tekstu. Jest napisanych do niego mnóstwo wtyczek wspomagającyh pracę programisty. Wtyczki kolorujące składnie, wyświetlające kolor zapisany w systemie szesnastkowym, dodające skróty klawiszowe, czy tzw. snippety, czyli większe fragmenty kodu, które są wstawiane w miejsce kursora po wpisaniu słowa kluczowego i wciśnięciu klawisza tabulatora. Dzięki temu programista oszczędza sporo czasu, bo nie musi pisać wielokrotnie tego samego.
+      \item \emph{Narzędzia developerskie Google Chrome} \\ 
+      Funkcjonalność przeglądarki Google Chrome. Dzięki tym narzędziom jesteśmy w stanie dokładnie zbadać DOM, sprawdzić czy przypadkiem nie mamy gdzieś wycieku pamięci w skrypcie JavaScript, czy przetestować właściwości CSS danego obiektu znajdującego się na stronie. Mozilla Firefox również posiada takie narzędzie, lecz jest ono dużo mniej intuicyjne i nie jest tak rozbudowane jak to w Chromie.
     \end{itemize}
