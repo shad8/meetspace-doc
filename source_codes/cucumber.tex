@@ -5,19 +5,17 @@ Pierwszym krokiem jest opisanie w kilku słowach funkcjonalności.
 
 Następnie tworzymy scenariusz, w którym krok po kroku będziemy wykonywać czynności aż otrzymamy efekt końcowy. W tym przypadku będzie to wyświetlenie nowo dodanego wydarzenia.
 
-Słowem kluczowym ,,Scenario'' nadajemy tytuł nowego scenariusza. Jest to o~ tyle pomocne, że w momencie uruchomienia testów, widać który scenariusz jest w tej chwili testowany.
+Słowem kluczowym \textbf{,,Scenario''} nadajemy tytuł nowego scenariusza. Jest to o~ tyle pomocne, że w momencie uruchomienia testów, widać który scenariusz jest w tej chwili testowany.
 
 \begin{code}
 	\lstinputlisting[linerange={10-10}, firstnumber=5]{../meetspace/features/events.feature}
 \end{code}\\
 
-Słowem ,,Given'' definiujemy stan początkowy aplikacji, czyli miejsce, w którym będziemy zaczynać wykonywanie konkretnych czynności. W tym przypadku jest to strona główna oraz proces logowania. Zalogowanie się do aplikacji jest istotnym elementem, ponieważ, bez tego nie będziemy w stanie dodać żadnego nowego wydarzenia.
+Słowem \textbf{,,Given''} definiujemy stan początkowy aplikacji, czyli miejsce, w którym będziemy zaczynać wykonywanie konkretnych czynności. W tym przypadku jest to strona główna oraz proces logowania. Zalogowanie się do aplikacji jest istotnym elementem, ponieważ, bez tego nie będziemy w stanie dodać żadnego nowego wydarzenia.
 
 \begin{code}
 	\lstinputlisting[linerange={7-8}, firstnumber=6]{../meetspace/features/events.feature}
 \end{code}\\
-
-\clearpage
 
 Następnie użytkownik aby utworzyć wydarzenie musi kliknąć przycisk ,,Utwórz wydarzenie'', oraz wypełnić formularz odpowiednimi danymi: nazwa, data, data zakończenia, czas rozpoczęcia, plan i logo.
 
@@ -25,7 +23,7 @@ Następnie użytkownik aby utworzyć wydarzenie musi kliknąć przycisk ,,Utwó
 	\lstinputlisting[linerange={11-17}, firstnumber=8]{../meetspace/features/events.feature}
 \end{code}\\
 
-Po słowie ,,Then'' definiujemy nasze oczekiwania. W tym przypadku chcemy zobaczyć nowo dodane wydarzenie wraz z jego wszystkimi właściwościami. Słowa ,,And'' używamy jeśli chcemy rozwinąć listę wykonywanych kroków lub listę oczekiwań.
+Po słowie \textbf{,,Then''} definiujemy nasze oczekiwania. W tym przypadku chcemy zobaczyć nowo dodane wydarzenie wraz z jego wszystkimi właściwościami. Słowa \textbf{,,And''} używamy jeśli chcemy rozwinąć listę wykonywanych kroków lub listę oczekiwań.
 
 \begin{code}
 	\lstinputlisting[linerange={19-24}, firstnumber=15]{../meetspace/features/events.feature}

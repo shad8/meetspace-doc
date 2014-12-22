@@ -14,7 +14,7 @@
     Poniżej krótko objaśniliśmy te techniki, z których korzystaliśmy.
     \index{TDD}
     \begin{itemize}
-      \item Test Driven Development\cite{tdd} \\
+      \item \textbf{Test Driven Development}\cite{tdd} \\
         Technika tworzenia oprogramowania, sterowana przez testy. Polega na powtarzaniu 3 kroków do momentu ukończenia funkcjonalności:
         \begin{enumerate}
           \item Napisanie możliwie najprostszego testu jednostkowego, który ma sprawdzać kod pisany w kroku 2. Test po napisaniu powinien zostać od razu uruchomiony. Nowy test musi dać wynik negatywny, gdyż dopiero będziemy dodawać testowaną funkcjonalność. Otrzymanie pozytywnego wyniku świadczy o obecności w aplikacji funkcjonalności - test jest niepotrzebny lub złym skonstruowaniu testu.
@@ -46,7 +46,7 @@
 
       \newpage
       \index{BDD}
-      \item Behaviour Driven Development \\
+      \item \textbf{Behaviour Driven Development} \\
         Technika stworzona przez Dana Northa w 2003 roku. Sam autor powiedział:
         \begin{quote}
           \emph{„Behaviour-driven Development polega na tworzeniu oprogramowania przez opisywanie jego zachowania, z perspektywy jego udziałowców.”}
@@ -57,12 +57,12 @@
         Oczekiwania klienta są zapisywane w postaci krótkich historyjek, scenariuszy.
         Podczas ich tworzenia korzysta się z trzech głównych słów kluczowych:
           \begin{itemize}
-            \item Podane (\emph{Given}) - opisuje stan początkowy aplikacji.
-            \item Kiedy (\emph{When}) - wszystkie kroki jakie klient/użytkownik musi wykonać aby osiągnąć funkcjonalność.
-            \item Wtedy (\emph{Then}) - stan końcowy aplikacji, czyli oczekiwany efekt po przejściu przez wcześniejsze kroki.
+            \item \textbf{Podane (\emph{Given})} - opisuje stan początkowy aplikacji.
+            \item \textbf{Kiedy (\emph{When})} - wszystkie kroki jakie klient/użytkownik musi wykonać aby osiągnąć funkcjonalność.
+            \item \textbf{Wtedy (\emph{Then})} - stan końcowy aplikacji, czyli oczekiwany efekt po przejściu przez wcześniejsze kroki.
           \end{itemize}
 
-        \emph{Test driven development} to testowanie na poziomie kodu, \emph{behaviour driven development} to testowanie na poziomie aplikacji. Dlatego jeśli korzysta się z~ obu technik, zaczyna się od BDD, schodząc coraz ,,niżej'', aż do TDD. Wtedy mamy pewność, że konkretna funkcjonalność jest należycie przetestowana i~ spełnia oczekiwania oraz wymogi klienta.
+        \emph{Test driven development} to testowanie na poziomie kodu, które stanowią część BDD. Stosując również ten element mamy pewność, że konkretna funkcjonalność jest należycie przetestowana i~ spełnia oczekiwania oraz wymogi klienta.
     \end{itemize}
 
   \subsection{Testy integracyjne}
@@ -95,3 +95,4 @@
       \caption{Diagram pokrycia kodu testami [12.10-17.12]}
       \label{fig:graph}
     \end{figure}
+  \clearpage

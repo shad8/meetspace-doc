@@ -5,7 +5,7 @@ Wzorce projektowe zostały stworzone po to, aby uschematyzować proces rozwiązy
 Budowa języka Ruby oraz framework Ruby on Rails zachęca programistów do korzystania ze znanych wzorców projektowych. Dzięki wykorzystaniu tych technologii mamy możliwość korzystania z zaimplementowanych wzorców w samym szkielecie aplikacji.
   \subsection{MVC}
   \index{MVC}
-   Model-Widok-Kontroler(\emph{Model-View-Controller}), wzorzec projektowy określający schemat całej aplikacji. Jest on domyślnie wbudowany w Ruby on Rails. Jego zadaniem jest podział struktury aplikacji na: logikę, opis interfejsu i komunikację połączoną z zarządzaniem.
+   \textbf{Model-Widok-Kontroler}(\emph{Model-View-Controller}), wzorzec projektowy określający schemat całej aplikacji. Jest on domyślnie wbudowany w Ruby on Rails. Jego zadaniem jest podział struktury aplikacji na: logikę, opis interfejsu i komunikację połączoną z zarządzaniem.
    MVC zbudowany jest z pomniejszych wzorców projektowych.
     \begin{itemize}
       \item \textbf {Model} \\
@@ -29,7 +29,7 @@ Budowa języka Ruby oraz framework Ruby on Rails zachęca programistów do korzy
   \clearpage
   \subsection{Iteraktor}
   \index{Interaktor}
-  Interaktor\cite{interactors}(\emph{Interactor}), inaczej nazywany Obiektem pomocniczym (\emph{Service Object}).
+  \textbf{Interaktor}\cite{interactors}(\emph{Interactor}), inaczej nazywany Obiektem pomocniczym (\emph{Service Object}).
   Jest wzorcem projektowym, który ma za cel wykonanie określonych zadań wydelegowanych z warstwy kontrolera w modelu MVC. Taki mechanizm upraszcza strukturę kodu i ułatwia stosowanie się do zasad: Prosty Kontroler i Model (\emph{Skiny Controllers and Models}), \index{SOLID}SOLID.
   Interactor stanowi warstwę pośredniczącą pomiędzy przekazywaniem danych między kontrolerem a modelem.
   Dzięki temu uzyskuje się większą przejrzystość zarówno modelu jak i kontrolera. Przeniesiona zostaje odpowiedzialność za walidację. Testowanie aplikacji jest stosunkowo szybkie i łatwe. Każde zadanie wykonywane przez Interaktor testowane jest w izolacji\footnote{Testowany jest konkretny obiekt, bez względu na jego relacje z innymi obiektami.}.

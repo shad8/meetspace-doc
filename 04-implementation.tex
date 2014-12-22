@@ -1,15 +1,15 @@
 \section{Realizacja projektu}
-Realizacja projektu Meetspace została podzielona na kilka etapów. Pierwszym z nich była analiza konkurencyjnych aplikacji. Kolejne kroki polegały na przygotowaniu środowiska, zarejestrowaniu domeny i zaprojektowaniu modelu aplikacji. Następnie rozpoczęły się prace nad poszczególnymi funkcjonalnościami, których etapy powstawania zostały udokumentowane w pliku \begin{tt}CHANGELOG.md\end{tt}
+Realizacja projektu Meetspace została podzielona na kilka etapów. Pierwszym z nich była analiza konkurencyjnych aplikacji. Kolejne kroki polegały na przygotowaniu środowiska, zarejestrowaniu domeny i zaprojektowaniu modelu aplikacji. Następnie rozpoczęły się prace nad poszczególnymi funkcjonalnościami, których etapy powstawania zostały udokumentowane w pliku \texttt{CHANGELOG.md}
 
 W kolejnych podrozdziałach zostały opisane wybrane funkcjonalności z zakresu działania aplikacji po stronie serwera, przeglądarki internetowej, a także bezpieczeństwa.
   \clearpage
   \subsection{Model bazy danych}
     Do przechowywania danych w aplikacji została wybrana baza MySQL, która zawiera cztery tabele:
     \begin{itemizeReduced}
-      \item User - informacje o użytkowniku aplikacji
-      \item Event - informacje związane z wydarzeniem
-      \item Authentication - informacje pobrane z Facebook API
-      \item Subscriber - lista osób zapisanych do newslettera
+      \item \textbf{User} - informacje o użytkowniku aplikacji
+      \item \textbf{Event} - informacje związane z wydarzeniem
+      \item \textbf{Authentication} - informacje pobrane z Facebook API
+      \item \textbf{Subscriber} - lista osób zapisanych do newslettera
     \end{itemizeReduced}
 
     \begin{figure}[h]
@@ -28,20 +28,20 @@ W kolejnych podrozdziałach zostały opisane wybrane funkcjonalności z zakresu 
         Style CSS \emph{(Cascade Stylesheets)} stanowią o całej szacie graficznej aplikacji. Określają kolory, rozmiar czcionek, wielkości poszczególnych elementów czy nawet proste animacje. Bez nich strona wyglądałaby mniej atrakcyjnie.
         \index{Flexbox}
         \begin{itemize}
-          \item Flexbox\\
+          \item \textbf{Flexbox}\\
             To nowe rozwiązanie pozwalające uzyskać płynny layout\footnote{Dopasowyjący się do rozmiaru okna wygląd strony.}. Pomaga również wyśrodkować w pionie jeden element HTML względem drugiego. Dotychczas twórcy witryn internetowych musieli stosować różnego rodzaju sztuczki, żeby to osiągnąć. Na dzień dzisiejszy\footnote{Dane z dnia 14.12.2014} flexbox jest wspierany przez min. takie przeglądarki jak Chrome czy Firefox. Pełne zestawienie można znaleźć pod adresem: \url{http://caniuse.com/\#search=flexbox}. \\
             \input{source_codes/flexbox.tex}
 
-          \item Placeholder\\
+          \item \textbf{Placeholder}\\
             Placeholder to napis wyświetlany w ramce do wpisywania tekstu przez użytkownika. Służy do informowania o roli danego pola. Domyślnym kolorem czcionki jest szary ale nam zależało, żeby cały wygląd współgrał ze sobą. Dlatego chcieliśmy aby kolor obiekt paceholder był nieco jaśniejszy. Niestety nie da się tego osiągnąć nadając tagowi \emph{input} jakąś klasę i jej ustawiając kolor. Jedyny sposób to wykorzystanie predefiniowanego selektora, odpowiedzialnego za wygląd placeholder'a.
 
             \begin{code}
               \lstinputlisting[linerange={95-108}, firstnumber=1]{../meetspace/app/assets/stylesheets/layout.css.scss}
             \end{code}\\
 
-            Wartość \begin{tt}\$placeholder\end{tt} to zmienna Sass przechowująca kolor. Dzięki jej zastosowaniu, w przypadku gdybyśmy chcieli zmienić wartość koloru na inną, nie będziemy musieli tego robić w kilku miejscach, tylko w jednym.
+            Wartość \texttt{\$placeholder} to zmienna Sass przechowująca kolor. Dzięki jej zastosowaniu, w przypadku gdybyśmy chcieli zmienić wartość koloru na inną, nie będziemy musieli tego robić w kilku miejscach, tylko w jednym.
 
-          \item Zapytania medialne \emph{(Media Queries)}\\ \index{Media Queries}
+          \item \textbf{Zapytania medialne} \emph{(Media Queries)}\\ \index{Media Queries}
             W trakcie tworzenia witryny, która ma dopasowywać się do wielkości ekranu urządzenia, kluczową rolę odgrywają zapytania medialne. W trakcie ładowania pliku css, sprawdzają rozmiar i rodzaj ekranu, stosując odpowiednie do wielkości ekranu style. Dzięki temu można określić na przykład, aby dla urządzeń o szerokości ekranu większej niż 600 pikseli, tło strony było inne niż dla węższych ekranów.
             Poniżej zastosowane przez nas zapytania medialne dla urządzeń o maksymalnej szerokości 767 pikseli.
             \begin{code}
@@ -49,7 +49,7 @@ W kolejnych podrozdziałach zostały opisane wybrane funkcjonalności z zakresu 
             \end{code}
         \end{itemize}
       \subsubsection{JavaScript}
-      Do umieszczenia map na stronie, z zaznaczoną lokalizacją wydarzenia, wykorzystaliśmy Google Maps API.
+      Do umieszczenia map na stronie, z zaznaczoną lokalizacją wydarzenia, wykorzystaliśmy \textbf{Google Maps API}.
 
       \input{source_codes/google_api}
 
