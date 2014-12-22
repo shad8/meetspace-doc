@@ -1,7 +1,7 @@
 \section{Realizacja projektu}
-Realizacja projektu Meetspace została podzielona na kilka etapów. Pierwszymi z nich było przygotowanie środowiska, zarejestrowanie domeny i zaprojektowanie modelu aplikacji. Następnie rozpoczęły się prace nad poszczególnymi funkcjonalnościami aplikacji, których etapy powstawania zostały udokumentowane w pliku \emph{CHANGELOG.md}
+Realizacja projektu Meetspace została podzielona na kilka etapów. Pierwszym z nich była analiza konkurencyjnych aplikacji. Kolejne kroki polegały na przygotowaniu środowiska, zarejestrowaniu domeny i zaprojektowaniu modelu aplikacji. Następnie rozpoczęły się prace nad poszczególnymi funkcjonalnościami, których etapy powstawania zostały udokumentowane w pliku \begin{tt}CHANGELOG.md\end{tt}
 
-Poniżej zostały opisane wybrane funkcjonalności, działania i zagadnienia z zakresu back-endu\footnote{Działania aplikacji wykonywane po stronie serwera}, front-endu\footnote{Działania aplikacji wykonywane po stronie przeglądarki internetowej} i bezpieczeństwa aplikacji.
+W kolejnych podrozdziałach zostały opisane wybrane funkcjonalności z zakresu działania aplikacji po stronie serwera, przeglądarki internetowej, a także bezpieczeństwa.
   \clearpage
   \subsection{Model bazy danych}
     Do przechowywania danych w aplikacji została wybrana baza MySQL, która zawiera cztery tabele:
@@ -20,19 +20,19 @@ Poniżej zostały opisane wybrane funkcjonalności, działania i zagadnienia z z
 
     \input{source_codes/dbm}
 
-    \subsection{Przykładowe CSS i JS}
-      W aplikacji zostały użyte takie technologie jak SASS\footnote{Więcej informacji w rozdziale \ref{other_technology}} i CoffeScript\footnote{Więcej informacji w rozdziale \ref{other_technology}}, które ułatwiły pracę nad wyglądem strony oraz jej funkcjonalnością po stronie przeglądarki internetowej.\\
+    \subsection{Przykłady zastosowań css i JavaScript}
+      W aplikacji zostały użyte takie technologie jak SASS\footnote{Więcej informacji w rozdziale \ref{other_technology}} i CoffeScript\footnote{Więcej informacji w rozdziale \ref{other_technology}}. Ułatwiły one pracę nad wyglądem strony oraz jej funkcjonalnością po stronie przeglądarki internetowej.\\
 
       \subsubsection{CSS}
-        Style CSS \emph{(Cascade Stylesheets)} stanowią o całej szacie graficznej aplikacji. Od nich zależy jak wygląda strona. Określają kolory, rozmiar czcionek, wielkości poszczególnych elementów czy nawet proste animacje. Bez tego strona wyglądałaby nieatrakcyjnie i byłaby zupełnie nie użyteczna.
+        Style CSS \emph{(Cascade Stylesheets)} stanowią o całej szacie graficznej aplikacji. Określają kolory, rozmiar czcionek, wielkości poszczególnych elementów czy nawet proste animacje. Bez nich strona wyglądałaby mniej atrakcyjnie.
         \index{Flexbox}
         \begin{itemize}
           \item Flexbox\\
-            To nowe rozwiązanie pozwalające uzyskać płynny layout\footnote{Dopasowyjący się do rozmiaru okna wygląd strony.}. Pomaga również wyśrodkować w pionie jeden element HTML względem drugiego. Dotychczas twórcy witryn internetowych musieli stosować różnego rodzaju sztuczki, żeby to osiągnąć. Na dzień dzisiejszy\footnote{Dane z dnia 14.12.2014} flexbox jest wspierany przez większość czołowych przeglądarek\footnote{\url{http://caniuse.com/\#search=flexbox}}. \\
+            To nowe rozwiązanie pozwalające uzyskać płynny layout\footnote{Dopasowyjący się do rozmiaru okna wygląd strony.}. Pomaga również wyśrodkować w pionie jeden element HTML względem drugiego. Dotychczas twórcy witryn internetowych musieli stosować różnego rodzaju sztuczki, żeby to osiągnąć. Na dzień dzisiejszy\footnote{Dane z dnia 14.12.2014} flexbox jest wspierany przez min. takie przeglądarki jak Chrome czy Firefox. Pełne zestawienie można znaleźć pod adresem: \url{http://caniuse.com/\#search=flexbox}. \\
             \input{source_codes/flexbox.tex}
 
           \item Placeholder\\
-            Placeholder to napis wyświetlany w ramce do wpisywania tekstu przez użytkownika. Służy do informowania o roli danego pola. Domyślnym kolorem czcionki jest szary ale nam zależało, żeby cały wygląd współgrał ze sobą. Dlatego chcieliśmy aby kolor placeholder'a był nieco jaśniejszy. Niestety nie da się tego osiągnąć nadając tagowi \emph{input} jakąś klasę i jej ustawiając kolor. Jedyny sposób to wykorzystanie predefiniowanego selektora, odpowiedzialnego za wygląd placeholder'a.
+            Placeholder to napis wyświetlany w ramce do wpisywania tekstu przez użytkownika. Służy do informowania o roli danego pola. Domyślnym kolorem czcionki jest szary ale nam zależało, żeby cały wygląd współgrał ze sobą. Dlatego chcieliśmy aby kolor obiekt paceholder był nieco jaśniejszy. Niestety nie da się tego osiągnąć nadając tagowi \emph{input} jakąś klasę i jej ustawiając kolor. Jedyny sposób to wykorzystanie predefiniowanego selektora, odpowiedzialnego za wygląd placeholder'a.
 
             \begin{code}
               \lstinputlisting[linerange={95-108}, firstnumber=1]{../meetspace/app/assets/stylesheets/layout.css.scss}
@@ -41,19 +41,19 @@ Poniżej zostały opisane wybrane funkcjonalności, działania i zagadnienia z z
             Wartość \emph{\$placeholder} to zmienna Sass przechowująca kolor. Dzięki jej zastosowaniu, w przypadku gdybyśmy chcieli zmienić wartość koloru na inną, nie będziemy musieli tego robić w kilku miejscach, tylko w jednym.
 
           \item Zapytania medialne \emph{(Media Queries)}\\ \index{Media Queries}
-            W trakcie tworzenia witryny, która ma dopasowywać się do wielkości ekranu urządzenia, kluczową rolę odgrywają zapytania medialne. W trakcie ładowania pliku css, sprawdzają wielkość, rodzaj ekranu i stosują style zadeklarowane dla konkretnych rozdzielczości. Dzięki temu można określić na przykład, aby dla urządzeń o szerokości ekranu większej niż 600 pikseli, tło strony było inne niż dla węższych ekranów.
+            W trakcie tworzenia witryny, która ma dopasowywać się do wielkości ekranu urządzenia, kluczową rolę odgrywają zapytania medialne. W trakcie ładowania pliku css, sprawdzają rozmiar i rodzaj ekranu, stosując odpowiednie do wielkości ekranu style. Dzięki temu można określić na przykład, aby dla urządzeń o szerokości ekranu większej niż 600 pikseli, tło strony było inne niż dla węższych ekranów.
             Poniżej zastosowane przez nas zapytania medialne dla urządzeń o maksymalnej szerokości 767 pikseli.
             \begin{code}
               \lstinputlisting[linerange={3}]{../meetspace/app/assets/stylesheets/media_queries.css.scss}
             \end{code}
         \end{itemize}
-      \subsubsection{JS}
+      \subsubsection{JavaScript}
       Do umieszczenia map na stronie, z zaznaczoną lokalizacją wydarzenia, wykorzystaliśmy Google Maps API.
 
       \input{source_codes/google_api}
 
     \subsection{Bezpieczeństwo}
-    Aplikacje internetowe są w szczególności podatne na różnego rodzaju ataki sieciowe. Wykorzystany framework Ruby on Rails posiada domyślnie wbudowane zabezpieczenia. Poniżej przedstawiliśmy najważniejsze zagadnienia związane z bezpieczeństwem naszej aplikacji.
+    Aplikacje internetowe są narażone na różnego rodzaju ataki sieciowe. Wykorzystany framework Ruby on Rails posiada domyślnie wbudowane zabezpieczenia. Poniżej przedstawiliśmy najważniejsze zagadnienia związane z bezpieczeństwem naszej aplikacji.
       \begin{itemize}
         \item \textbf{XSS}\\ \index{XSS}
         Cross Site Scripting (XSS) jest to atak polegający na wykonaniu zewnętrznego kodu HTML lub JavaScript przesłanego, do strony z zewnątrz, za pomocą formularza lub żądania HTTP.
@@ -72,7 +72,7 @@ Poniżej zostały opisane wybrane funkcjonalności, działania i zagadnienia z z
     \begin{itemize}
       \index{MD5}
       \item Autoryzacja dostępu do API poprzez unikalny token użytkownika.\\
-      Aby użytkownik mógł skorzystać z zaimplementowanego API, musi podać 128 bitowy klucz autoryzujący przypisany do jego konta. Każdy klucz jest generowany przy pomocy algorytmu MD5, który dodatkowo zostaje przesolony\footnote{Do powstałego ciągu znaków zostają dodane losowe dane.}\emph{(salt)}. Co czyni go w pełni unikatowym i trudnym do złamania.
+      Aby użytkownik mógł skorzystać z zaimplementowanego API, musi podać 128 bitowy klucz autoryzujący przypisany do jego konta. Każdy klucz jest generowany przy pomocy algorytmu MD5, który dodatkowo zostaje przesolony\footnote{Do powstałego ciągu znaków zostają dodane losowe dane.}\emph{(salt)}. Co czyni go w pełni unikalnym.
 
       \item Walidacja wielkości i formatu loga wydarzenia.\\
       Zabezpieczenie to chroni aplikację, przed możliwością dodania plików zawierających wykonywalny kod lub formatów plików nie obsługiwanych przez aplikację. Walidacja wielkości przesyłanych plików zabezpiecza przed obciążeniem serwera.\index{ENV}
@@ -91,7 +91,7 @@ Poniżej zostały opisane wybrane funkcjonalności, działania i zagadnienia z z
 
     \clearpage
     \subsection{Przegląd widoków aplikacji}
-    Poniżej przedstawiamy zrzuty ekranów z działającej aplikacji na trzech urządzeniach o różnych wielkościach ekranów: komputer stacjonarny, tablet Samsung Galaxy Tab2 7', telefon komórkowy Samsung Galaxy S2 4,3'.
+    Poniżej przedstawiamy wygląd ekranów z działającej aplikacji na trzech urządzeniach o różnych wielkościach ekranów: komputer stacjonarny, tablet Samsung Galaxy Tab2 7', telefon komórkowy Samsung Galaxy S2 4,3'.
 
     \begin{figure}[h]
       \centering

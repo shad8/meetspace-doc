@@ -1,4 +1,4 @@
-Aby móc z niego korzystać, należy do kodu strony dołączyć odpowiedni skypt JS.
+Aby móc z niego korzystać, należy do kodu strony dołączyć odpowiedni skypt\footnote{Program wykonywalny wewnątrz aplikacji} JavaScript.
 \begin{code}
   \begin{lstlisting}[language=Ruby, basicstyle=\ttfamily\scriptsize, showstringspaces=false]
       <script src='https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places'>
@@ -11,7 +11,7 @@ a następnie w kodzie HTML utworzyć kontener przechowywujący mapę.
   \lstinputlisting[language=HTML, showstringspaces=false, linerange={46-48}, firstnumber=42]{../meetspace/app/views/events/show.html.erb}
 \end{code}\\
 
-Aby poprawnie ją wyświetlić potrzebujemy współrzędnych adresu miejsca, w~ którym będzie się odbywać spotkanie. Gem \emph{Geolocalizer}, na podstawie podanego przez użytkownika adresu, zwraca nam współrzędne, które musimy przekazać do skryptu.
+Aby poprawnie wyświetlić mapę potrzebujemy współrzędnych adresu miejsca, w którym będzie się odbywać spotkanie. Gem \emph{Geolocalizer}, na podstawie podanego przez użytkownika adresu, zwraca nam współrzędne, które musimy przekazać do skryptu.
 
 \begin{code}
   \lstinputlisting[showstringspaces=false, basicstyle=\ttfamily\scriptsize]{../meetspace/app/assets/javascripts/map.js.coffee}

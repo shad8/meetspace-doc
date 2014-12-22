@@ -1,5 +1,5 @@
 \section{Interfejsy komunikacji między aplikacjami}
-Do komunikacji pomiędzy różnego rodzaju aplikacjami stosuje się tzw. Interfejs programistyczny aplikacji (\emph{Application Programming Interface}) - API, realizowany najczęściej przy użyciu protokołu sieciowego HTTP (\emph{Hypertext Transfer Protocol}).
+Do komunikacji pomiędzy aplikacjami stosuje się tzw. Interfejs programistyczny aplikacji (\emph{Application Programming Interface}) - API, realizowany najczęściej przy użyciu protokołu sieciowego HTTP (\emph{Hypertext Transfer Protocol}).
 Komunikacja ,,software-to-software" odbywa się w następujący sposób:
 Aplikacja zwana klientem wysyła specjalne żądanie (\emph{request}) o dane w postaci adresu URL\footnote{\emph{Uniform Resource Locator} - adres zasobu w sieci} do innej aplikacji zwanej serwerem, która z kolei przesyła odpowiedź (\emph{response}) w~ określonym wcześniej formacie.
 
@@ -62,7 +62,7 @@ Portal ten posiada, wraz z całą dokumentacją\footnote{\url{https://developers
 
 \clearpage
 
-Dla skonfigurowanego profilu Facebook przydzielić:
+Na podstawie skonfigurowanego profilu otrzymujemy dostęp do Api poprzez:
 
 \begin{itemize}
   \item API ID - identyfikator aplikacji
@@ -84,4 +84,4 @@ Autoryzacja użytkownika, czyli procesy związane z rejestracją i logowaniem, o
 
 \input{source_codes/omniauth} \\
 
-Warto również wspomnieć o mechanizmie wylogowywania. Facebook stosuje politykę, która powoduje wylogowywanie użytkownika zarówno z aplikacji jak i konta Facebook. Budując aplikację, chcieliśmy aby była ona przyjazna dla użytkowników, przez co nie zastosowaliśmy się do tej zasady. Po wylogowaniu użytkownik jest nadal zalogowany na koncie Facebook. Możliwe, iż naruszamy tutaj bezpieczeństwo użytkownika, jednak wiele aplikacji internetowych stosuje takie samo rozwiązanie\footnote{dane z dnia 06.12.2014r.} np. stackoverflow.com, onet.pl czy stacksocial.com
+Warto również wspomnieć o mechanizmie wylogowywania. Facebook stosuje politykę, która powoduje wylogowywanie użytkownika zarówno z aplikacji jak i konta Facebook. Budując aplikację, chcieliśmy aby była ona przyjazna dla użytkowników, przez co nie zastosowaliśmy się do tej zasady. Po wylogowaniu użytkownik jest nadal zalogowany na koncie Facebook. Możliwe, iż naruszamy tutaj bezpieczeństwo użytkownika. Po przeprowadzonych przez nas testach, dochodzimy do wniosku, że wiele aplikacji internetowych stosuje takie samo rozwiązanie\footnote{dane z dnia 06.12.2014r.} np. stackoverflow.com, onet.pl czy stacksocial.com

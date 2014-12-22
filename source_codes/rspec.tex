@@ -35,9 +35,9 @@ W następnym przykładzie będziemy testować czy przy zadanych przez nas warunk
 	\lstinputlisting[linerange={51-63, 100-100}, firstnumber=1]{../meetspace/spec/models/event_spec.rb}
 \end{code}\\
 
-W pierwszym teście ustawiamy pole \emph{name} jako nil\footnote{Wartość pusta. Jak \emph{null} w JavaScript.} i oczekujemy, że obiekt nie zostanie poprawnie zwalidowany.
+W pierwszym teście ustawiamy pole \emph{name} jako nil\footnote{Wartość pusta. Jak \emph{null} w JavaScript.} i oczekujemy, że obiekt nie zostanie poprawnie utworzony.
 
-Drugi test sprawdza poprawną długość pola \emph{name}, które powinno wynosić nie więcej niż 50 znaków. Dlatego do zmiennej wstawiamy losowy tekst składający się z~ większej ilości.\\
+Drugi test sprawdza poprawną długość pola \emph{name}, które powinno wynosić nie więcej niż 50 znaków. Dlatego do zmiennej wstawiamy losowy tekst składający się z~ większej ilości znaków.\\
 
 Te dwa testy stanowią przykład, że można pisać testy, idąc tzw. ,,czerwoną ścieżką'', czyli oczekiwać, że coś się nie powiedzie.
 
