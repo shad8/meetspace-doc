@@ -38,7 +38,7 @@
           \item Zapewnienie minimalnej ilości kodu dla danej funkcjonalności.
         \end{itemize}
 
-        \begin{figure}
+        \begin{figure}[h]
           \centering
           \includegraphics[scale=0.47]{images/test_cycle.png}
           \caption{Schemat postępowania w TDD}
@@ -79,17 +79,19 @@
   \subsection{Pokrycie kodu testami}
     Dzięki zastosowaniu technologi Ruby on Rails, mieliśmy do dyspozycji wiele przydatnych narzędzi pozwalających sprawdzać jakość tworzonego kodu. Jednym z~ nich jest \emph{Stats}, który wykazuje pokrycie kodu testami.
 
-    Statystyka wyliczana jest na podstawie ilości lini kodu (LOC - lines of code) do ilości lini testów (LOT - lines of test). Oczekiwanym wynikiem powinien być stosunek 1:2, który udało nam się osiągnąć.
+    Statystyka wyliczana jest na podstawie ilości lini kodu (LOC - lines of code) do ilości lini testów (LOT - lines of test). Oczekiwanym wynikiem powinien być stosunek 1:2, który udało nam się osiągnąć, co przedstawia rysunek nr \ref{fig:stat}.
     \begin{figure}[h]
       \centering
       \includegraphics[scale=0.5]{images/loc_table.png}
       \caption{Statystyka pokrycia kodu testami}
+      \label{fig:stat}
     \end{figure}
 
-    Poniżej załączyliśmy diagram obrazujący pokrycie kodu testami w okresie od 10 paździenika do 17 grudnia. Zanotowany duży skok liczby lini kodu w stosunku do testów był spowodowany nadmiarowym umieszczeniem w projekcie biblioteki JavaScript, która nie powinna być wliczana w metrykę.
+    Poniżej załączyliśmy diagram (rysunek nr \ref{fig:graph}) obrazujący pokrycie kodu testami w okresie od 10 paździenika do 17 grudnia. Zanotowany duży skok liczby lini kodu w stosunku do testów był spowodowany nadmiarowym umieszczeniem w projekcie biblioteki JavaScript, która nie powinna być wliczana w metrykę.
     Na wykresie widać, że ilość lini kodu oraz testów równomiernie rośnie, co świadczy o systematycznej i dobrze zorganizowanej pracy.
     \begin{figure}[h]
       \centering
       \includegraphics[scale=0.35]{images/LOC.png}
       \caption{Diagram pokrycia kodu testami [12.10-17.12]}
+      \label{fig:graph}
     \end{figure}

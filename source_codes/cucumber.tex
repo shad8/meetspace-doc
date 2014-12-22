@@ -57,18 +57,19 @@ I na koniec oczekujemy, że wprowadzone przed chwilą zmiany zobaczymy na stroni
 
 \begin{code}
 	\lstinputlisting[linerange={38-39}, firstnumber=6]{../meetspace/features/events.feature}
-\end{code}\\
+\end{code}
 
 Można łatwo zauważyć, że część kroków powtarza się w pierwszym jak i w drugim scenariuszu. Jest to nic innego jak zastosowanie metody DRY\footnote{Don't repeat yourself - Nie powtarzaj się}. Dzięki temu nowe testy powstają coraz szybciej i sprawniej.
 
 W całym projekcie testów integracyjnych jest znacznie więcej. Oprócz wyżej pokazanego przykładu, testujemy również logowanie do aplikacji poprzez portal Facebook, wyszukiwanie wydarzeń, czy zapisywanie się na newsletter.
 
-Poniżej przedstawiony jest rezultat wszystkich testów integracyjnych. W sumie 12 scenariuszy i 78 kroków, wszystkie spełnione pomyślnie.
+Rysunek nr \ref{fig:rspec} przedstawia rezultat wszystkich testów integracyjnych. W sumie 12 scenariuszy i 78 kroków, wszystkie spełnione pomyślnie.
 
 \begin{figure}[h]
   \centering
   \includegraphics[scale=0.8]{images/bdd_result.png}
   \caption{Wyniki końcowe testów integracyjnych.}
+  \label{fig:rspec}
 \end{figure}
 
 \newpage

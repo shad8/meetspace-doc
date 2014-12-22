@@ -16,6 +16,7 @@ W kolejnych podrozdziałach zostały opisane wybrane funkcjonalności z zakresu 
       \centering
         \includegraphics[scale=0.55]{images/dbm.png}
       \caption{Schemat bazy danych aplikacji Meetspace}
+      \label{fig:dbm}
     \end{figure}
 
     \input{source_codes/dbm}
@@ -38,7 +39,7 @@ W kolejnych podrozdziałach zostały opisane wybrane funkcjonalności z zakresu 
               \lstinputlisting[linerange={95-108}, firstnumber=1]{../meetspace/app/assets/stylesheets/layout.css.scss}
             \end{code}\\
 
-            Wartość \emph{\$placeholder} to zmienna Sass przechowująca kolor. Dzięki jej zastosowaniu, w przypadku gdybyśmy chcieli zmienić wartość koloru na inną, nie będziemy musieli tego robić w kilku miejscach, tylko w jednym.
+            Wartość \begin{tt}\$placeholder\end{tt} to zmienna Sass przechowująca kolor. Dzięki jej zastosowaniu, w przypadku gdybyśmy chcieli zmienić wartość koloru na inną, nie będziemy musieli tego robić w kilku miejscach, tylko w jednym.
 
           \item Zapytania medialne \emph{(Media Queries)}\\ \index{Media Queries}
             W trakcie tworzenia witryny, która ma dopasowywać się do wielkości ekranu urządzenia, kluczową rolę odgrywają zapytania medialne. W trakcie ładowania pliku css, sprawdzają rozmiar i rodzaj ekranu, stosując odpowiednie do wielkości ekranu style. Dzięki temu można określić na przykład, aby dla urządzeń o szerokości ekranu większej niż 600 pikseli, tło strony było inne niż dla węższych ekranów.
