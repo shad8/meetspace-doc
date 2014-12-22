@@ -1,6 +1,6 @@
 \section{Testy}
   \label{testy}
-  Wzrost wymagań klientów, sprawia iż technologie internetowe rozwijają się bardzo szybko. Wiele firm kładzie duży nacisk na testowanie swoich aplikacji.
+  Wzrost wymagań klientów sprawia, iż technologie internetowe rozwijają się bardzo szybko. Wiele firm kładzie duży nacisk na testowanie swoich aplikacji.
 
   Programiści często wychodzą z założenia, że ,,najpierw kod, później testy". Ma to oczywiście swoje wady i zalety. Zaletą niewątpliwie jest czas realizacji. W pierwszej kolejności dostarcza się funkcjonalności i nie zastanawia się nad tym jak napisać do nich testy. Pod koniec procesu produkcji tworzy się kilka testów sprawdzających zachowanie aplikacji. Doprowadza to do tego, że cały kod aplikacji pokryty jest testami w bardzo niewielkim stopniu. W każdej chwili może zajść sytuacja, w której aplikacja przestanie działać zgodnie z założeniami. Niestety w takim przypadku tracimy cenne godziny na szukanie błędów i ich eliminację.
 
@@ -17,7 +17,7 @@
       \item \textbf{Test Driven Development}\cite{tdd} \\
         Technika tworzenia oprogramowania, sterowana przez testy. Polega na powtarzaniu 3 kroków do momentu ukończenia funkcjonalności:
         \begin{enumerate}
-          \item Napisanie możliwie najprostszego testu jednostkowego, który ma sprawdzać kod pisany w kroku 2. Test po napisaniu powinien zostać od razu uruchomiony. Nowy test musi dać wynik negatywny, gdyż dopiero będziemy dodawać testowaną funkcjonalność. Otrzymanie pozytywnego wyniku świadczy o obecności w aplikacji funkcjonalności - test jest niepotrzebny lub złym skonstruowaniu testu.
+          \item Napisanie możliwie najprostszego testu jednostkowego, który ma sprawdzać kod pisany w kroku 2. Test po napisaniu powinien zostać od razu uruchomiony. Nowy test musi dać wynik negatywny, gdyż dopiero będziemy dodawać testowaną funkcjonalność. Otrzymanie pozytywnego wyniku świadczy o obecności w aplikacji funkcjonalności - test jest niepotrzebny lub źle skonstruowany.
           \item Implementacja kodu. Kod powinien być napisany w taki sposób, aby spełnić założenia testu, nic ponad to. Test powinien zakończyć się sukcesem i nie naruszać pozostałych testów.
           \item Refaktoryzacja. Doprowadzenie kodu do stanu, w którym spełnia przyjęte normy i standardy prostego oraz czytelnego kodu\cite{scs}. Ponad to wszystkie testy w aplikacji powinny się spełniać.
         \end{enumerate}
@@ -32,7 +32,7 @@
 
         Zalety:
         \begin{itemize}
-          \item Główną zaletą tej metodologii jest szybkość diagnozowania błędów. Dzięki temu oszczędzamy czasu. Bez testów musielibyśmy poświęcić go na dogłębną analizę kodu.
+          \item Główną zaletą tej metodologii jest szybkość diagnozowania błędów. Dzięki temu oszczędzamy czas. Bez testów musielibyśmy poświęcić go na dogłębną analizę kodu.
           \item Jeżeli testy są pisane w czytelny sposób, mogą stanowić bardzo dobrą dokumentację. Wystarczy zajrzeć do testu i widać czego programista oczekiwał od konkretnej metody.
           \item Bardziej przemyślany kod. W pierwszej kolejności musimy się zastanowić co tak naprawdę ma zawierać dana funkcjonalność, żeby móc od niej to wyegzekwować.
           \item Zapewnienie minimalnej ilości kodu dla danej funkcjonalności.
@@ -67,7 +67,7 @@
 
   \subsection{Testy integracyjne}
     \index{Cucumber}
-    Najważniejszą funkcjonalnością w naszej aplikacji jest kreowanie nowego wydarzenia. Poniżej przedstawimy proces tworzenia testu integracyjnego za pomocą \emph{cucumber}.
+    Najważniejszą funkcjonalnością w naszej aplikacji jest kreowanie nowego wydarzenia. Poniżej przedstawimy proces tworzenia testu integracyjnego za pomocą narzędzia \emph{Cucumber}.
 
     \input{source_codes/cucumber}
   \subsection{Testy jednostkowe}
