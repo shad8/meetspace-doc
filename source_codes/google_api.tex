@@ -17,6 +17,7 @@ Aby poprawnie wyświetlić mapę potrzebujemy współrzędnych adresu miejsca, w
   \lstinputlisting[showstringspaces=false, basicstyle=\ttfamily\scriptsize]{../meetspace/app/assets/javascripts/map.js.coffee}
 \end{code}\\
 
-Następnie ustawiamy opcje mapy, wielkość powiększenia, umiejscowienie i typ.
+Następnie ustawiamy opcje mapy, środek, wielkość powiększenia oraz typ. Mamy do wyboru mapę drogową, satelitarną lub połączenie tych dwóch. Powiększenie można wybrać z zakresu od 0 do 21. Im większa wartość, tym więcej szczegółów jest widocznych. 
 
 Na koniec tworzymy dwa obiekty na podstawie udostępnionych przez API konstruktorów: \emph{map} oraz \emph{marker}. \emph{Map} przyjmuje dwa parametry: miejsce na stronie, w którym będzie wyświetlana oraz opcje z jakimi zostanie zainicjalizowana.
+Natomiast \emph{marker} to znacznik wskazujący na dokładny adres. Jako parametr przyjmuje współrzędne wskazywanego miejsca. 
