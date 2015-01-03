@@ -1,0 +1,761 @@
+Politechnika Śląska
+Wydział Matematyki Stosowanej
+Kierunek Informatyka
+Studia stacjonarne I stopnia
+Projekt inżynierski
+Meetspace - system obsługi wydarzeń
+Kierujący projektem:
+dr inż. Zdzisław Sroczyński
+Autorzy:
+Urszula Hołodniak
+Michał Skóra
+Gliwice 2015
+Dla naszych nauczycieli i mentorów.
+Za wiedzę, cierpliwość i pasję.
+Projekt inżynierski:
+Meetspace - system obsługi wydarzeń
+kierujący projektem: dr inż. Zdzisław Sroczyński
+1. Urszula Hołodniak – (50%)
+• autoryzacja użytkownika za pomocą konta Facebook
+• interfejs komunikacji z zewnętrznymi aplikacjami
+• weryfikacja wprowadzanych treści
+• newsletter
+• projektowanie szaty graficznej
+• projektowanie architektury aplikacji
+• testy integracyjne i jednostkowe
+• dokumentacja
+2. Michał Skóra – (50%)
+• autoryzacja użytkowników z wykorzystaniem gemu Devise
+• mechanizm wyszukiwania informacji z wykorzystaniem filtrów
+• implementacja Google Maps API
+• newsletter
+• projektowanie szaty graficznej
+• projektowanie architektury aplikacji
+• testy integracyjne i jednostkowe
+• dokumentacja
+Podpisy autorów projektu
+1. ......................
+2. ......................
+Podpis kierującego projektem
+.............................
+Oświadczenie kierującego projektem inżynierskim
+Potwierdzam, że niniejszy projekt został przygotowany pod moim kierunkiem
+i kwalifikuje się do przedstawienia go w postępowaniu o nadanie tytułu zawodowego:
+inżynier.
+Data
+Podpis kierującego projektem
+Oświadczenie autorów
+Świadomy/a odpowiedzialności karnej oświadczam, że przedkładany projekt inżynierski na temat:
+Meetspace - system obsługi wydarzeń
+został napisany przez autorów samodzielnie.
+Jednocześnie oświadczam, że ww. projekt:
+– nie narusza praw autorskich w rozumieniu ustawy z dnia 4 lutego 1994 roku
+o prawie autorskim i prawach pokrewnych (Dz.U. z 2000 r. Nr 80, poz. 904, z późn. zm.) oraz dóbr osobistych chronionych prawem cywilnym, a także nie zawiera danych i informacji, które uzyskałem/am w sposób niedozwolony,
+– nie była wcześniej podstawą żadnej innej urzędowej procedury związanej z
+nadawaniem dyplomów wyższej uczelni lub tytułów zawodowych.
+– nie zawiera fragmentów dokumentów kopiowanych z innych źródeł bez wyraźnego zaznaczenia i podania źródła.
+Podpisy autorów projektu
+1. Urszula Hołodniak,
+2. Michał Skóra,
+nr albumu: 213879,
+...........
+nr albumu: 215776,
+...........
+Gliwice, dnia . . . . . . . . . . . . . . . . . . . . . .
+Spis treści
+Wstęp 7
+1. Opis projektu 9
+1.1. Problem . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 9
+1.2. Meetspace . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 9
+1.3. Zestawienie konkurencyjnych aplikacji . . . . . . . . . . . . . . . . . . 10
+1.4. Wymagania projektowe . . . . . . . . . . . . . . . . . . . . . . . . . . 13
+1.4.1. Wymagania funkcjonalne . . . . . . . . . . . . . . . . . . . . . 13
+1.4.2. Wymagania niefunkcjonalne . . . . . . . . . . . . . . . . . . . . 13
+1.4.3. Wymagania zgodności . . . . . . . . . . . . . . . . . . . . . . . 14
+2. Wykorzystane technologie
+15
+2.1. Ruby . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 15
+2.2. Ruby on Rails . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 15
+2.3. Git . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 16
+2.4. RVM . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 17
+2.5. Wykorzystane gemy . . . . . . . . . . . . . . . . . . . . . . . . . . . . 18
+2.6. Narzędzia do testowania . . . . . . . . . . . . . . . . . . . . . . . . . . 18
+2.7. Biblioteki JavaScript . . . . . . . . . . . . . . . . . . . . . . . . . . . . 19
+2.8. Pozostałe technologie . . . . . . . . . . . . . . . . . . . . . . . . . . . 20
+2.9. Narzędzia pomocnicze . . . . . . . . . . . . . . . . . . . . . . . . . . . 20
+3. Zastosowane wzorce projektowe
+23
+3.1. MVC . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 23
+3.2. Iteraktor . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 25
+4. Realizacja projektu
+27
+4.1. Model bazy danych . . . . . . . . . . . . . . . . . . . . . . . . . . . . 28
+4.2. Przykłady zastosowań CSS i JavaScript . . . . . . . . . . . . . . . . . 30
+4.2.1. CSS . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 30
+4.2.2. JavaScript . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 346
+SPIS TREŚCI
+4.3. Bezpieczeństwo . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 35
+4.4. Przegląd widoków aplikacji . . . . . . . . . . . . . . . . . . . . . . . . 40
+5. Interfejsy komunikacji między aplikacjami
+47
+5.1. API aplikacji Meetspace . . . . . . . . . . . . . . . . . . . . . . . . . . 48
+5.2. Implementacja i zastosowanie Facebook API
+6. Testy
+. . . . . . . . . . . . . . 50
+55
+6.1. Techniki tworzenia oprogramowania . . . . . . . . . . . . . . . . . . . 56
+6.2. Testy integracyjne . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 58
+6.3. Testy jednostkowe . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 62
+6.4. Pokrycie kodu testami . . . . . . . . . . . . . . . . . . . . . . . . . . . 65
+7. Instalacja 67
+Podsumowanie 69
+Literatura 71
+Spis rysunków 75
+Skorowidz 77
+Wstęp
+Meetspace to aplikacja do zarządzania wydarzeniami, której głównym celem
+jest umożliwienie jej przyszłym użytkownikom uzyskania szerszego dostępu do 
+informacji i edukacji w ośrodkach lokalnych.
+Jako programiści webowi postawiliśmy przed sobą zadanie, aby stworzyć serwis 
+umożliwiający wszystkim tym, którzy organizują różnego rodzaju konferencje,
+spotkania czy warsztaty, na rozreklamowanie się i dotarcie do większego grona odbiorców całkowicie bezpłatnie. 
+Postanowiliśmy dostarczyć użytkownikom intuicyjny interfejs, umożliwiający logowanie i rejestrację do aplikacji 
+poprzez portal Facebook, nie zapominając także o użytkownikach nie posiadających takiego konta. 
+Zapewniliśmy tworzenie, edytowanie i usuwanie wydarzeń, a także możliwość spersonalizowania 
+ich strony do własnych wymagań.
+Zbudowaliśmy system mailingowy pozwalający na rozsyłanie najświeższych informacji na temat publikacji wszystkim osobom korzystającym z newslettera aplikacji. W każdą niedzielę na skrzynkach pocztowych subskrybentów pojawi się lista
+z ostatnio dodanymi wydarzeniami przez organizatorów. Ułatwi to przepływ informacji i pozwoli na zwiększenie 
+ilości słuchaczy czy osób zainteresowanych daną inicjatywą.
+Podczas tworzenia projektu postanowiliśmy kierować się najnowszymi standardami tworzenia oprogramowania, 
+wykorzystując wzorce projektowe czy zasadę SOLID 1 . Aby spełnić wyżej wymienione założenia użyliśmy języka Ruby 2 2 i framework Ruby on Rails 3 . Wybraliśmy te technologie ze względu na szybkość i łatwość
+z jaką powstaje dzięki nim oprogramowanie, a także ze względu na dostępność
+wielu narzędzi i materiałów pomocniczych. Technologie te mają bardzo dobrze rozwiniętą dokumentację. Pozwala to w krótkim czasie na znajdowanie odpowiedzi na nurtujące pytania z danego zagadnienia. Ponadto tworząc aplikację zastosowaliśmy
+1 SOLID - pięć podstawowych założeń programowania obiektowego: Single responsibility, Open-
+closed, Liskov substitution, Interface segregation and Dependency inversion, stworzonych przez Roberta C. Martina
+2 Więcej o języku Ruby w rozdziale 2.1
+3 Więcej o Ruby on Rails w rozdziale 2.28
+
+elementy metodyki zwinnego wytwarzania oprogramowania, takie jak testy czy me-
+tryki świadczące o jakości kodu. Zastosowane technologie w dużej mierze ułatwiły
+wprowadzenie wybranych założeń związanych z przejrzystością i jakością kodu. Za-
+łożenia te zostały szerzej opisane w rozdziale Opis projektu. Wszystko po to, aby jak
+najszybciej dostarczyć użytkownikom funkcjonalny i łatwy w obsłudze produkt.
+
+1. Opis projektu
+W tym rozdziale zamieściliśmy informacje dotyczące genezy aplikacji Meetspace.
+Opisaliśmy jej przeznaczenie, problemy użytkowników do których zostanie skierowana, 
+przegląd konkurencyjnych aplikacji i wymagania jakie przed sobą postawiliśmy.
+1.1. Problem
+W wielu miastach odbywa się bardzo dużo różnego rodzaju lokalnych konferencji, szkoleń 
+i warsztatów. Wiele z nich jest całkowicie bezpłatnych, przez co organizatorzy mają ograniczoną 
+pulę środków przeznaczonych na ich reklamę. Z tego powodu informacje na ich temat są rozproszone 
+po portalach społecznościowych czy aplikacjach internetowych. Lokalnym społecznościom brakuje scentralizowanego
+punktu dostępu do informacji, a organizatorom wydarzeń miejsca na ich zamieszczanie. Problem ten jest bardzo często widoczny wśród środowiska studenckiego, gdzie wydawałoby się, że dostęp do informacji nie stanowi problemu.
+1.2. Meetspace
+Aplikacja Meetspace umożliwia w łatwy sposób tworzenie i zarządzanie wydarzeniami przy pomocy narzędzi online. Stanowi doskonałe narzędzie do budowania lokalnych przedsięwzięć. Ponadto, użytkownicy mogą wyszukiwać wydarzenia za pomocą takich filtrów jak: lokalizacja, termin czy tematyka, a także dzielić się nimi
+w sieci poprzez portale społecznościowe. Aplikacja posiada bardzo prosty i przyjazny
+dla użytkownika interfejs. Meetspace został wyposażony również we własny system
+API, który umożliwia pobieranie i umieszczanie informacji o wydarzeniach na innych
+stronach internetowych i aplikacjach mobilnych. W przyszłości może on posłużyć do
+stworzenia dedykowanej aplikacji na telefony komórkowe. Dzięki serwisowi uzyskuje się zatem szerszy dostęp do informacji i edukacji w ośrodkach lokalnych.
+
+1.3. Zestawienie konkurencyjnych aplikacji
+Na rynku istnieje wiele aplikacji wykorzystywanych do publikowania wydarzeń.
+Postanowiliśmy przeanalizować działanie tych najbardziej popularnych, sprawdzić
+co dane aplikacje oferują użytkownikom, czego im brakuje, w jaki sposób został
+u nich zbudowany interfejs graficzny użytkownika i stworzyć aplikację, która wypełni lukę 
+i rozwiąże wyżej przedstawiony problem.
+Analiza została przeprowadzona na pięciu wybranych aplikacjach internetowych:
+• Meetup
+Jedna z najbardziej popularnych aplikacji, z której mieliśmy przyjemność wielokrotnie korzystać. Skupia ona ludzi w grupy o podobnych zainteresowaniach, gdzie można wyrażać opinie i umieszczać informacje. 
+Dostarcza ona informacji o wydarzeniach z różnych lokalizacji poprzez uczestnictwo w danej grupie.
+Taka opcja nie jest jednak darmowa. Meetup umożliwia tworzenie informacji
+o wydarzeniu jedynie poprzez grupę. Aplikacja posiada przyjazny interfejs,
+który nie jest przystosowany do urządzeń mobilnych.
+• Eventbrite
+Eventbrite jest bardzo rozbudowaną aplikacją, przez co proces tworzenia wydarzenia jest czasochłonny. Wydarzenia umieszczane na Eventbrite mają zasięg globalny i wyrobioną markę. Aplikacja nakierowana jest na dystrybucję biletów na opublikowane wydarzenie.
+• BusyConf
+Zaawansowana aplikacja przeznaczona dla organizatorów wydarzeń. Obsługuje jedynie język angielski. Posiada bardzo wiele narzędzi wspomagających organizację wydarzenia. Nie jest jednak prosta w obsłudze a interfejs nie jest
+przyjazny dla początkujących użytkowników.
+• uczestnicy.pl
+Jedna z lepszych polskich aplikacji jakie udało nam się znaleźć lecz o słabej popularności. 
+Przeznaczona głównie do tworzenia i publikacji informacji
+o wydarzeniach. Posiada niezbyt dobrze funkcjonujący system filtrowania wydarzeń. Umieszczanie wydarzeń 
+wiąże się z poniesieniem dodatkowych opłat.
+• sk.polsl.pl
+Strona Politechniki Śląskiej, której celem jest informowanie o konferencjach.
+Zamieszczane wiadomości nie przekazują istotnych informacji. Jest ona mało
+czytelna i nieintuicyjna dla użytkownika. Jedynym dostępnym językiem jest język angielski.
+Wyniki analizy zostały zebrane i przedstawione w postaci tabeli. Pokazuje ona,
+że żadna z aplikacji nie rozwiązuje w pełni postawionego wcześniej problemu. Część
+z nich służy jedynie jako narzędzie wspomagające organizację wydarzenia bez jego
+późniejszej reklamy. Inne aplikacje natomiast umożliwiają informowanie uczestników po 
+dokonaniu odpowiedniej opłaty. Jedynie aplikacja Meetup udostępnia możliwość zapisania się do newslettera i otrzymywania powiadomień o nadchodzących wydarzeniach na pocztę e-mail.
+
+1.4. Wymagania projektowe
+W tym rozdziale umieściliśmy zbiór wymagań i funkcjonalności dotyczących naszej aplikacji.
+1.4.1. Wymagania funkcjonalne
+Wymagania funkcjonalne są to wszystkie funkcjonalności jakie będzie oferować
+aplikacja Meetspace swoim przyszłym użytkownikom.
+• Aplikacja umożliwia organizatorom tworzenie nowych wydarzeń oraz zarządzanie nimi.
+• Użytkownicy mają możliwość zapisania się do newslettera, dzięki któremu raz
+w tygodniu otrzymają informacje o nadchodzących wydarzeniach.
+• Możliwość zalogowania się w aplikacji poprzez konto na portalu społecznościowym Facebook.
+• Dodanie mapy z adresem miejsca, w którym dane wydarzenie będzie się odbywać.
+1.4.2. Wymagania niefunkcjonalne
+Wymagania niefunkcjonalne są to założenia reprezentujące niezawodność i zakres działania aplikacji.
+• Wykorzystanie technologii Ruby i Ruby on Rails.
+• Obsługa dwóch języków, polskiego oraz angielskiego.
+• Obsługa najpopularniejszych przeglądarek internetowych.
+• Uwzględnienie użytkowników nie korzystających z JavaScript.
+1.4.3. Wymagania zgodności
+Podczas projektowania aplikacji stosowaliśmy przyjęte normy i zasady. Kierując
+się nimi uzyskaliśmy czytelny kod o wysokiej jakości, nie zawierający duplikacji i zbędnych funkcjonalności.
+• Zgodność ze standardami W3C 4 .
+• Definition of Done 5 .
+• Simple Coding Standard 6 .
+• The Ruby Style Guide 7 .
+• The Rails Style Guide 8 .
+
+4 World Wide Web Consortium, społeczność zajmująca się tworzeniem standardów internetowych.
+5 Publicznie dostępny standard firmy Fractal Soft [13]
+6 Publicznie dostępny standard firmy Fractal Soft [22]
+7 Ogólnie przyjęte zasady programowania w języku Ruby [26]
+8 Ogólnie przyjęte zasady programowania w Ruby on Rails [25]
+
+2. Wykorzystane technologie
+2.1. Ruby
+Ruby 9 jest w pełni obiektowym, wysokopoziomowym językiem programowania.
+Jego twórca, Yukihiro “Matz” Matsumoto, chciał stworzyć język jeszcze bardziej
+obiektowy niż Python, dlatego każdy fragment informacji może uzyskać swoje właściwości i metody.
+Po za obiektowością, Ruby cechuje się też prostą składnią, ułożoną w sposób
+umożliwiający pisanie samo komentującego się i czytelnego kodu. Programiści piszący w tym języku kierują się dwoma ważnymi zasadami: DRY 10 oraz KISS 11 , któremają za zadanie zmusić do wykorzystywania już wcześniej napisanego kodu jak i pisania go w sposób najmożliwiej prosty. Ponadto, jest to język niezwykle elastyczny,
+ponieważ pozwala użytkownikom dowolnie modyfikować jego składowe. Programista
+może nadpisać jakiś moduł i dostosować go do swoich potrzeb.
+Ruby powstał w 1995 roku, lecz dopiero w 2005 roku zyskał na popularności
+za sprawą frameworka Ruby on Rails, który został w nim napisany. Dzisiaj osoby
+piszące w Ruby to jedni z najlepiej zarabiających programistów w USA 12 .
+2.2. Ruby on Rails
+Jest to framework, platforma programistyczna, pozwalająca na szybkie tworzenie stron i aplikacji internetowych. Została napisana przez duńskiego programistę
+Davida Heinemeiera Hanssona, zwanego potocznie DHH. Oparta jest o wzorzec architektoniczny MVC 13 .
+9 dokumentacja online: http://rubyonrails.org, [23]
+10 Don’t repeat yourself [6]
+11 Keep it simple, stupid [6]
+12 http://www.pb.pl/3945225,84037,te-jezyki-programowania-daja-najlepiej-zarobic-w-usa
+13 Model View Controller, więcej informacji w rozdziale 3
+
+Tim O’Reilly, założyciel O’Reilly Media, powiedział:
+„Ruby on Rails jest przełomem w dziedzinie programowania aplikacji
+internetowych. Potężne aplikacje, których tworzenie do tej pory zabierało
+tygodnie czy miesiące, są teraz tworzone dosłownie w kilka dni.”,
+żródło: http: // www. rubyonrails. pl/
+W Ruby on Rails panuje zasada „konwencja ponad konfiguracją” (Convention
+over configuration), co znaczy, że nie trzeba się przejmować skomplikowanymi plikami konfiguracyjnymi, tylko wystarczy postępować według przyjętych przez twórcówschematów. Railsy mają wbudowany serwer lokalny, co pozwala na szybkie testowanie aplikacji, bez zbędnego i czasochłonnego umieszczania kodu na zewnętrznej
+maszynie. Dużym plusem jest również możliwość uruchomienia aplikacji w różnym
+środowisku, do wyboru mamy:
+• developerskie - domyślne środowisko, w którym programista pisze aplikację,
+• testowe - wykorzystywane do testowania aplikacji,
+• produkcyjne - aplikacja zachowuje się wtedy jakby była już umieszczona na
+serwerze
+To wszystko sprawia, że klientowi można oddać gotowy, przetestowany produkt, bez żadnych niespodzianek.
+2.3. Git
+To rozproszony system kontroli wersji, bardzo pomocny w projektach, przy których pracuje kilka osób. Dzięki niemu widać wszystkie wcześniej wprowadzane zmiany i w łatwy sposób można wrócić do wcześniejszych wersji. Użytkownik posługuje
+się tzw. commitami. Jest to nic innego jak zatwierdzenie zmian w plikach. Podobnym narzędziem do Gita jest SVN. Różnica m.in. polega na tym, że Git kopiuje całe repozytorium na komputer, programista zatwierdza zmiany lokalnie i dopiero
+na koniec wrzuca je na serwer. W przypadku SVN całość trzymana jest na serwerze.
+Dzięki takiemu rozwiązaniu nie musimy być bez przerwy podłączeni do sieci. Możemy zatwierdzać nasze zmiany będąc w autobusie czy tramwaju i wrzucić je na serwer
+w momencie podłączenia do internetu. Różnice między tymi dwoma technologiami pokazuje poniższy obrazek.
+2.4. RVM
+Czyli Ruby Version Manager 14 . Jest to podstawowe narzędzie do pracy z językiem Ruby - zarządza ono jego środowiskiem. Ruby jest ciągle rozwijany i każdegomiesiąca wychodzą nowe poprawki, usprawnienia czy funkcjonalności. RVM dla każdego projektu tworzy osobne, niezależne, odizolowane środowisko programistyczne,
+tzw. gemset. Jest to nic innego jak zbiór gemów wykorzystywanych w danym projekcie. Dzięki temu można stworzyć różne aplikacje oparte o różne wersje Ruby, które korzystają z różnych wersji gemów i nie kolidują ze sobą.
+14 https://rvm.io/ [6]
+
+2.5. Wykorzystane gemy
+Gem - jest to paczka napisana w języku Ruby, której zadaniem jest rozszerzenie
+funkcjonalności aplikacji. Do wyszukiwania najnowszych wersji wykorzystuje się RubyGems.org 15 . W przypadku Ruby on Rails istnieje specjalny plik konfiguracyjny, Gemfile.rb, który przechowuje listę wykorzystywanych gemów.
+W naszej aplikacji użyliśmy między innymi:
+• Devise
+Zapewnia autoryzację i autentykację użytkownika w obrębie aplikacji. Obsługuje logowanie oraz rejestrację wraz z wysyłaniem potwierdzeń na adres mailowy i reset hasła.
+• Geocoder
+Na podstawie podanego adresu określa współrzędne geograficzne, dzięki którym można wyświetlić mapkę z zaznaczonym adresem, gdzie odbywa się dane wydarzenie.
+• Omniauth-facebook
+Wspiera komunikację pomiędzy naszą aplikacją a API Facebook’a.
+• i18n
+Umożliwia dodawanie tłumaczeń, dzięki czemu aplikacja w łatwy sposób może stać się wielojęzyczną.
+2.6. Narzędzia do testowania
+Proces testowania jest bardzo ważnym aspektem, przy projektowaniu i tworzeniu oprogramowania. Dzięki Ruby i Ruby on Rails oraz odpowiednim narzędziom jesteśmy w stanie przetestować każdą warstwę aplikacji.
+• Cucumber 16
+Wykorzystywany jest do pisania testów funkcjonalnych(feature tests) 17 . Tworzony jest krótki scenariusz, w którym krok po kroku sprawdza się czy aplikacja zachowuje się w sposób w jaki oczekuje klient.
+15 Wyszukiwarka gemów http://rubygems.org, [20]
+16 [12], [9]
+17 Szerzej o testach w rozdziale 6.
+
+• RSpec
+Narzędzie, w którym piszemy testy jednostkowe 18 . Pozwala testować nie tylko całą logikę znajdującą się w modelach, relacje między nimi, ale również kontrolery, routy 19 , helpery 20 oraz wszystkie dodatkowe klasy.
+2.7. Biblioteki JavaScript
+W aplikacji internetowej JavaScript [4] jest nieodłączną częścią, bez której ciężko
+byłoby wykonać pewne rzeczy. Szczególnie pomaga w „upiększaniu” interfejsu aplikacji ale również w komunikacji między przeglądarką a serwerem, jak i wyświetlaniu dodatkowych informacji, na przykład takich jak mapy Google’a.
+• jQuery
+Biblioteka JavaScript ułatwiająca manipulację drzewem DOM 21 . Umożliwia
+tworzenie animacji, wspomaga zarządzanie asynchronicznymi zapytaniami do
+serwera. Dzięki jej implementacji możliwe jest korzystanie z wielu stworzonych
+już wtyczek.
+• Bootstrap Datepicker
+Oparta o Bootstrap biblioteka, wyświetlająca na stronie ładny i intuicyjny
+kalendarz.
+• Load Image
+Prosta biblioteka umożliwiająca użytkownikowi ładowanie obrazka bezpośrednio na stronie.
+• Modernizr
+Przydatna biblioteka, informująca nas, czy dana przeglądarka, obsługuje poszczególne moduły standardu HTML, np. video, canvas czy geolokalizację.
+18 [19], szerzej o testach w rozdziale 6
+19 RESTowe ścieżki w aplikacji [2]
+20 Metody, które pomagają w wyświetlaniu pewnych danych na widoku [19], [18]
+21 Document Object Model - reprezentacja złożonych dokumentów HTML. [3]
+
+2.8. Pozostałe technologie
+Poniżej zostały opisane dodatkowe technologie, wykorzystane w aplikacji.
+• Twitter Bootstrap
+Framework CSS 22 , rozwijany przez firmę Twitter. Udostępnia gotowe klasy
+CSS i rozwiązania JavaScript, dzięki czemu pisanie responsywnych layoutów
+na urządzenia mobilne i nie tylko, jest znacznie szybsze i mniej bolesne.
+• CoffeScript
+Język programowania kompilowany do JavaScipt [11]. Zawiera tzw. lukier składniowy(syntactic sugar), umożliwiający pisanie bardziej czytelnego i przyja-
+znego kodu. Kod napisany w Coffee jest enkapsulowany 23 . CoffeeScript jest
+domyślnym językiem kompilującym do czystego JavaScript’u, wykorzystywanym w Railsach.
+• SASS
+Syntactically Awesome Stylesheets [21] - preprocesor CSS. Dzięki niemu, w trakcie pisania arkuszy stylów, możemy korzystać m.in. ze zmiennych, funkcji czy
+partiali 24 . Całość jest kompilowana do czystego CSS.
+2.9. Narzędzia pomocnicze
+Podczas pisania aplikacji używaliśmy, min. takich narzędzi jak:
+• Sublime Text 3
+Jeden z najpopularniejszych edytorów tekstu. Jest napisanych do niego mnóstwo wtyczek wspomagającyh pracę programisty. Wtyczki kolorujące skład-
+nie, wyświetlające kolor zapisany w systemie szesnastkowym, dodające skróty
+klawiszowe, czy tzw. snippety, czyli większe fragmenty kodu, które są wstawiane w miejsce kursora po wpisaniu słowa kluczowego i wciśnięciu klawisza tabulatora. Dzięki temu programista oszczędza sporo czasu, bo nie musi pisać wielokrotnie tego samego.
+22 http://getbootstrap.com/, [10]
+23 Funkcje umieszczone w różnych plikach nie mają do siebie dostępu.
+24 Plik, który można załączyć w innym pliku wykorzystując go wielokrotnie.
+
+• Narzędzia developerskie Google Chrome
+Funkcjonalność przeglądarki Google Chrome. Dzięki tym narzędziom jesteśmy w stanie dokładnie zbadać DOM, sprawdzić czy przypadkiem nie mamy
+gdzieś wycieku pamięci w skrypcie JavaScript, czy przetestować właściwości
+CSS danego obiektu znajdującego się na stronie. Mozilla Firefox również posiada takie narzędzie, lecz jest ono dużo mniej intuicyjne i nie jest tak rozbudowane jak to w Chromie.
+
+3. Zastosowane wzorce projektowe
+Wzorce projektowe zostały stworzone po to, aby uschematyzować proces rozwiązywania powstałych problemów projektowych w tworzeniu, komunikacji i organizacji struktury kodu. Skategoryzowano je i opisano w publikacji Design Patterns:
+Elements of Reusable Object-Oriented Software 25 .
+Budowa języka Ruby oraz framework Ruby on Rails zachęca programistów do korzystania ze znanych wzorców projektowych. Dzięki wykorzystaniu tych technologii
+mamy możliwość korzystania z zaimplementowanych wzorców w samym szkielecie aplikacji.
+3.1. MVC
+Model-Widok-Kontroler(Model-View-Controller ), wzorzec projektowy określający schemat całej aplikacji. Jest on domyślnie wbudowany w Ruby on Rails. Jego zadaniem jest podział struktury aplikacji na: logikę, opis interfejsu i komunikację połączoną z zarządzaniem. MVC zbudowany jest z pomniejszych wzorców
+projektowych.
+• Model
+Model odpowiada za logikę aplikacji, zarządza dostępem do bazy danych. Poprzez dziedziczenie po klasie ActiveRecord implementuje wzorce takie jak:
+Budowniczy 26 , Obserwator 27 , czy wzorzec Poleceń 28 .
+• Widok
+Tworzy interfejs użytkownika zapewniając prezentację danych. Łączy ze sobą wzorce takie jak: wzorzec Kompozycji 29 , wzorzec Strategii i wzorzec Obserwatora.
+25 Publikacja wydana w 1995 r., autorstwa tzw. Bandy Czworga: E.Gamma, R.Helm, R. Johnson,
+J. Ulisside
+26 z ang. Builder pattern, wzorzec oddziela reprezentację obiektu od procesów jego tworzenia. [5]
+27 z ang. Observer pattern, zadaniem wzorca projektowego Observer jest śledzenie zmian występujących w obiektach obserwowanych i informowanie o nich obiektu nadrzędnego - obserwatora. [5]
+28 z ang. Command pattern, reprezentuje on zapytania jako obiekty, zwiększając tym samym
+elastyczność działania [5]
+
+• Kontroler
+Odpowiada za obsługę żądań przychodzących od użytkownika, poprzez delegowanie zadań. Jest pośrednikiem pomiędzy logiką biznesową (Model ), a warstwą prezentacji danych (View ). W swoim działaniu posługuje się wzorcem
+Strategii 30 .
+Rysunek nr 3 przedstawia sposób komunikacji poszczególnych warstw modelu MVC:
+29 z ang. Composite pattern, grupuje on obiekty w jeden aby móc wykonywać na nich operacje
+w ten sam sposób. [5]
+30 z ang. Strategy pattern, wzorzec ma za zadanie dostarczyć do obiektu kontekstowego, inne
+obiekty potrafiące wykonać określony algorytm. [5]
+
+3.2. Iteraktor
+Interaktor [8](Interactor ), inaczej nazywany Obiektem pomocniczym (Service
+Object). Jest wzorcem projektowym, który ma za cel wykonanie określonych zadań
+wydelegowanych z warstwy kontrolera w modelu MVC. Taki mechanizm upraszcza
+strukturę kodu i ułatwia stosowanie się do zasad: Prosty Kontroler i Model (Skiny
+Controllers and Models), SOLID. Interactor stanowi warstwę pośredniczącą pomiędzy przekazywaniem danych między kontrolerem a modelem. Dzięki temu uzyskuje
+się większą przejrzystość zarówno modelu jak i kontrolera. Przeniesiona zostaje odpowiedzialność za walidację. Testowanie aplikacji jest stosunkowo szybkie i łatwe.
+Każde zadanie wykonywane przez Interaktor testowane jest w izolacji 31 .
+W poniższym przykładzie przedstawiliśmy wykorzystanie wzorca porjektowego
+Interaktor zastosowanego do rejestracji użytkowników do newslettera:
+31 Testowany jest konkretny obiekt, bez względu na jego relacje z innymi obiektami.
+4. Realizacja projektu
+Realizacja projektu Meetspace została podzielona na kilka etapów. Pierwszym
+z nich była analiza konkurencyjnych aplikacji. Kolejne kroki polegały na przygotowaniu środowiska, zarejestrowaniu domeny i zaprojektowaniu modelu aplikacji. Następnie rozpoczęły się prace nad poszczególnymi funkcjonalnościami, których etapy
+powstawania zostały udokumentowane w pliku CHANGELOG.md
+W kolejnych podrozdziałach zostały opisane wybrane funkcjonalności z zakresu
+działania aplikacji po stronie serwera, przeglądarki internetowej, a także bezpieczeństwa.
+4.1. Model bazy danych
+Do przechowywania danych w aplikacji została wybrana baza MySQL, która
+zawiera cztery tabele:
+• User - informacje o użytkowniku aplikacji
+• Event - informacje związane z wydarzeniem
+• Authentication - informacje pobrane z Facebook API
+• Subscriber - lista osób zapisanych do newslettera
+Na rysunku nr 4 zamieściliśmy schemat bazy zapisany w pliku schema.rb, wy-
+generowany za pomocą mechanizmu migracji 32 .
+32 Mechanizm wbudowany w Ruby on Rails pozwalający na modyfikowanie bazy danych za po-
+mocą specjalnych plików, tzw. migracji opisujących poszczególne elementy bazy [1]
+4.2. Przykłady zastosowań CSS i JavaScript
+W aplikacji zostały użyte takie technologie jak SASS 33 i CoffeScript 34 . Ułatwiły
+one pracę nad wyglądem strony oraz jej funkcjonalnością po stronie przeglądarki internetowej.
+4.2.1. CSS
+Style CSS (Cascade Stylesheets) stanowią o całej szacie graficznej aplikacji. Określają kolory, rozmiar czcionek, wielkości poszczególnych elementów czy nawet proste animacje. Bez nich strona wyglądałaby mniej atrakcyjnie.
+• Flexbox
+To nowe rozwiązanie pozwalające uzyskać płynny layout 35 . Pomaga również
+wyśrodkować w pionie jeden element HTML względem drugiego. Dotychczas
+twórcy witryn internetowych musieli stosować różnego rodzaju sztuczki, żeby to osiągnąć. Na dzień dzisiejszy 36 flexbox jest wspierany przez min. takie przeglądarki jak Chrome czy Firefox. Pełne zestawienie można znaleźć pod
+adresem: http://caniuse.com/#search=flexbox.
+Z tej technologii korzystaliśmy głównie do wyśrodkowania poszczególnych elementów wzgladem innych.
+Fragment kodu powyżej to przykład oferowanej funkcjonalności preprocesora
+Sass. Mixin to funkcja, która może być wielokrotnie wykorzystana na wielu
+selektorach CSS.
+33 Więcej informacji w rozdziale 2.8
+34 Więcej informacji w rozdziale 2.8
+35 Dopasowyjący się do rozmiaru okna wygląd strony.
+36 Dane z dnia 14.12.2014
+
+@include flex(left) rozszerzy klasę search o właściwości wymienione w pierwszym fragmencie kodu.
+Rezultat zastosowania mechanizmu flexbox:
+
+• Placeholder
+Placeholder to napis wyświetlany w ramce do wpisywania tekstu przez użytkownika. Służy do informowania o roli danego pola. Domyślnym kolorem czcionki jest szary ale nam zależało, żeby cały wygląd współgrał ze sobą. Dlatego
+chcieliśmy aby kolor obiektu placeholder był nieco jaśniejszy. Niestety nie da
+się tego osiągnąć nadając tagowi input jakąś klasę i jej ustawiając kolor. Jedyny sposób to wykorzystanie predefiniowanego selektora, odpowiedzialnego za wygląd placeholder’a.
+Wartość $placeholder to zmienna Sass przechowująca kolor. Dzięki jej zastosowaniu, w przypadku gdybyśmy chcieli zmienić wartość koloru na inną, nie będziemy musieli tego robić w kilku miejscach, tylko w jednym.
+• Zapytania medialne (Media Queries)
+W trakcie tworzenia witryny, która ma dopasowywać się do wielkości ekranu
+urządzenia, kluczową rolę odgrywają zapytania medialne. W trakcie ładowania pliku css, sprawdzają rozmiar i rodzaj ekranu, stosując odpowiednie do
+wielkości ekranu style. Dzięki temu można określić na przykład, aby dla urządzeń o szerokości ekranu większej niż 600 pikseli, tło strony było inne niż dla węższych ekranów. Poniżej zastosowane przez nas zapytania medialne dla urządzeń o maksymalnej szerokości 767 pikseli.
+
+4.2.2. JavaScript
+Do umieszczenia map na stronie, z zaznaczoną lokalizacją wydarzenia, wykorzystaliśmy Google Maps API.
+Aby móc z niego korzystać, należy do kodu strony dołączyć odpowiedni skrypt 37 JavaScript. a następnie w kodzie HTML utworzyć kontener przechowywujący mapę. Aby poprawnie wyświetlić mapę potrzebujemy współrzędnych adresu miejsca,
+w którym będzie się odbywać spotkanie. Gem Geolocalizer na podstawie podanego
+przez użytkownika adresu, zwraca nam współrzędne, które musimy przekazać do
+skryptu. Następnie ustawiamy opcje mapy, środek, wielkość powiększenia oraz typ. Mamy do wyboru mapę drogową, satelitarną lub połączenie tych dwóch. Powiększenie można wybrać z zakresu od 0 do 21. Im większa wartość, tym więcej szczegółów jest
+widocznych.
+Na koniec tworzymy dwa obiekty na podstawie udostępnionych przez API konstruktorów: map oraz marker. Map przyjmuje dwa parametry: miejsce na stronie,
+w którym będzie wyświetlana oraz opcje z jakimi zostanie zainicjalizowana. Natomiast marker to znacznik wskazujący na dokładny adres. Jako parametr przyjmuje współrzędne wskazywanego miejsca.
+37 Program wykonywalny wewnątrz aplikacji
+
+4.3. Bezpieczeństwo
+Aplikacje internetowe są narażone na różnego rodzaju ataki sieciowe. Wykorzystany framework Ruby on Rails posiada domyślnie wbudowane zabezpieczenia. Poniżej przedstawiliśmy najważniejsze zagadnienia związane z bezpieczeństwem naszej
+aplikacji.
+• XSS
+Cross Site Scripting (XSS) jest to atak polegający na wykonaniu zewnętrznego
+kodu HTML lub JavaScript przesłanego, do strony z zewnątrz, za pomocą formularza lub żądania HTTP.
+Przykładowy atak typu XSS:
+Dzięki wbudowanemu w Railsy systemowi ERB templates 38 mamy do czynienia z dynamicznym tworzeniem kodu HTML, co uniemożliwia większość ataków tego typu. Wszelkiego rodzaju odnośniki i dane na stronie zapisywane są przy użyciu specjalnej notacji:
+38 System za pomocą, którego kod strony html jest generowany dynamicznie [1], [24]
+która zostaje przekompilowana do kodu HTML przez serwer i wysłana przeglądarce internetowej.
+• SQL Injection
+SQL Injection jest jednym z najpopularniejszych ataków sieciowych. Jego
+celem jest modyfikacja danych w bazie poprzez wpływanie na zapytania, manipulację parametrami i formularzami aplikacji.
+Przykładowy atak SQL Injection przy poniższym zapisie wyszukiwania wydarzeń, daje atakującemu możliwość wpisania dowolnego parametru do zapytania.
+Dla wprowadzenia danych OR 1=1 otrzymamy następujace zapytanie do bazy,
+które spowoduje wyświetlenie wszystkich wydarzeń, również tych niedostępnych dla użytkowników. Przyczyną takiego wyniku jest znak komentarza - na końcu zapytania uniemożliwiający wykonanie dalszej część zapytania.
+Sposobem na zapewnienie bezpieczeństwa jest w tym przypadku stosowanie odpowiedniego zapisu zapytań:
+W miejsca, gdzie znajdują się znaki zapytania, zostają wstawione wartości ze
+zmiennej search. Zawartość zmiennej zostaje sprawdzona przez wbudowane
+filtry wykrywające znaki specjalne dla zapytań SQL.
+• Mass Assignment
+Mass assignment atak, czyli masowe przypisywanie, jest atakiem, który ma
+na celu wprowadzenie modyfikacji do obiektu przez dodanie lub odpowiednie
+zmodyfikowanie parametrów przychodzących do kontrolera z przeglądarki internetowej.
+Poniższy przykładowy atak przypisuje stworzone wydarzenie przypadkowemu
+użytkownikowi.
+curl -d "event[name]=Test&event[user id]=3" http://meetspace.it/event/
+Rozwiązaniem tego problemu jest zastosowanie techniki tzw. Strong Parameters. Uniemożliwia ona przesłanie zmodyfikowanych parametrów, ponieważ kontroler wybiera jedynie dane dozwolone. Niedozwolone parametry zostają zignorowane. Poniżej przedstawiono przykładowe użycie tej metody dla kontrolera zarządzającego wydarzeniami.
+Zastosowanie wzorca projektowego interaktora również uniemożliwia tego rodzaju atak. Podobnie jak w powyższym przykładzie, interaktor przyjmuje jedynie zdefiniowane parametry.
+Innymi zabezpieczeniami wprowadzonymi w aplikacji są m.in.:
+• Autoryzacja dostępu do API poprzez unikalny token użytkownika.
+Aby użytkownik mógł skorzystać z zaimplementowanego API, musi podać
+128 bitowy klucz autoryzujący przypisany do jego konta. Każdy klucz jest
+generowany przy pomocy algorytmu MD5, który dodatkowo zostaje przesolony 39 (salt). Co czyni go w pełni unikalnym.
+• Walidacja wielkości i formatu loga wydarzenia.
+Zabezpieczenie to chroni aplikację, przed możliwością dodania plików zawierających wykonywalny kod lub formatów plików nie obsługiwanych przez apli-
+kację. Walidacja wielkości przesyłanych plików zabezpiecza przed obciążeniem
+serwera.
+39 Do powstałego ciągu znaków zostają dodane losowe dane.
+• Przetrzymywanie danych wrażliwych w zmiennych środowiskowych.
+Wszelkie dane wrażliwe, takie jak hasła czy klucze autoryzujące są przechowywane w specjalnych zmiennych środowiskowych
+ENV[’FACEBOOK KEY’],
+zapisanych w pliku .env, pod postacią klucz:wartość
+FACEBOOK KEY: 123456789,
+co uniemożliwia do nich dostęp i zwiększa bezpieczeństwo aplikacji.
+
+4.4. Przegląd widoków aplikacji
+Poniżej przedstawiamy wygląd ekranów z działającej aplikacji na trzech urządzeniach o różnych wielkościach ekranów: komputer stacjonarny, tablet Samsung Galaxy Tab2 7’, telefon komórkowy Samsung Galaxy S2 4,3’.
+
+5. Interfejsy komunikacji między aplikacjami
+Do komunikacji pomiędzy aplikacjami stosuje się tzw. Interfejs programistyczny
+aplikacji (Application Programming Interface) - API, realizowany najczęściej przy
+użyciu protokołu sieciowego HTTP (Hypertext Transfer Protocol ). Komunikacja
+„software-to-software” odbywa się w następujący sposób: Aplikacja zwana klientem
+wysyła specjalne żądanie (request) o dane w postaci adresu URL 40 do innej aplikacji zwanej serwerem, która z kolei przesyła odpowiedź (response) w określonym wcześniej formacie.
+W odpowiedzi, oprócz danych, zawarty jest tzw. kody stanu, definiujący przebieg
+komunikacji.
+Najważniejsze kody stanu:
+• 200: OK
+kod powodzenia, dane związane z zapytaniem zostaną przesłane
+• 401: Unauthorized
+nieautoryzowany dostęp, klient nie przeszedł autoryzacji
+• 403: Forbidden
+zabroniony dostęp do danych
+• 404: Not Found
+serwer nie posiada zasobów związanych z zapytaniem
+40 Uniform Resource Locator - adres zasobu w sieci
+5.1. API aplikacji Meetspace
+Stworzona przez nas aplikacja posiada API umożliwiające komunikację z innymi witrynami internetowymi lub urządzeniami mobilnymi. Celem implementacji takiego interfejsu było umożliwienie pobrania informacji o wydarzeniach z danej
+lokalizacji przez inne strony www czy aplikacje na telefony komórkowe.
+Poniżej zamieściliśmy przykład w jaki sposób odbywa się komunikacja ze stworzonym API. Został on wykonywany w środowisku developerskim ze względu na wykorzystywanie danych wrażliwych, jakimi w tym wypadku jest token 41 potrzebny do autoryzacji. Rządanie zostało wygenerowane przy użyciu biblioteki cURL 42 .
+Przykładowe żądanie dla wydarzeń z miasta Gliwice:
+curl -H "Authorization: Token token=bb466055fa36aaf46a7ae43c33d3980c"
+-H "Accept: application/json"
+’http://localhost:3000/api/localevents?city=gliwice’
+Odpowiedź na żądanie:
+[{"id":2,"name":"Microservices in Rails 4","date":"2014-12-06",
+"time":"2000-01-01T10:00:00.000Z,"address":"Akademicka 5, Gliwice, Polska",
+"agenda":","end date":"2014-12-06""}]
+Jak widać w powyższym przykładzie, aby zadbać o bezpieczeństwo komunikacji z API, została wprowadzona autoryzacja żądań na podstawie wygenerowanego wcześniej tokenu. Szerzej to zagadnienie zostało opisane w rozdziale bezpieczeństwo.
+W wysłanym żądaniu został ustawiony specjalny nagłówek:
+"Accent: application/json",
+którego ustawienie jest wymagane przez API. Żądanie musi zdefiniować poprawny format przesyłu danych jaki jest skonfigurowany po stronie serwera. Aplikacja zwraca dane w postaci formatu JSON 43 , który został wybrany ze względu na popularność, czytelność i łatwość obsługi.
+41 kod autoryzujący, składający się z unikalnego ciągu cyfr 
+42 biblioteka napisana w języku C umożliwiająca wysyłanie zapytań do serwera
+43 JSON (JavaScript Object Notation), ustandaryzowany format tekstowy, służący głównie do wymiany danych [15]
+
+Poniżej przedstawiliśmy kontroler zajmujący się obsługą przychodzących zapytań o wydarzenia z danej lokalizacji:
+Do powyższej klasy został dołączony mechanizm autoryzacji zapytań znajdujący
+się w klasie Authorization. Wydarzenia są wybierane poprzez zapytanie do bazy
+danych, ukierunkowane na konkretną lokalizację jaką jest miasto. Przesyłane dane
+o wydarzeniu zostały ograniczone ze względów bezpieczeństwa i komfortu użytkowników aplikacji.
+5.2. Implementacja i zastosowanie Facebook API Popularnym trendem wśród aplikacji internetowych stało się posiadanie funkcjonalności umożliwiającej logowanie poprzez portale społecznościowe. Dlatego też, wychodząc naprzeciw przyszłym użytkownikom, zaimplementowaliśmy możliwość logowania się do naszej aplikacji poprzez jeden z najpopularniejszych portali, według statystyki smmeasure.eu 44 - Facebook.
+Portal ten posiada, wraz z całą dokumentacją 45 , specjalnie przygotowane API.
+Aby uzyskać do niego dostęp należy zalogować się na stronie https://developers.
+facebook.com, a następnie uzupełnić dane dotyczące aplikacji, w której zostanie zaimplementowane.
+44 http://smmeasure.eu/wiodace-portale-spolecznosciowe-listopad-2014/
+45 https://developers.facebook.com/docs/facebook-login/v2.2?locale=pl_PL
+Na podstawie skonfigurowanego profilu otrzymujemy dostęp do Api poprzez:
+• API ID - identyfikator aplikacji
+• API SECRET - klucz autoryzujący
+Dane te będą wykorzystywane podczas autentykacji zapytań do portalu. Facebook udostępnia nam dwa tryby pracy: testowy i produkcyjny. Do implementacji logowania wykorzystaliśmy gem ”omniauth-facebook”, który wspiera wykorzystywany w tym celu protokół OAuth 46 w wersji 2.0.
+W momencie, kiedy użytkownik wybierze opcję logowania przez portal społecznościowy, zostanie wysłane żądanie do portalu o zalogowanie i udostępnienie danych profilowych aplikacji. Jeżeli użytkownik posiada konto na profilu Facebook i zezwoli
+na udostępnienie swoich danych, zalogowanie nastąpi zarówno po stronie aplikacji
+jak i Facebooka. Jego dane zostaną przesłane w postaci specjalnego hash’a 47 dostępnego z poziomu zmiennej request.env[’omniauth.auth’].
+46 OAuth jest otwartym protokołem, wykorzystywanym w aplikacjach internetowych, mobilnych
+i stacjonarnych, umożliwiającym bezpieczną i ustandaryzowaną autoryzację. [17]
+47 Rodzaj tabeli, gdzie każdy wpis składa się z klucza oraz przypisanej do niego wartości.
+Przykładowe dane dla fikcyjnego użytkownika, zwracane przez Facebook:
+Autoryzacja użytkownika, czyli procesy związane z rejestracją i logowaniem, odbywają się z użyciem gemu Devise. Aby zaimplementować opcję logowanie za pośrednictwem portali społecznościowych należy w specjalnym pliku konfiguracyjnym:
+config/initializers/devise.rb, podać dane autoryzacyjne: API ID i API SECRET.
+API ID I API SECRET zostały zapisane, ze względów bezpieczeństwa, w specjalnym pliku .env 48 pod zmiennymi FACEBOOK KEY i FACEBOO KSECRET. Poniżej został przedstawiony kontroler obsługujący logowanie, który dziedziczy wymagane metody zaimplementowane w module gemu Devise.
+48 Plik przechowywujący zmienne środowiskowe, więcej informacji w rozdziale o bezpieczeństwie aplikacji.
+Dwoma najważniejszymi parametrami, które identyfikują użytkownika logującego się za pomocą portalu jest:
+• uid - unikalny identyfikator użytkownika w danym portalu społecznościowym
+• provider - przechowuje nazwę portalu społecznościowego
+zawarte w request.env[’omniauth.auth’]. Z wykorzystaniem tych parametrów
+jest tworzone lub odnajdywane w bazie konto użytkownika.
+Warto również wspomnieć o mechanizmie wylogowywania. Facebook stosuje politykę, która powoduje wylogowywanie użytkownika zarówno z aplikacji jak i konta
+Facebook. Budując aplikację, chcieliśmy aby była ona przyjazna dla użytkowników, przez co nie zastosowaliśmy się do tej zasady. Po wylogowaniu użytkownik jest nadal zalogowany na koncie Facebook. Możliwe, iż naruszamy tutaj bezpieczeństwo użytkownika, jednak po przeprowadzonych przez nas testach, doszliśmy do wniosku, że wiele aplikacji internetowych stosuje takie samo rozwiązanie 49 np. stackoverflow.com, onet.pl czy stacksocial.com.
+49 dane z dnia 06.12.2014r.
+
+6. Testy
+Wzrost wymagań klientów sprawia, iż technologie internetowe rozwijają się bardzo szybko. Wiele firm kładzie duży nacisk na testowanie swoich aplikacji. Programiści często wychodzą z założenia, że „najpierw kod, później testy”. Ma to oczywiście swoje wady i zalety. Zaletą niewątpliwie jest czas realizacji. W pierwszej kolejności dostarcza się funkcjonalności i nie zastanawia się nad tym jak napisać do nich testy. Pod koniec procesu produkcji tworzy się kilka testów sprawdzających
+zachowanie aplikacji. Doprowadza to do tego, że cały kod aplikacji pokryty jest testami w bardzo niewielkim stopniu. W każdej chwili może zajść sytuacja, w której aplikacja przestanie działać zgodnie z założeniami. Niestety w takim przypadku
+tracimy cenne godziny na szukanie błędów i ich eliminację. Podczas tworzenia aplikacji Meetspace przyjęliśmy zupełnie inne podejście - „najpierw testy, później kod”. Czas pisania aplikacji znacznie się wydłużył. Osiągnęliśmy jednak bardzo dobre pokrycie kodu testami. Dzięki napisanym testom oszczędziliśmy sporo godzin przy diagnozowaniu błędów aplikacji. Kolejną zaletą obranego podejścia jest to, że napisany w ten sposób przez nas kod robi dokładnie to czego oczekujemy. Każdy test spełniany jest w najprostszy możliwy sposób. Na jedną metodę przypada kilka lub nawet kilkanaście
+testów. Jeżeli któryś z nich się nie spełni, wiadomo od razu gdzie szukać przyczyny.
+
+6.1. Techniki tworzenia oprogramowania
+Techniki tworzenia oprogramowania są niezwykle ważne w całym procesie powstawania kodu. Pomagają efektywnie zarządzać zasobami zespołu, czasem, zadaniami i celami, które stoją przed zespołem.
+Poniżej krótko objaśniliśmy te techniki, z których korzystaliśmy.
+• Test Driven Development [27]
+Technika tworzenia oprogramowania, sterowana przez testy. Polega na powtarzaniu 3 kroków do momentu ukończenia funkcjonalności:
+1. Napisanie możliwie najprostszego testu jednostkowego, który ma sprawdzać kod pisany w kroku 2. Test po napisaniu powinien zostać od razu
+uruchomiony. Nowy test musi dać wynik negatywny, gdyż dopiero będziemy dodawać testowaną funkcjonalność. Otrzymanie pozytywnego wyniku świadczy o obecności w aplikacji funkcjonalności - test jest niepotrzebny lub źle skonstruowany.
+2. Implementacja kodu. Kod powinien być napisany w taki sposób, aby spełnić założenia testu, nic ponad to. Test powinien zakończyć się sukcesem i nie naruszać pozostałych testów.
+3. Refaktoryzacja. Doprowadzenie kodu do stanu, w którym spełnia przyjęte
+normy i standardy prostego oraz czytelnego kodu [22]. Ponad to wszystkie testy w aplikacji powinny się spełniać.
+Postępowanie według tego schematu, zmusza programistę do wcześniejszego przemyślenia funkcjonalności, którą ma napisać.
+Wady:
+– Wydłuża się czas pisania aplikacji, zwłaszcza w początkowej fazie wdrażania tej techniki. Jednak wraz z ilością napisanych testów jednostkowych rośnie wydajność ich pisania.
+– Wraz z rozwojem aplikacji rośnie również ilość testów. Dopóki funkcjonalności są dopisywane, problem nie istnieje. Zmiana funkcjonalności narzuca zmiany po stronie istniejących do niej testów.
+Zalety:
+– Główną zaletą tej metodologii jest szybkość diagnozowania błędów. Dzięki temu oszczędzamy czas. Bez testów musielibyśmy poświęcić go na dogłębną analizę kodu.
+– Jeżeli testy są pisane w czytelny sposób, mogą stanowić bardzo dobrą dokumentację. Wystarczy zajrzeć do testu i widać czego programista oczekiwał od konkretnej metody.
+– Bardziej przemyślany kod. W pierwszej kolejności musimy się zastanowić
+co tak naprawdę ma zawierać dana funkcjonalność, żeby móc od niej to wyegzekwować.
+– Zapewnienie minimalnej ilości kodu dla danej funkcjonalności.
+• Behaviour Driven Development
+Technika stworzona przez Dana Northa w 2003 roku. Sam autor powiedział:
+„Behaviour-driven Development polega na tworzeniu oprogramowania przez opisywanie jego zachowania, z perspektywy jego udziałowców.”
+Dzięki takiej metodyce testowania, programiści wychodzą naprzeciw klientowi,
+starają się go zrozumieć i spełnić jego wymagania.
+Oczekiwania klienta są zapisywane w postaci krótkich historyjek, scenariuszy.
+Podczas ich tworzenia korzysta się z trzech głównych słów kluczowych:
+– Podane (Given) - opisuje stan początkowy aplikacji.
+– Kiedy (When) - wszystkie kroki jakie klient/użytkownik musi wykonać
+aby osiągnąć funkcjonalność.
+– Wtedy (Then) - stan końcowy aplikacji, czyli oczekiwany efekt po
+przejściu przez wcześniejsze kroki.
+Test driven development to testowanie na poziomie kodu, które stanowią część BDD.
+Stosując również ten element mamy pewność, że konkretna funkcjonalność jest
+należycie przetestowana i spełnia oczekiwania oraz wymogi klienta.
+6.2. Testy integracyjne
+Najważniejszą funkcjonalnością w naszej aplikacji jest kreowanie nowego wydarzenia. Poniżej przedstawimy proces tworzenia testu integracyjnego za pomocą narzędzia Cucumber.
+Pierwszym krokiem jest opisanie w kilku słowach funkcjonalności.
+Następnie tworzymy scenariusz, w którym krok po kroku będziemy wykonywać czynności aż otrzymamy efekt końcowy. W tym przypadku będzie to wyświetlenie nowo dodanego wydarzenia.
+Słowem kluczowym „Scenario” nadajemy tytuł nowego scenariusza. Jest to
+o tyle pomocne, że w momencie uruchomienia testów, widać który scenariusz jest
+w tej chwili testowany.
+Słowem „Given” definiujemy stan początkowy aplikacji, czyli miejsce, w którym będziemy zaczynać wykonywanie konkretnych czynności. W tym przypadku
+jest to strona główna oraz proces logowania. Zalogowanie się do aplikacji jest istotnym elementem, ponieważ, bez tego nie będziemy w stanie dodać żadnego nowego
+wydarzenia.
+Następnie użytkownik aby utworzyć wydarzenie musi kliknąć przycisk „Utwórz
+wydarzenie”, oraz wypełnić formularz odpowiednimi danymi: nazwa, data, data
+zakończenia, czas rozpoczęcia, plan i logo.
+Po słowie „Then” definiujemy nasze oczekiwania. W tym przypadku chcemy
+zobaczyć nowo dodane wydarzenie wraz z jego wszystkimi właściwościami. Słowa
+„And” używamy jeśli chcemy rozwinąć listę wykonywanych kroków lub listę oczekiwań.
+W ten sposób mamy opisaną, za pomocą testu integracyjnego, całą ścieżkę, którą musi przejść użytkownik, aby stworzyć nowe wydarzenie.
+W przypadku gdy chcemy przetestować edytowanie istniejącego już wpisu, nie
+musimy przechodzić procesu tworzenia od początku. Wystarczy, że na wstępie stworzymy już gotowe wydarzenie, które w następnych krokach będzie modyfikowane.
+W tej chwili w bazie testowej mamy zapisany jeden rekord. Dane z jakimi tworzone jest wydarzenie nie mają w tym momencie najmniejszego znaczenia, nie to jest tutaj testowane. Równie dobrze można by wpisać dowolny ciąg znaków, ale
+kierujemy się dobrą praktyką programistyczną i staramy się pisać zrozumiały kod.
+Aby móc edytować jakikolwiek wpis, musimy wejść na jego stronę i kliknąć odpowiedni przycisk, bądź link, żeby przejść do strony z formularzem. Zmieniamy wpisane wartości na „Party” oraz „15:00 Start” oraz ustawiamy nowe
+logo. I na koniec oczekujemy, że wprowadzone przed chwilą zmiany zobaczymy na
+stronie wydarzenia.
+Można łatwo zauważyć, że część kroków powtarza się w pierwszym jak i w drugim
+scenariuszu. Jest to nic innego jak zastosowanie metody DRY 50 . Dzięki temu nowe
+testy powstają coraz szybciej i sprawniej.
+W całym projekcie testów integracyjnych jest znacznie więcej. Oprócz wyżej
+pokazanego przykładu, testujemy również logowanie do aplikacji poprzez portal Facebook, wyszukiwanie wydarzeń, czy zapisywanie się na newsletter.
+Rysunek nr 17 przedstawia rezultat wszystkich testów integracyjnych. W sumie
+12 scenariuszy i 78 kroków, wszystkie spełnione pomyślnie.
+50 Don’t repeat yourself - Nie powtarzaj się.
+
+6.3. Testy jednostkowe
+Testy jednostkowe weryfikują działanie pojedynczych elementów(jednostek) programu, poszczególnych metod czy relacji między obiektami. Taki test wykonuje dany
+fragment kodu i porównuje otrzymane wyniki z tymi oczekiwanymi. Każdy z testów
+jest wykonywany w osobnym, odizolowanym środowisku, dzięki czemu jest niezależny i nie wpływa na pozostałe.
+Aby pokazać ideę testów jednostkowych wykorzystamy model Event, główny trzon aplikacji.
+Zaczynamy od wskazania klasy, która będzie testowana. Typ nie jest obowiązkowy, ale RSpec daje nam kilka predefiniowanych typów, m.in. controller, model czy routing z czego warto korzystać. Oczywiście można testować też klasy, które nie
+należą do żadnego, ale korzystanie z nich znacznie przyspiesza wykonywanie testów.
+W drugiej linijce zadeklarowana jest zmienna event, która przechowuje obiekt
+opisywanej klasy. RSpec wykorzystuje tzw. leniwe deklarowanie (lazy loading). Zmienna, w tym przypadku obiekt, jest tworzona w momencie natrafienia na nią podczas wykonywania pliku.
+Słowo „Describe” służy do tworzenia osobnego bloku, co zwiększa czytelność
+i pozwala szybko zorientować się w pliku. Opisy bloków i testów są o tyle ważne,
+że tworzą swoistego rodzaju dokumentację. Na pierwszy rzut oka widać jakie testy
+znajdują się w bloku i co one testują.
+W tym przykładzie sprawdzana jest asocjacja między obiektem klasy User a wydarzeniem. Chcemy aby jedno wydarzenie należało do jednego użytkownika, dlatego deklarujemy zmienną user, która jest instancją 51 klasy User. Następnie do pola user id obiektu event przypisujemy numer identyfikacyjny(id) obiektu user.
+Na koniec oczekujemy, że obiekt event będzie „należał do” obiektu user, oraz,
+że w polu event.user będzie dokładnie ten sam, zadeklarowany kilka linijek wyżej,
+obiekt. Całość jest napisana w taki sposób, że nawet osoba nie wdrożona w projekt jest
+w stanie przeczytać i zrozumieć co dany test robi.
+W następnym przykładzie będziemy testować czy przy zadanych przez nas warunkach obiekt zostanie poprawnie zapisany w bazie.
+W pierwszym teście ustawiamy pole name jako nil 52 i oczekujemy, że obiekt nie zostanie poprawnie utworzony.
+Drugi test sprawdza poprawną długość pola name, które powinno wynosić nie więcej niż 50 znaków. Dlatego do zmiennej wstawiamy losowy tekst składający się z większej ilości znaków.
+51 Obiekt stworzony na podstawie danej klasy.
+52 Wartość pusta. Jak null w JavaScript.
+Te dwa testy stanowią przykład, że można pisać testy, idąc tzw. „czerwoną ścieżką”, czyli oczekiwać, że coś się nie powiedzie.
+Rysunek nr 18 przedstawia rezultat wszystkich testów jednostkowych.
+
+6.4. Pokrycie kodu testami
+Dzięki zastosowaniu technologii Ruby on Rails, mieliśmy do dyspozycji wiele
+przydatnych narzędzi pozwalających sprawdzać jakość tworzonego kodu. Jednym
+z nich jest Stats, który wykazuje pokrycie kodu testami.
+Statystyka wyliczana jest na podstawie ilości lini kodu (LOC - lines of code) do
+ilości lini testów (LOT - lines of test). Oczekiwanym wynikiem powinien być stosunek
+1:2, który udało nam się osiągnąć, co przedstawia rysunek nr 19.
+Poniżej załączyliśmy diagram (rysunek nr 20) obrazujący pokrycie kodu testami
+w okresie od 10 paździenika do 17 grudnia. Zanotowany duży skok liczby lini kodu
+w stosunku do testów był spowodowany nadmiarowym umieszczeniem w projekcie
+biblioteki JavaScript, która nie powinna być wliczana w metrykę. Na wykresie widać,
+że ilość lini kodu oraz testów równomiernie rośnie, co świadczy o systematycznej
+i dobrze zorganizowanej pracy.
+
+7. Instalacja
+Poniżej zostały przedstawione najważniejsze elementy dotyczące instalacji i konfiguracji aplikacji dla środowiska produkcyjnego. Aplikacja Meetspace jest umieszczona na serwerze firmy Fractal Soft 53 , z którą mieliśmy okazję współpracować.
+Przedstawiony przykład został wykonany na systemie operacyjnym Linux, dystrybucja: Ubuntu Serwer 12.04, z zainstalowanym system kontroli wersji GIT 54 , narzędziem RVM 55 i bazą danych MySQl.
+Instalacja RVM:
+curl -L get.rvm.io | bash -s stable rvm requirements
+Instalacja GIT:
+sudo apt-get install git-core
+Instalacja bazy danych MySQL:
+sudo apt-get install mysql-server mysql-client libmysqlclient-dev
+Aby przygotować wersję użytkową aplikacji, należy zainstalować środowisko Ruby wykorzystując do tego celu RVM:
+rvm install 2.1.3
+Do środowiska należy również dołączyć interpreter JavaScript:
+sudo apt-get install nodejs
+53 http://fractalsoft.org/
+52 Więcej o systemie GIT w rozdziale 2.3
+55 Więcej o narzędziu RVM w rozdziale: 2.4
+Jednym z ważniejszych kroków jest instalacja serwera www Nginx, wsperającego
+język Ruby.
+sudo apt-get install nginx
+Do sprawnego zarządzania serwerem warto doinstalować Unicorn, który w łatwy sposób umożliwia zarządzanie procesami dotyczącymi serwera www, np. start lub restart.
+gem install unicorn
+Po odpowiednim skonfigurowaniu Nginx, Unicorna i aplikacji, poprzez polecenie
+./bin/unicorn init start
+uruchamiamy aplikację na serwerze.
+
+Podsumowanie
+Praca nad projektem sporo nas nauczyła, poszerzając wiedzę nie tylko z programowania, ale również bezpieczeństwa i komunikacji. Poznaliśmy sporo nowych technologii oraz rozwiązań, dzięki którym udało nam się stworzyć aplikację będącą
+osiągnięciem wszystkich celów, które przed sobą postawiliśmy. Wierzymy, że Meetspace pomoże wielu osobom w organizowaniu i wyszukiwaniu nowych wydarzeń w okolicy. Podczas dwumiesięcznej pracy udało nam się zrealizować zaplanowane funkcjonalności. Aplikacja umożliwia tworzenie oraz modyfikowanie wydarzeń ich organizatorom. Użytkownicy natomiast mogą w łatwy sposób dołączać do społeczności Meetspace poprzez logowanie za pomocą portalu Facebook, a także korzystać z prostego i intuicyjnego mechanizmu wyszukiwania wydarzeń. Zastosowany wygląd, dopasowywujący się do wielkości ekranu, pozwala na korzystanie z aplikacji zarówno
+na komputerach stacjonarnych jak i urządzeniach mobilnych, takich jak tablety czy smartfony. Ponadto udało nam się również zaprojektować i zaimplementować prosty interfejs komunikacyjny między aplikacjami, pozwalający na pobieranie informacji
+o wydarzeniach z naszej aplikacji. Dzięki zastosowaniu takiego rozwiązania umieszczane informacje mogą być udostępniane na innych portalach internetowych czy urządzeniach mobilnych. Wykorzystanie testów oraz stosowanie się do odpowiednich metryk dla języka Ruby, przyczyniło się do powstania dobrej jakości kodu. Jest on prosty, czytelny i łatwy w interpretacji. Dzięki temu, kolejne osoby wdrażające się w projekt, nie będą miały trudności z zapoznaniem się z działaniem aplikacji.
+Meetspace jest otwarty na rozwój. Pragniemy wyjść naprzeciw potrzebom przyszłych użytkowników. Cały system został zaprojektowany z myślą o dodawaniu do niego nowych funkcjonalności. Do aplikacji zostało dołączone również narzędzie pozwalające użytkownikom na wysyłanie opini o aplikacji. W przyszłości planujemy wykorzystać zaimplementowane API do stworzenia prostych widgetów na smartfony wyświetlające najnowsze wydarzenia, dodać możliwość publikacji wydarzeń na profilu Facebook oraz zaprojektować system przypominania o wydarzeniach poprzez wiadomości SMS.
+
+Literatura
+[1] Obie Fernandez. The Rails 4 Way. Leanpub, 2014.
+[2] David Griffiths. Head First Ruby on Rails. Helion, 2010.
+[3] Brian P. Hogan. HTML5 i CSS3 Standardy przyszłości. Helion, 2011.
+[4] Michael Moncur. JavaScript dla każdego. Helion, 2007.
+[5] Russ Olsen. Ruby. Wzorce Projektowe. Helion, 2008.
+[6] Dave Thomas. Programming Ruby 1.9 & 2.0. The Pragmatic Programmers,
+2014.
+[7] Jarosław Zabiełło. Ruby on Rails 2.1 – Tworzenie nowoczesnych aplikacji in-
+ternetowych. Helion, 2009.
+[8] Blog joingrouper.com. [online]. [dostęp: 2014-11-24].
+http:eng.joingrouper.com/blog/2014/03/03/
+rails-the-missing-parts-interactors/
+[9] Blog Testing Tuesday. [online]. [dostęp: 2014-10-27].
+http://blog.codeship.io/category/testing-tuesday/
+[10] Bootstrap Home Page. [online]. [dostęp: 2014-10-27].
+http://bootstrap.com/
+[11] CoffeeScript Home Page. [online]. [dostęp: 2014-10-27].
+http://coffeescript.org/
+[12] Cucumber BDD. [online]. [dostęp: 2014-10-27].
+http://cukes.info/
+[13] Definition of Done. [online]. [dostęp: 2014-11-30].
+https://github.com/fractalsoft/definition-of-done
+[14] Git Home Page. [online]. [dostęp: 2014-10-27].
+http://www.git-scm.com/doc
+[15] Introducting JSON. [online]. [dostęp: 2014-11-30].
+http://www.json.org//
+[16] jQuery Home Page. [online]. [dostęp: 2014-10-27].
+http://jquery.com/
+[17] OAuth documentation. [online]. [dostęp: 2014-11-30].
+http://oauth.net/documentation/
+[18] Rails Guides. [online]. [dostęp: 2014-10-27].
+http://guides.rubyonrails.org/
+[19] RSpec Documentation. [online]. [dostęp: 2014-10-27].
+http://rspec.info/
+[20] Ruby Gem Documentations. [online]. [dostęp: 2014-10-27].
+http://rubydoc.info/
+[21] Sass Home Page. [online]. [dostęp: 2014-10-27].
+http://sass-lang.com/
+[22] Simple Coding Standards. [online]. [dostęp: 2014-11-30].
+https://github.com/fractalsoft/simple-coding-standards
+[23] Strona domowa języka Ruby. [online]. [dostęp: 2013-01-12].
+http://ruby-lang.org
+[24] Strona domowa Ruby on Rails. [online]. [dostęp: 2014-10-27].
+http://rubyonrails.org
+[25] The Rails Style Guide. [online]. [dostęp: 2014-10-27].
+https://github.com/bbatsov/rails-style-guide/
+[26] The Ruby Style Guide. [online]. [dostęp: 2014-10-27].
+https://github.com/bbatsov/ruby-style-guide/
+[27] Arkadiusz Benedykt. Test Driven Development. [online]. [dostęp: 2014-12-03].
+http://msdn.microsoft.com/pl-pl/library/
+test-driven-development.aspx
